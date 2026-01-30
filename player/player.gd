@@ -1,5 +1,5 @@
 extends CharacterBody3D
-
+class_name Player
 
 const SPEED = 5.0
 const RUN_SPEED = 8.0
@@ -7,7 +7,10 @@ const JUMP_VELOCITY = 4.5
 
 @export var camera: Camera3D
 
+signal toggle_time_period
+
 func _ready():
+	Nodes.player = self
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _input(event):
@@ -32,6 +35,9 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, calculated_speed)
 		velocity.z = move_toward(velocity.z, 0, calculated_speed)
+
+	if Input.is_action_just_pressed("toggle_past"):
+		toggle_time_period.emit()
 
 	move_and_slide()
 

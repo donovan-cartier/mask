@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://bwvbtaqfrrog5"]
 
 [ext_resource type="PackedScene" uid="uid://bb5uc6nu74o4k" path="res://player/player.tscn" id="1_f3sb7"]
+[ext_resource type="Script" uid="uid://c3y5yun2o302u" path="res://components/disappear_component.gd" id="2_fj7yv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tlwt5"]
 
 [node name="World" type="Node3D" unique_id=1342245001]
 
@@ -13,3 +16,15 @@ size = Vector3(4.591797, 1, 5.430664)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1279112929]
 transform = Transform3D(0.5684901, 0.33019194, -0.75351995, 0, 0.915922, 0.4013564, 0.8226901, -0.22816713, 0.5206926, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=550563952]
+
+[node name="DisappearComponent" type="Node" parent="StaticBody3D" unique_id=285927536 node_paths=PackedStringArray("custom_owner")]
+script = ExtResource("2_fj7yv")
+custom_owner = NodePath("..")
+metadata/_custom_type_script = "uid://c3y5yun2o302u"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=2133973084]
+shape = SubResource("BoxShape3D_tlwt5")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="StaticBody3D" unique_id=1707403889]
