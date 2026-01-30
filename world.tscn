@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bwvbtaqfrrog5"]
+
+[ext_resource type="PackedScene" uid="uid://bb5uc6nu74o4k" path="res://player/player.tscn" id="1_f3sb7"]
+
+[node name="World" type="Node3D" unique_id=1342245001]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1455612163]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.2, 0)
+use_collision = true
+size = Vector3(4.591797, 1, 5.430664)
+
+[node name="Player" parent="." unique_id=1752358920 instance=ExtResource("1_f3sb7")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1279112929]
+transform = Transform3D(0.5684901, 0.33019194, -0.75351995, 0, 0.915922, 0.4013564, 0.8226901, -0.22816713, 0.5206926, 0, 0, 0)
