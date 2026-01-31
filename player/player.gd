@@ -17,6 +17,12 @@ func _input(event):
 	if event is InputEventKey and event.pressed and event.keycode == Key.KEY_ESCAPE:
 		get_tree().quit()
 
+	elif event is InputEventKey and event.pressed and event.keycode == Key.KEY_F1:
+		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		else:
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
 func _physics_process(delta):
 	if not is_on_floor():
 		velocity += get_gravity() * delta
