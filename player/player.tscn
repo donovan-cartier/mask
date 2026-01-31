@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://baigktmm5byld" path="res://player/shifter/Shifter2 (2)_door014-Dither.png" id="4_hg6s5"]
 [ext_resource type="Texture2D" uid="uid://bqcvmicovjtvl" path="res://player/shifter/Shifter2 (2)_SurfaceImperfections003_1K-JPG_Color.jpg" id="5_8t03j"]
 [ext_resource type="Texture2D" uid="uid://cvm8ncyfv0w2" path="res://player/shifter/Shifter2 (2)_Metal053B_1K-JPG_Color.jpg" id="6_2ieo8"]
-[ext_resource type="Texture2D" uid="uid://ceihp51ff6q4h" path="res://player/shifter/t_screen.png" id="6_hg6s5"]
+[ext_resource type="Material" uid="uid://ctyeqqmrfnj7x" path="res://player/shifter/m_screen.tres" id="6_hg6s5"]
 [ext_resource type="Texture2D" uid="uid://cotwt2a5qtpxh" path="res://player/shifter/Shifter2 (2)_Metal053B_1K-JPG_Metalness.png" id="7_ebec5"]
 [ext_resource type="Texture2D" uid="uid://be5v1scbitdjq" path="res://player/shifter/Shifter2 (2)_Metal053B_1K-JPG_NormalGL.jpg" id="8_yllr7"]
 
@@ -20,16 +20,6 @@ metallic_texture = ExtResource("5_8t03j")
 metallic_texture_channel = 2
 roughness_texture = ExtResource("5_8t03j")
 roughness_texture_channel = 1
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_imspt"]
-resource_name = "Ecran"
-albedo_texture = ExtResource("5_8t03j")
-roughness = 0.5
-emission_enabled = true
-emission = Color(1, 1, 1, 1)
-emission_energy_multiplier = 1.29
-emission_operator = 1
-emission_texture = ExtResource("6_hg6s5")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kllvo"]
 resource_name = "Rubber"
@@ -117,7 +107,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 6,
 "index_data": PackedByteArray("AAABAAIAAAADAAEA"),
-"material": SubResource("StandardMaterial3D_imspt"),
+"material": ExtResource("6_hg6s5"),
 "name": "Ecran",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
