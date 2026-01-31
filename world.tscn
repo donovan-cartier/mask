@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://bpl36gdikyp1b" path="res://enemy/camera.gd" id="9_k3n1d"]
 [ext_resource type="PackedScene" uid="uid://cpy4p6l2rwplm" path="res://enemy/enemy_path.tscn" id="10_wse8f"]
 [ext_resource type="Texture2D" uid="uid://duhwsatrqy7s5" path="res://icon.svg" id="11_k3n1d"]
+[ext_resource type="PackedScene" uid="uid://b4pm4prxptjn6" path="res://ui/radar_hud.tscn" id="12_radar"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f3sb7"]
 sky_top_color = Color(0.44344002, 0.4359725, 0.5365931, 1)
@@ -35,8 +36,8 @@ font_size = 32
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_70uel"]
 shader = ExtResource("9_2o6r5")
-shader_parameter/pixel_size = 1.0
-shader_parameter/dither_threshold = 0.02000000095
+shader_parameter/pixel_size = 0.3600000171
+shader_parameter/dither_threshold = 0.070000003325
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wse8f"]
 shading_mode = 0
@@ -177,7 +178,7 @@ bind/36/name = &"toe.R"
 bind/36/bone = -1
 bind/36/pose = Transform3D(-0.99337864, 0.040370982, 0.107559465, 0.10387476, -0.08434068, 0.9910066, 0.049079727, 0.9956188, 0.079589084, -0.4089489, -0.041872375, -0.01837041)
 
-[sub_resource type="Curve3D" id="Curve3D_k3n1d"]
+[sub_resource type="Curve3D" id="Curve3D_70uel"]
 resource_local_to_scene = true
 closed = true
 bake_interval = 21.76
@@ -233,6 +234,30 @@ size_flags_vertical = 8
 text = "PRESENT"
 label_settings = SubResource("LabelSettings_fj7yv")
 horizontal_alignment = 2
+
+[node name="RadarContainer" type="MarginContainer" parent="CanvasLayer/UI" unique_id=529642614]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.15625
+anchor_bottom = 0.2777778
+offset_bottom = -1.5258789e-05
+metadata/_edit_use_anchors_ = true
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="CanvasLayer/UI/RadarContainer" unique_id=1324202101]
+layout_mode = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer/UI/RadarContainer/AspectRatioContainer" unique_id=433513663]
+layout_mode = 2
+stretch = true
+
+[node name="RadarSubViewport" type="SubViewport" parent="CanvasLayer/UI/RadarContainer/AspectRatioContainer/SubViewportContainer" unique_id=1671078824]
+own_world_3d = true
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(200, 200)
+render_target_update_mode = 4
+
+[node name="RadarHud" parent="CanvasLayer/UI/RadarContainer/AspectRatioContainer/SubViewportContainer/RadarSubViewport" unique_id=1777257372 instance=ExtResource("12_radar")]
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer" unique_id=315131586]
 material = SubResource("ShaderMaterial_70uel")
@@ -531,7 +556,7 @@ skeleton = NodePath("..")
 
 [node name="EnemyPath" parent="." unique_id=465993253 instance=ExtResource("10_wse8f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20)
-curve = SubResource("Curve3D_k3n1d")
+curve = SubResource("Curve3D_70uel")
 
 [node name="PathFollow3D" parent="EnemyPath" index="0" unique_id=915562882]
 transform = Transform3D(0.7761073, 0, -0.63059086, 0, 0.99999815, 0, 0.63058823, 0, 0.77611053, -6.4268837, 0, -48.622658)
