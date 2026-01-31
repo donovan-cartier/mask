@@ -15,7 +15,7 @@ func _ready():
 	var censor_component = NPCCensorViewportComponent.new()
 	censor_component.target_npc = self
 	censor_component.viewport_resolution = 128  # Small resolution for performance
-	censor_component.pixel_size = 12.0  # Large pixels for heavy censorship
+	censor_component.pixel_size = 4.0  # Pixel size for censorship effect
 	censor_component.dither_threshold = 0.5  # Dithering amount
 	censor_component.overflow_scale = 1.3  # Pixels overflow 30% beyond mesh
 	add_child(censor_component)

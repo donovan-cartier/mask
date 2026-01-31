@@ -167,7 +167,6 @@ script = ExtResource("2_rkbax")
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=717190747]
 cull_mask = 1048573
 current = true
-fov = 90.0
 
 [node name="Hands" parent="Head/Camera3D" unique_id=740125021 instance=ExtResource("3_rgyib")]
 unique_name_in_owner = true
