@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://rituksa5cdpp"]
+
+[ext_resource type="Script" uid="uid://c3y5yun2o302u" path="res://components/disappear_component.gd" id="1_f8ye8"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_m5r7s"]
+size = Vector3(200, 30, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m5r7s"]
+size = Vector3(200, 30, 1)
+
+[node name="SM_CampFence" type="StaticBody3D" unique_id=1421260081]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1621575703]
+mesh = SubResource("BoxMesh_m5r7s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=686018780]
+shape = SubResource("BoxShape3D_m5r7s")
+
+[node name="TimeComponent" type="Node" parent="." unique_id=676593654]
+script = ExtResource("1_f8ye8")
+time_period = 2
+invert = true
+metadata/_custom_type_script = "uid://c3y5yun2o302u"

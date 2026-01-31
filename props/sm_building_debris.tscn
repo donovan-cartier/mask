@@ -19,4 +19,5 @@ shape = SubResource("BoxShape3D_ng3iq")
 
 [node name="TimeComponent" type="Node" parent="." unique_id=1630205464]
 script = ExtResource("1_lq14j")
+time_period = 2
 metadata/_custom_type_script = "uid://c3y5yun2o302u"
