@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bb5uc6nu74o4k" path="res://player/player.tscn" id="1_f3sb7"]
 [ext_resource type="PackedScene" uid="uid://doo3gukgrqyan" path="res://levels/level_tuto.tscn" id="2_fj7yv"]
-[ext_resource type="Script" uid="uid://c3y5yun2o302u" path="res://components/disappear_component.gd" id="3_aqk2v"]
+[ext_resource type="Script" uid="uid://cjqd4fm7p63bi" path="res://ui/ui.gd" id="3_tlwt5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f3sb7"]
 sky_top_color = Color(0.44344002, 0.4359725, 0.5365931, 1)
@@ -20,9 +20,8 @@ fog_enabled = true
 fog_light_color = Color(1, 1, 1, 1)
 fog_sky_affect = 0.121
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_tlwt5"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_aqk2v"]
+[sub_resource type="LabelSettings" id="LabelSettings_fj7yv"]
+font_size = 32
 
 [node name="World" type="Node3D" unique_id=1342245001]
 
@@ -33,46 +32,33 @@ environment = SubResource("Environment_tlwt5")
 
 [node name="Level_Tuto" parent="." unique_id=209618876 instance=ExtResource("2_fj7yv")]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=324364895]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=419538800]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=2099189105]
-shape = SubResource("BoxShape3D_tlwt5")
+[node name="UI" type="Control" parent="CanvasLayer" unique_id=1035790242 node_paths=PackedStringArray("time_period_label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_tlwt5")
+time_period_label = NodePath("MarginContainer/TimePeriodLabel")
 
-[node name="DisappearComponent" type="Node" parent="StaticBody3D" unique_id=353221751 node_paths=PackedStringArray("custom_owner")]
-script = ExtResource("3_aqk2v")
-time_period = 0
-custom_owner = NodePath("..")
-metadata/_custom_type_script = "uid://c3y5yun2o302u"
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI" unique_id=1454994889]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
 
-[node name="CSGMesh3D" type="CSGMesh3D" parent="StaticBody3D" unique_id=1401193058]
-mesh = SubResource("BoxMesh_aqk2v")
-
-[node name="StaticBody3D2" type="StaticBody3D" parent="." unique_id=1339959067]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2" unique_id=1410209853]
-shape = SubResource("BoxShape3D_tlwt5")
-
-[node name="DisappearComponent" type="Node" parent="StaticBody3D2" unique_id=600795813 node_paths=PackedStringArray("custom_owner")]
-script = ExtResource("3_aqk2v")
-custom_owner = NodePath("..")
-metadata/_custom_type_script = "uid://c3y5yun2o302u"
-
-[node name="CSGMesh3D" type="CSGMesh3D" parent="StaticBody3D2" unique_id=1134717145]
-mesh = SubResource("BoxMesh_aqk2v")
-
-[node name="StaticBody3D3" type="StaticBody3D" parent="." unique_id=1399473987]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3" unique_id=2141890648]
-shape = SubResource("BoxShape3D_tlwt5")
-
-[node name="DisappearComponent" type="Node" parent="StaticBody3D3" unique_id=2011860681 node_paths=PackedStringArray("custom_owner")]
-script = ExtResource("3_aqk2v")
-time_period = 2
-custom_owner = NodePath("..")
-metadata/_custom_type_script = "uid://c3y5yun2o302u"
-
-[node name="CSGMesh3D" type="CSGMesh3D" parent="StaticBody3D3" unique_id=1673491539]
-mesh = SubResource("BoxMesh_aqk2v")
+[node name="TimePeriodLabel" type="Label" parent="CanvasLayer/UI/MarginContainer" unique_id=560864459]
+layout_mode = 2
+size_flags_vertical = 8
+text = "PRESENT"
+label_settings = SubResource("LabelSettings_fj7yv")
+horizontal_alignment = 2

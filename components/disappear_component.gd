@@ -38,7 +38,6 @@ func reappear():
 	reappeared.emit()
 
 func _on_time_period_changed(new_time_period: TimePeriod) -> void:
-	print("DisappearComponent: Time period changed to %s" % str(new_time_period))
 	if new_time_period == time_period:
 		reappear()
 	else:
