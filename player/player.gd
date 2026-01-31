@@ -91,3 +91,17 @@ func _get_next_time_period(current: TimeComponent.TimePeriod) -> TimeComponent.T
 			return TimeComponent.TimePeriod.FUTURE
 
 	return current
+
+func _get_random_time_period_excluding(exclude: TimeComponent.TimePeriod) -> TimeComponent.TimePeriod:
+	var periods = [
+		TimeComponent.TimePeriod.PAST,
+		TimeComponent.TimePeriod.PRESENT,
+		TimeComponent.TimePeriod.FUTURE
+	]
+	periods.erase(exclude)
+	return periods.pick_random()
+
+func hit():
+	var random_time_period: TimeComponent.TimePeriod = _get_random_time_period_excluding(current_time_period)
+	current_time_period = random_time_period
+	changed_time_period.emit(random_time_period)

@@ -6,6 +6,7 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kqu6x"]
 
 [node name="Player" type="CharacterBody3D" unique_id=1752358920 node_paths=PackedStringArray("camera")]
+collision_layer = 2
 script = ExtResource("1_oul6g")
 camera = NodePath("Head/Camera3D")
 
