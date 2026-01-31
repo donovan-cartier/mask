@@ -1,8 +1,8 @@
 extends Node3D
 class_name ParticleManager
 
-## Gère l'activation/désactivation des systèmes de particules selon l'époque
-## Suit la position de la caméra pour un effet immersif
+## Manages particle systems activation/deactivation based on time period
+## Follows camera position for an immersive effect
 
 @export_group("Particle Groups")
 @export var past_particles: Node3D
@@ -16,25 +16,25 @@ class_name ParticleManager
 
 
 func _ready() -> void:
-	# Vérifier que les groupes de particules sont assignés
-	assert(past_particles != null, "Past particles node n'est pas assigné!")
-	assert(present_particles != null, "Present particles node n'est pas assigné!")
-	assert(future_particles != null, "Future particles node n'est pas assigné!")
+	# Verify that particle groups are assigned
+	assert(past_particles != null, "Past particles node is not assigned!")
+	assert(present_particles != null, "Present particles node is not assigned!")
+	assert(future_particles != null, "Future particles node is not assigned!")
 
-	# Se connecter au signal du joueur
+	# Connect to player signal
 	Nodes.player.changed_time_period.connect(_on_time_period_changed)
 
-	# Activer les particules initiales
+	# Activate initial particles
 	_activate_particles(Nodes.player.current_time_period)
 
-	# Récupérer la caméra si non assignée
+	# Get camera if not assigned
 	if follow_camera and camera == null:
 		camera = Nodes.player.camera
 
 
 func _process(delta: float) -> void:
 	if follow_camera and camera != null:
-		# Suivre la position de la caméra en douceur
+		# Smoothly follow camera position
 		global_position = global_position.lerp(camera.global_position, follow_speed * delta)
 
 
@@ -43,12 +43,12 @@ func _on_time_period_changed(new_time_period: TimeComponent.TimePeriod) -> void:
 
 
 func _activate_particles(time_period: TimeComponent.TimePeriod) -> void:
-	# Désactiver toutes les particules
+	# Deactivate all particles
 	_set_particles_active(past_particles, false)
 	_set_particles_active(present_particles, false)
 	_set_particles_active(future_particles, false)
 
-	# Activer les particules de l'époque courante
+	# Activate particles for current time period
 	match time_period:
 		TimeComponent.TimePeriod.PAST:
 			_set_particles_active(past_particles, true)
@@ -59,13 +59,13 @@ func _activate_particles(time_period: TimeComponent.TimePeriod) -> void:
 
 
 func _set_particles_active(parent_node: Node3D, active: bool) -> void:
-	"""Active ou désactive tous les GPUParticles3D enfants d'un node"""
+	"""Activates or deactivates all GPUParticles3D children of a node"""
 	if parent_node == null:
 		return
 
 	for child in parent_node.get_children():
 		if child is GPUParticles3D:
 			if not active:
-				# Réinitialiser les particules pour les effacer immédiatement
+				# Reset particles to clear them immediately
 				child.restart()
 			child.emitting = active

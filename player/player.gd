@@ -2,8 +2,9 @@ extends CharacterBody3D
 class_name Player
 
 const SPEED = 5.0
-const RUN_SPEED = 8.0
-const JUMP_VELOCITY = 4.5
+const RUN_SPEED = 12.0
+const JUMP_VELOCITY = 4.0
+const GRAVITY = 9.8
 
 @export var camera: Camera3D
 
@@ -27,22 +28,23 @@ func _input(event):
 
 func _physics_process(delta):
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		velocity.y -= GRAVITY * delta
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
-	var calculated_speed: float = _calculate_speed()
-
-	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
-	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction:
-		velocity.x = direction.x * calculated_speed
-		velocity.z = direction.z * calculated_speed
-	else:
-		velocity.x = move_toward(velocity.x, 0, calculated_speed)
-		velocity.z = move_toward(velocity.z, 0, calculated_speed)
+	# Horizontal control only when grounded
+	if is_on_floor():
+		var calculated_speed: float = _calculate_speed()
+		var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
+		var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+		if direction:
+			velocity.x = direction.x * calculated_speed
+			velocity.z = direction.z * calculated_speed
+		else:
+			velocity.x = move_toward(velocity.x, 0, calculated_speed)
+			velocity.z = move_toward(velocity.z, 0, calculated_speed)
 
 	_handle_time_period_change()
 
