@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://bwvbtaqfrrog5"]
 
 [ext_resource type="PackedScene" uid="uid://bb5uc6nu74o4k" path="res://player/player.tscn" id="1_f3sb7"]
+[ext_resource type="PackedScene" uid="uid://c4tsjiq0jdg88" path="res://assets/models/GarageDoor3.glb" id="2_fj7yv"]
+[ext_resource type="Script" uid="uid://c3y5yun2o302u" path="res://components/disappear_component.gd" id="3_aqk2v"]
+[ext_resource type="Texture2D" uid="uid://duhwsatrqy7s5" path="res://icon.svg" id="3_tlwt5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f3sb7"]
 sky_top_color = Color(0.44344002, 0.4359725, 0.5365931, 1)
@@ -12,9 +15,24 @@ sky_material = SubResource("ProceduralSkyMaterial_f3sb7")
 background_mode = 2
 sky = SubResource("Sky_fj7yv")
 tonemap_mode = 4
+glow_enabled = true
+glow_intensity = 8.0
 fog_enabled = true
 fog_light_color = Color(1, 1, 1, 1)
 fog_sky_affect = 0.121
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fj7yv"]
+emission_enabled = true
+emission = Color(1.0212349, 0, 0, 1)
+emission_energy_multiplier = 2.54
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aqk2v"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aqk2v"]
+emission_enabled = true
+emission = Color(0.6794383, 0.49428785, 0.89631385, 1)
+emission_energy_multiplier = 1.09
+emission_texture = ExtResource("3_tlwt5")
 
 [node name="World" type="Node3D" unique_id=1342245001]
 
@@ -175,3 +193,26 @@ transform = Transform3D(0.40198326, 0.8811357, -0.24901733, -0.4019831, 0.414173
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=134965959]
 environment = SubResource("Environment_tlwt5")
+
+[node name="GarageDoor3" parent="." unique_id=1121843775 instance=ExtResource("2_fj7yv")]
+transform = Transform3D(-3.152416, 11.764976, 0, -11.764976, -3.152416, 0, 0, 0, 12.18, 14, 2, -8)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1477918796]
+
+[node name="DisappearComponent" type="Node" parent="StaticBody3D" unique_id=531636060 node_paths=PackedStringArray("custom_owner")]
+script = ExtResource("3_aqk2v")
+custom_owner = NodePath("..")
+metadata/_custom_type_script = "uid://c3y5yun2o302u"
+
+[node name="CSGBox3D31" type="CSGBox3D" parent="StaticBody3D" unique_id=2127335211]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -7)
+size = Vector3(3, 3, 3)
+material = SubResource("StandardMaterial3D_fj7yv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1442741181]
+shape = SubResource("BoxShape3D_aqk2v")
+
+[node name="CSGBox3D32" type="CSGBox3D" parent="." unique_id=1159124629]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 2, -7)
+size = Vector3(3, 3, 3)
+material = SubResource("StandardMaterial3D_aqk2v")
