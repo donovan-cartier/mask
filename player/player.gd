@@ -34,24 +34,24 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
-	# Horizontal control only when grounded
-	if is_on_floor():
-		var calculated_speed: float = _calculate_speed()
-		var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
-		var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-		if direction:
-			velocity.x = direction.x * calculated_speed
-			velocity.z = direction.z * calculated_speed
-		else:
-			velocity.x = move_toward(velocity.x, 0, calculated_speed)
-			velocity.z = move_toward(velocity.z, 0, calculated_speed)
+	# Horizontal movement (always available, but no sprint in air)
+	var calculated_speed: float = _calculate_speed()
+	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
+	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	if direction:
+		velocity.x = direction.x * calculated_speed
+		velocity.z = direction.z * calculated_speed
+	else:
+		velocity.x = move_toward(velocity.x, 0, calculated_speed)
+		velocity.z = move_toward(velocity.z, 0, calculated_speed)
 
 	_handle_time_period_change()
 
 	move_and_slide()
 
 func _calculate_speed() -> float:
-	if Input.is_action_pressed("run"):
+	# Can only sprint when on the ground
+	if Input.is_action_pressed("run") and is_on_floor():
 		return RUN_SPEED
 	return SPEED
 
