@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cc6os0v7jxpjb" path="res://enemy/enemy_torn.tscn" id="9_ioo17"]
 [ext_resource type="Script" uid="uid://bpl36gdikyp1b" path="res://enemy/camera.gd" id="9_k3n1d"]
 [ext_resource type="PackedScene" uid="uid://cpy4p6l2rwplm" path="res://enemy/enemy_path.tscn" id="10_wse8f"]
+[ext_resource type="Texture2D" uid="uid://duhwsatrqy7s5" path="res://icon.svg" id="11_k3n1d"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f3sb7"]
 sky_top_color = Color(0.44344002, 0.4359725, 0.5365931, 1)
@@ -34,11 +35,12 @@ font_size = 32
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_70uel"]
 shader = ExtResource("9_2o6r5")
-shader_parameter/pixel_size = 8.0
-shader_parameter/dither_threshold = 0.5
+shader_parameter/pixel_size = 1.0
+shader_parameter/dither_threshold = 0.02000000095
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wse8f"]
 shading_mode = 0
+albedo_texture = ExtResource("11_k3n1d")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_70uel"]
 resource_name = "torn_male_MaleMesh"
@@ -252,7 +254,6 @@ render_target_update_mode = 4
 [node name="Camera3D" type="Camera3D" parent="CanvasLayer/SubViewportContainer/SubViewport" unique_id=1865752832 node_paths=PackedStringArray("target")]
 cull_mask = 1047554
 current = true
-fov = 90.0
 script = ExtResource("9_k3n1d")
 target = NodePath("../../../../torn_male/Male/Skeleton3D/Cube")
 

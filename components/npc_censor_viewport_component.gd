@@ -72,6 +72,8 @@ func _enable_viewport_censorship() -> void:
 			child.queue_free()
 			break
 
+	# Reset clone position to viewport origin (keep rotation/scale)
+	npc_clone.position = Vector3.ZERO
 	sub_viewport.add_child(npc_clone)
 	target_npc.visible = false
 
@@ -116,9 +118,14 @@ func _disable_viewport_censorship() -> void:
 
 
 func _process(_delta: float) -> void:
-	# Update viewport camera to match main camera
-	if viewport_camera and main_camera:
-		viewport_camera.global_transform = main_camera.global_transform
+	# Update viewport camera to match main camera's viewing angle
+	if viewport_camera and main_camera and target_npc:
+		# Calculate transform from NPC's local space to camera
+		var npc_to_camera = target_npc.global_transform.affine_inverse() * main_camera.global_transform
+
+		# Apply this relative transform to viewport camera
+		# (positions camera relative to clone the same way main camera is relative to original)
+		viewport_camera.transform = npc_to_camera
 		viewport_camera.fov = main_camera.fov
 
 

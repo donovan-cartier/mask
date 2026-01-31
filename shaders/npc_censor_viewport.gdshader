@@ -20,9 +20,17 @@ float bayer4x4(vec2 pos) {
 }
 
 void fragment() {
-	// DEBUG: Just output the texture directly to see if viewport is working
-	vec4 color = texture(TEXTURE, UV);
-	COLOR = color;
+	// 1. Apply heavy pixelation
+	vec2 pixelated_uv = floor(UV / (pixel_size / 100.0)) * (pixel_size / 100.0);
+	vec4 color = texture(TEXTURE, pixelated_uv);
 
-	// TODO: Re-add pixelation and dithering once viewport rendering is confirmed working
+	// 2. Convert to luminance
+	float luma = dot(color.rgb, vec3(0.299, 0.587, 0.114));
+
+	// 3. Apply Bayer dithering
+	float threshold = bayer4x4(FRAGCOORD.xy) * dither_threshold + (1.0 - dither_threshold) * 0.5;
+	float dithered = step(threshold, luma);
+
+	// 4. Pure black or white output
+	COLOR = vec4(vec3(dithered), color.a);
 }

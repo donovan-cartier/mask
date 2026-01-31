@@ -13,7 +13,7 @@ var current_time_period: TimeComponent.TimePeriod = TimeComponent.TimePeriod.PRE
 
 signal changed_time_period(new_time_period: TimeComponent.TimePeriod)
 
-func _ready():
+func _ready():	
 	Nodes.player = self
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
