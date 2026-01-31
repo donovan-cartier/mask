@@ -7,9 +7,9 @@ const JUMP_VELOCITY = 4.5
 
 @export var camera: Camera3D
 
-var current_time_period: DisappearComponent.TimePeriod = DisappearComponent.TimePeriod.PRESENT
+var current_time_period: TimeComponent.TimePeriod = TimeComponent.TimePeriod.PRESENT
 
-signal changed_time_period(new_time_period: DisappearComponent.TimePeriod)
+signal changed_time_period(new_time_period: TimeComponent.TimePeriod)
 
 func _ready():
 	Nodes.player = self
@@ -55,37 +55,37 @@ func _calculate_speed() -> float:
 
 func _handle_time_period_change() -> void:
 	if Input.is_action_just_pressed("previous_time_period"):
-		if current_time_period == DisappearComponent.TimePeriod.PAST:
+		if current_time_period == TimeComponent.TimePeriod.PAST:
 			return
 
-		var previous_time_period: DisappearComponent.TimePeriod = _get_previous_time_period(current_time_period)
+		var previous_time_period: TimeComponent.TimePeriod = _get_previous_time_period(current_time_period)
 		current_time_period = previous_time_period
 		changed_time_period.emit(previous_time_period)
 
 	elif Input.is_action_just_pressed("next_time_period"):
-		if current_time_period == DisappearComponent.TimePeriod.FUTURE:
+		if current_time_period == TimeComponent.TimePeriod.FUTURE:
 			return
 
-		var next_time_period: DisappearComponent.TimePeriod = _get_next_time_period(current_time_period)
+		var next_time_period: TimeComponent.TimePeriod = _get_next_time_period(current_time_period)
 		current_time_period = next_time_period
 		changed_time_period.emit(next_time_period)
 
 
-func _get_previous_time_period(current: DisappearComponent.TimePeriod) -> DisappearComponent.TimePeriod:
+func _get_previous_time_period(current: TimeComponent.TimePeriod) -> TimeComponent.TimePeriod:
 	match current:
-		DisappearComponent.TimePeriod.PRESENT:
-			return DisappearComponent.TimePeriod.PAST
-		DisappearComponent.TimePeriod.FUTURE:
-			return DisappearComponent.TimePeriod.PRESENT
+		TimeComponent.TimePeriod.PRESENT:
+			return TimeComponent.TimePeriod.PAST
+		TimeComponent.TimePeriod.FUTURE:
+			return TimeComponent.TimePeriod.PRESENT
 
 	return current
 
 
-func _get_next_time_period(current: DisappearComponent.TimePeriod) -> DisappearComponent.TimePeriod:
+func _get_next_time_period(current: TimeComponent.TimePeriod) -> TimeComponent.TimePeriod:
 	match current:
-		DisappearComponent.TimePeriod.PAST:
-			return DisappearComponent.TimePeriod.PRESENT
-		DisappearComponent.TimePeriod.PRESENT:
-			return DisappearComponent.TimePeriod.FUTURE
+		TimeComponent.TimePeriod.PAST:
+			return TimeComponent.TimePeriod.PRESENT
+		TimeComponent.TimePeriod.PRESENT:
+			return TimeComponent.TimePeriod.FUTURE
 
 	return current

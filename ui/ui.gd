@@ -6,5 +6,5 @@ class_name UI
 func _ready():
 	Nodes.player.changed_time_period.connect(_on_time_period_changed)
 
-func _on_time_period_changed(new_time_period: DisappearComponent.TimePeriod) -> void:
-	time_period_label.text = DisappearComponent.TimePeriod.keys()[new_time_period]
+func _on_time_period_changed(new_time_period: TimeComponent.TimePeriod) -> void:
+	time_period_label.text = TimeComponent.TimePeriod.keys()[new_time_period]

@@ -1,5 +1,5 @@
 extends Node
-class_name DisappearComponent
+class_name TimeComponent
 
 enum TimePeriod {
 	PAST,
