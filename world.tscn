@@ -3,6 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://bb5uc6nu74o4k" path="res://player/player.tscn" id="1_f3sb7"]
 [ext_resource type="PackedScene" uid="uid://doo3gukgrqyan" path="res://levels/level_tuto.tscn" id="2_fj7yv"]
 [ext_resource type="Script" uid="uid://cjqd4fm7p63bi" path="res://ui/ui.gd" id="3_tlwt5"]
+[ext_resource type="Script" path="res://environments/environment_manager.gd" id="4_env_manager"]
+[ext_resource type="Environment" path="res://environments/past_environment.tres" id="5_past_env"]
+[ext_resource type="Environment" path="res://environments/present_environment.tres" id="6_present_env"]
+[ext_resource type="Environment" path="res://environments/future_environment.tres" id="7_future_env"]
+[ext_resource type="PackedScene" path="res://components/particle_manager.tscn" id="8_particles"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f3sb7"]
 sky_top_color = Color(0.44344002, 0.4359725, 0.5365931, 1)
@@ -29,6 +34,13 @@ font_size = 32
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=134965959]
 environment = SubResource("Environment_tlwt5")
+script = ExtResource("4_env_manager")
+past_environment = ExtResource("5_past_env")
+present_environment = ExtResource("6_present_env")
+future_environment = ExtResource("7_future_env")
+transition_duration = 0.0
+
+[node name="ParticleManager" parent="." instance=ExtResource("8_particles")]
 
 [node name="Level_Tuto" parent="." unique_id=209618876 instance=ExtResource("2_fj7yv")]
 

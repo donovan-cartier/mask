@@ -1,0 +1,184 @@
+[gd_scene load_steps=18 format=3 uid="uid://particle_manager"]
+
+[ext_resource type="Script" path="res://components/particle_manager.gd" id="1_pm"]
+[ext_resource type="Shader" path="res://shaders/particle_soft.gdshader" id="2_shader"]
+
+[sub_resource type="ParticleProcessMaterial" id="dust_past"]
+emission_shape = 3
+emission_box_extents = Vector3(20, 8, 20)
+particle_flag_align_y = false
+particle_flag_rotate_y = true
+direction = Vector3(1.0, 0.1, 0.3)
+spread = 60.0
+gravity = Vector3(0, 0.0, 0)
+initial_velocity_min = 0.3
+initial_velocity_max = 0.6
+angular_velocity_min = -20.0
+angular_velocity_max = 20.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.1
+scale_min = 0.03
+scale_max = 0.07
+color = Color(0.7, 0.7, 0.8, 0.5)
+alpha_curve = null
+
+[sub_resource type="ShaderMaterial" id="dust_mat"]
+shader = ExtResource("2_shader")
+shader_parameter/particle_color = Color(0.7, 0.7, 0.8, 0.5)
+shader_parameter/softness = 0.8
+shader_parameter/glow_strength = 0.0
+
+[sub_resource type="ParticleProcessMaterial" id="embers_present"]
+emission_shape = 3
+emission_box_extents = Vector3(25, 5, 25)
+particle_flag_align_y = false
+direction = Vector3(0.5, 0.2, 0.3)
+spread = 50.0
+gravity = Vector3(0, 0.1, 0)
+initial_velocity_min = 0.8
+initial_velocity_max = 1.8
+angular_velocity_min = -80.0
+angular_velocity_max = 80.0
+orbit_velocity_min = 0.1
+orbit_velocity_max = 0.3
+scale_min = 0.04
+scale_max = 0.1
+color = Color(1.0, 0.4, 0.1, 1)
+
+[sub_resource type="ShaderMaterial" id="embers_mat"]
+shader = ExtResource("2_shader")
+shader_parameter/particle_color = Color(1.0, 0.5, 0.2, 1.0)
+shader_parameter/softness = 0.6
+shader_parameter/glow_strength = 2.5
+
+[sub_resource type="ParticleProcessMaterial" id="smoke_present"]
+emission_shape = 3
+emission_box_extents = Vector3(20, 3, 20)
+particle_flag_align_y = false
+direction = Vector3(0.3, 0.1, 0.2)
+spread = 40.0
+gravity = Vector3(0, 0.05, 0)
+initial_velocity_min = 0.4
+initial_velocity_max = 0.8
+scale_min = 0.4
+scale_max = 1.0
+color = Color(0.1, 0.1, 0.1, 0.5)
+
+[sub_resource type="ShaderMaterial" id="smoke_mat"]
+shader = ExtResource("2_shader")
+shader_parameter/particle_color = Color(0.15, 0.15, 0.15, 0.6)
+shader_parameter/softness = 1.5
+shader_parameter/glow_strength = 0.0
+
+[sub_resource type="ParticleProcessMaterial" id="ashes_present"]
+emission_shape = 3
+emission_box_extents = Vector3(25, 10, 25)
+particle_flag_align_y = false
+direction = Vector3(0.6, -0.1, 0.4)
+spread = 50.0
+gravity = Vector3(0, -0.05, 0)
+initial_velocity_min = 0.4
+initial_velocity_max = 0.8
+angular_velocity_min = -40.0
+angular_velocity_max = 40.0
+orbit_velocity_min = 0.05
+orbit_velocity_max = 0.15
+scale_min = 0.02
+scale_max = 0.05
+color = Color(0.3, 0.3, 0.3, 0.6)
+
+[sub_resource type="ShaderMaterial" id="ashes_mat"]
+shader = ExtResource("2_shader")
+shader_parameter/particle_color = Color(0.35, 0.35, 0.35, 0.7)
+shader_parameter/softness = 0.7
+shader_parameter/glow_strength = 0.0
+
+[sub_resource type="ParticleProcessMaterial" id="fine_dust_future"]
+emission_shape = 3
+emission_box_extents = Vector3(30, 12, 30)
+particle_flag_align_y = false
+direction = Vector3(0.4, 0.05, 0.2)
+spread = 70.0
+gravity = Vector3(0, -0.08, 0)
+initial_velocity_min = 0.15
+initial_velocity_max = 0.4
+angular_velocity_min = -25.0
+angular_velocity_max = 25.0
+orbit_velocity_min = 0.08
+orbit_velocity_max = 0.2
+scale_min = 0.06
+scale_max = 0.12
+color = Color(0.5, 0.75, 0.65, 0.8)
+
+[sub_resource type="ShaderMaterial" id="fine_dust_mat"]
+shader = ExtResource("2_shader")
+shader_parameter/particle_color = Color(0.5, 0.75, 0.65, 0.75)
+shader_parameter/softness = 0.9
+shader_parameter/glow_strength = 0.4
+
+[sub_resource type="QuadMesh" id="quad_dust"]
+size = Vector2(0.1, 0.1)
+material = SubResource("dust_mat")
+
+[sub_resource type="QuadMesh" id="quad_embers"]
+size = Vector2(0.08, 0.08)
+material = SubResource("embers_mat")
+
+[sub_resource type="QuadMesh" id="quad_smoke"]
+size = Vector2(0.5, 0.5)
+material = SubResource("smoke_mat")
+
+[sub_resource type="QuadMesh" id="quad_ashes"]
+size = Vector2(0.05, 0.05)
+material = SubResource("ashes_mat")
+
+[sub_resource type="QuadMesh" id="quad_fine_dust"]
+size = Vector2(0.12, 0.12)
+material = SubResource("fine_dust_mat")
+
+[node name="ParticleManager" type="Node3D" node_paths=PackedStringArray("past_particles", "present_particles", "future_particles")]
+script = ExtResource("1_pm")
+past_particles = NodePath("PastParticles")
+present_particles = NodePath("PresentParticles")
+future_particles = NodePath("FutureParticles")
+
+[node name="PastParticles" type="Node3D" parent="."]
+
+[node name="Dust" type="GPUParticles3D" parent="PastParticles"]
+amount = 300
+lifetime = 12.0
+visibility_aabb = AABB(-35, -15, -35, 70, 30, 70)
+process_material = SubResource("dust_past")
+draw_pass_1 = SubResource("quad_dust")
+
+[node name="PresentParticles" type="Node3D" parent="."]
+
+[node name="Embers" type="GPUParticles3D" parent="PresentParticles"]
+amount = 350
+lifetime = 8.0
+visibility_aabb = AABB(-40, -10, -40, 80, 25, 80)
+process_material = SubResource("embers_present")
+draw_pass_1 = SubResource("quad_embers")
+
+[node name="Smoke" type="GPUParticles3D" parent="PresentParticles"]
+amount = 150
+lifetime = 7.0
+visibility_aabb = AABB(-35, -8, -35, 70, 20, 70)
+process_material = SubResource("smoke_present")
+draw_pass_1 = SubResource("quad_smoke")
+
+[node name="Ashes" type="GPUParticles3D" parent="PresentParticles"]
+amount = 500
+lifetime = 14.0
+visibility_aabb = AABB(-45, -18, -45, 90, 35, 90)
+process_material = SubResource("ashes_present")
+draw_pass_1 = SubResource("quad_ashes")
+
+[node name="FutureParticles" type="Node3D" parent="."]
+
+[node name="FineDust" type="GPUParticles3D" parent="FutureParticles"]
+amount = 600
+lifetime = 18.0
+visibility_aabb = AABB(-50, -20, -50, 100, 40, 100)
+process_material = SubResource("fine_dust_future")
+draw_pass_1 = SubResource("quad_fine_dust")
