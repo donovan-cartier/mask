@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bb5uc6nu74o4k" path="res://player/player.tscn" id="1_f3sb7"]
 [ext_resource type="PackedScene" uid="uid://doo3gukgrqyan" path="res://levels/level_tuto.tscn" id="2_fj7yv"]
+[ext_resource type="Script" uid="uid://c3y5yun2o302u" path="res://components/disappear_component.gd" id="3_aqk2v"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f3sb7"]
 sky_top_color = Color(0.44344002, 0.4359725, 0.5365931, 1)
@@ -19,6 +20,10 @@ fog_enabled = true
 fog_light_color = Color(1, 1, 1, 1)
 fog_sky_affect = 0.121
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_tlwt5"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_aqk2v"]
+
 [node name="World" type="Node3D" unique_id=1342245001]
 
 [node name="Player" parent="." unique_id=1752358920 instance=ExtResource("1_f3sb7")]
@@ -27,3 +32,47 @@ fog_sky_affect = 0.121
 environment = SubResource("Environment_tlwt5")
 
 [node name="Level_Tuto" parent="." unique_id=209618876 instance=ExtResource("2_fj7yv")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=324364895]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=2099189105]
+shape = SubResource("BoxShape3D_tlwt5")
+
+[node name="DisappearComponent" type="Node" parent="StaticBody3D" unique_id=353221751 node_paths=PackedStringArray("custom_owner")]
+script = ExtResource("3_aqk2v")
+time_period = 0
+custom_owner = NodePath("..")
+metadata/_custom_type_script = "uid://c3y5yun2o302u"
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="StaticBody3D" unique_id=1401193058]
+mesh = SubResource("BoxMesh_aqk2v")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="." unique_id=1339959067]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2" unique_id=1410209853]
+shape = SubResource("BoxShape3D_tlwt5")
+
+[node name="DisappearComponent" type="Node" parent="StaticBody3D2" unique_id=600795813 node_paths=PackedStringArray("custom_owner")]
+script = ExtResource("3_aqk2v")
+custom_owner = NodePath("..")
+metadata/_custom_type_script = "uid://c3y5yun2o302u"
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="StaticBody3D2" unique_id=1134717145]
+mesh = SubResource("BoxMesh_aqk2v")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="." unique_id=1399473987]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3" unique_id=2141890648]
+shape = SubResource("BoxShape3D_tlwt5")
+
+[node name="DisappearComponent" type="Node" parent="StaticBody3D3" unique_id=2011860681 node_paths=PackedStringArray("custom_owner")]
+script = ExtResource("3_aqk2v")
+time_period = 2
+custom_owner = NodePath("..")
+metadata/_custom_type_script = "uid://c3y5yun2o302u"
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="StaticBody3D3" unique_id=1673491539]
+mesh = SubResource("BoxMesh_aqk2v")

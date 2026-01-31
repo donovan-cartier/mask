@@ -7,7 +7,9 @@ const JUMP_VELOCITY = 4.5
 
 @export var camera: Camera3D
 
-signal toggle_time_period
+var current_time_period: DisappearComponent.TimePeriod = DisappearComponent.TimePeriod.PRESENT
+
+signal changed_time_period(new_time_period: DisappearComponent.TimePeriod)
 
 func _ready():
 	Nodes.player = self
@@ -42,8 +44,7 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, calculated_speed)
 		velocity.z = move_toward(velocity.z, 0, calculated_speed)
 
-	if Input.is_action_just_pressed("toggle_past"):
-		toggle_time_period.emit()
+	_handle_time_period_change()
 
 	move_and_slide()
 
@@ -51,3 +52,40 @@ func _calculate_speed() -> float:
 	if Input.is_action_pressed("run"):
 		return RUN_SPEED
 	return SPEED
+
+func _handle_time_period_change() -> void:
+	if Input.is_action_just_pressed("previous_time_period"):
+		if current_time_period == DisappearComponent.TimePeriod.PAST:
+			return
+
+		var previous_time_period: DisappearComponent.TimePeriod = _get_previous_time_period(current_time_period)
+		current_time_period = previous_time_period
+		changed_time_period.emit(previous_time_period)
+
+	elif Input.is_action_just_pressed("next_time_period"):
+		if current_time_period == DisappearComponent.TimePeriod.FUTURE:
+			return
+
+		var next_time_period: DisappearComponent.TimePeriod = _get_next_time_period(current_time_period)
+		current_time_period = next_time_period
+		changed_time_period.emit(next_time_period)
+
+
+func _get_previous_time_period(current: DisappearComponent.TimePeriod) -> DisappearComponent.TimePeriod:
+	match current:
+		DisappearComponent.TimePeriod.PRESENT:
+			return DisappearComponent.TimePeriod.PAST
+		DisappearComponent.TimePeriod.FUTURE:
+			return DisappearComponent.TimePeriod.PRESENT
+
+	return current
+
+
+func _get_next_time_period(current: DisappearComponent.TimePeriod) -> DisappearComponent.TimePeriod:
+	match current:
+		DisappearComponent.TimePeriod.PAST:
+			return DisappearComponent.TimePeriod.PRESENT
+		DisappearComponent.TimePeriod.PRESENT:
+			return DisappearComponent.TimePeriod.FUTURE
+
+	return current

@@ -18,7 +18,12 @@ func _ready():
 	if custom_owner:
 		owner = custom_owner
 	assert(owner is StaticBody3D, "Faut que le owner soit un StaticBody3D mon bro")
-	Nodes.player.toggle_time_period.connect(_on_time_toggle)
+	Nodes.player.changed_time_period.connect(_on_time_period_changed)
+
+	if Nodes.player.current_time_period == time_period:
+		reappear()
+	else:
+		disappear()
 
 func disappear():
 	owner.visible = false
@@ -32,8 +37,9 @@ func reappear():
 	owner.set_collision_mask(1)
 	reappeared.emit()
 
-func _on_time_toggle():
-	if owner.visible:
-		disappear()
-	else:
+func _on_time_period_changed(new_time_period: TimePeriod) -> void:
+	print("DisappearComponent: Time period changed to %s" % str(new_time_period))
+	if new_time_period == time_period:
 		reappear()
+	else:
+		disappear()
