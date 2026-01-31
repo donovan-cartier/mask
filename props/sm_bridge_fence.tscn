@@ -1,5 +1,7 @@
 [gd_scene format=4 uid="uid://boht47c1kl3ae"]
 
+[ext_resource type="Script" uid="uid://c3y5yun2o302u" path="res://components/disappear_component.gd" id="1_v3erm"]
+
 [sub_resource type="ArrayMesh" id="ArrayMesh_ewl1m"]
 _surfaces = [{
 "aabb": AABB(-5.75, -0.90000004, -0.55, 11.5, 1.8000001, 1.1),
@@ -21,3 +23,8 @@ mesh = SubResource("ArrayMesh_ewl1m")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2051416700]
 shape = SubResource("BoxShape3D_wp7e1")
+
+[node name="TimeComponent" type="Node" parent="." unique_id=1240724594]
+script = ExtResource("1_v3erm")
+time_period = 0
+metadata/_custom_type_script = "uid://c3y5yun2o302u"

@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://7sq74at000xp" path="res://props/sm_building_s.tscn" id="4_07v67"]
 [ext_resource type="PackedScene" uid="uid://cr1x7mxa5lb1" path="res://props/sm_building_h.tscn" id="4_f5ci5"]
 [ext_resource type="PackedScene" uid="uid://byr0xyvgemaei" path="res://props/sm_building_t.tscn" id="6_f5p2u"]
+[ext_resource type="PackedScene" uid="uid://by6t200hhjhvg" path="res://props/sm_building_debris.tscn" id="8_e4wue"]
+[ext_resource type="Script" uid="uid://c3y5yun2o302u" path="res://components/disappear_component.gd" id="8_ng3iq"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_f5ci5"]
 _surfaces = [{
@@ -50,6 +52,20 @@ _surfaces = [{
 [sub_resource type="BoxShape3D" id="BoxShape3D_f5p2u"]
 size = Vector3(266, 1, 36)
 
+[sub_resource type="ArrayMesh" id="ArrayMesh_07v67"]
+_surfaces = [{
+"aabb": AABB(-6.5, -11, -24, 13, 22, 48),
+"attribute_data": PackedByteArray("AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/"),
+"format": 34359738391,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 36,
+"vertex_data": PackedByteArray("AADQwAAAMMEAAMBBAADQwAAAMMEAAMDBAADQwAAAMEEAAMDBAADQQAAAMMEAAMDBAADQwAAAMMEAAMDBAADQwAAAMMEAAMBBAADQwAAAMEEAAMDBAADQwAAAMMEAAMDBAADQQAAAMMEAAMDBAADQwAAAMEEAAMDBAADQwAAAMEEAAMBBAADQwAAAMMEAAMBBAADQwAAAMMEAAMBBAADQwAAAMEEAAMBBAADQQAAAMEEAAMBBAADQQAAAMEEAAMBBAADQwAAAMEEAAMBBAADQwAAAMEEAAMDBAADQwAAAMMEAAMBBAADQQAAAMMEAAMBBAADQQAAAMMEAAMDBAADQQAAAMEEAAMBBAADQQAAAMMEAAMBBAADQwAAAMMEAAMBBAADQQAAAMMEAAMDBAADQQAAAMMEAAMBBAADQQAAAMEEAAMBBAADQQAAAMMEAAMDBAADQQAAAMEEAAMDBAADQwAAAMEEAAMDBAADQwAAAMEEAAMDBAADQQAAAMEEAAMDBAADQQAAAMEEAAMBBAADQQAAAMEEAAMBBAADQQAAAMEEAAMDBAADQQAAAMMEAAMDBAAD/f/9//n8AAP9//3/+fwAA/3//f/5//38AAP//AAD/fwAA//8AAP9/AAD//wAA/////wAA/z//////AAD/P/////8AAP8/AAD/f/9//n8AAP9//3/+fwAA/3//f/5//3//fwAA/z//f/9/AAD/P/9//38AAP8//3//////AAD/f/////8AAP9//////wAA/38AAP//AAD/fwAA//8AAP9/AAD//wAA/3//fwAA/z//f/9/AAD/P/9//38AAP8/////f/9//n////9//3/+f////3//f/5//////wAA/z//////AAD/P/////8AAP8//3//////AAD/f/////8AAP9//////wAA////f/9//n////9//3/+f////3//f/5/")
+}]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aisic"]
+size = Vector3(13, 22, 48)
+
 [node name="Level_Tuto" type="Node3D" unique_id=209618876]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=406046289]
@@ -91,9 +107,6 @@ mesh = SubResource("ArrayMesh_f5p2u")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CanalSide2" unique_id=1464467714]
 shape = SubResource("BoxShape3D_e4wue")
 
-[node name="SM_Bridge" parent="." unique_id=900737147 instance=ExtResource("1_w4aad")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.2, -58)
-
 [node name="Canal" type="StaticBody3D" parent="." unique_id=756071880]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -11.2, -58)
 
@@ -103,74 +116,478 @@ mesh = SubResource("ArrayMesh_e4wue")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Canal" unique_id=874451044]
 shape = SubResource("BoxShape3D_f5p2u")
 
-[node name="SM_BridgeFence" parent="." unique_id=1280634577 instance=ExtResource("2_wp7e1")]
+[node name="Past" type="Node3D" parent="." unique_id=1428136543]
+
+[node name="SM_BridgeFence" parent="Past" unique_id=1280634577 instance=ExtResource("2_wp7e1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.75, 0.19999999, -76.45)
 
-[node name="SM_BridgeFence2" parent="." unique_id=54829781 instance=ExtResource("2_wp7e1")]
+[node name="SM_BridgeFence2" parent="Past" unique_id=54829781 instance=ExtResource("2_wp7e1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.75, 0.19999999, -76.45)
 
-[node name="SM_BridgeFence3" parent="." unique_id=1775872188 instance=ExtResource("2_wp7e1")]
+[node name="SM_BridgeFence3" parent="Past" unique_id=1775872188 instance=ExtResource("2_wp7e1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.75, 0.19999999, -39.449997)
 
-[node name="SM_BridgeFence4" parent="." unique_id=267004950 instance=ExtResource("2_wp7e1")]
+[node name="SM_BridgeFence4" parent="Past" unique_id=267004950 instance=ExtResource("2_wp7e1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.75, 0.19999999, -39.449997)
 
-[node name="SM_Building_2" parent="." unique_id=894547940 instance=ExtResource("2_ewl1m")]
+[node name="SM_Building_2" parent="Past" unique_id=894547940 instance=ExtResource("2_ewl1m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.9, 5.8, -35)
 
-[node name="SM_Building_3" parent="." unique_id=409490815 instance=ExtResource("2_ewl1m")]
+[node name="SM_Building_3" parent="Past" unique_id=409490815 instance=ExtResource("2_ewl1m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.9, 5.8, -81)
 
-[node name="SM_Building_4" parent="." unique_id=205357643 instance=ExtResource("2_ewl1m")]
+[node name="SM_Building_4" parent="Past" unique_id=205357643 instance=ExtResource("2_ewl1m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 117.1, 5.8, -81)
 
-[node name="SM_Building_5" parent="." unique_id=1930971473 instance=ExtResource("2_ewl1m")]
+[node name="SM_Building_5" parent="Past" unique_id=1930971473 instance=ExtResource("2_ewl1m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 117.1, 5.8, -35)
 
-[node name="SM_Building_S" parent="." unique_id=1730378708 instance=ExtResource("4_07v67")]
+[node name="SM_Building_S" parent="Past" unique_id=1730378708 instance=ExtResource("4_07v67")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.9, 9.3, -35)
 
-[node name="SM_Building_S3" parent="." unique_id=332361965 instance=ExtResource("4_07v67")]
+[node name="SM_Building_S3" parent="Past" unique_id=332361965 instance=ExtResource("4_07v67")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.1, 9.3, -35)
 
-[node name="SM_Building_S4" parent="." unique_id=1632545731 instance=ExtResource("4_07v67")]
+[node name="SM_Building_S4" parent="Past" unique_id=1632545731 instance=ExtResource("4_07v67")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.1, 9.3, -81)
 
-[node name="SM_Building_S2" parent="." unique_id=531194654 instance=ExtResource("4_07v67")]
+[node name="SM_Building_S2" parent="Past" unique_id=531194654 instance=ExtResource("4_07v67")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.9, 9.3, -81)
 
-[node name="SM_Building_H" parent="." unique_id=336602383 instance=ExtResource("4_f5ci5")]
+[node name="SM_Building_H" parent="Past" unique_id=336602383 instance=ExtResource("4_f5ci5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.1, 10.8, -35)
 
-[node name="SM_Building_H3" parent="." unique_id=1028522875 instance=ExtResource("4_f5ci5")]
+[node name="SM_Building_H3" parent="Past" unique_id=1028522875 instance=ExtResource("4_f5ci5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -66.9, 10.8, -35)
 
-[node name="SM_Building_H5" parent="." unique_id=1401505103 instance=ExtResource("4_f5ci5")]
+[node name="SM_Building_H5" parent="Past" unique_id=1401505103 instance=ExtResource("4_f5ci5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -116.9, 10.8, -35)
 
-[node name="SM_Building_H6" parent="." unique_id=225208304 instance=ExtResource("4_f5ci5")]
+[node name="SM_Building_H6" parent="Past" unique_id=225208304 instance=ExtResource("4_f5ci5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -116.9, 10.8, -81)
 
-[node name="SM_Building_H4" parent="." unique_id=2060665509 instance=ExtResource("4_f5ci5")]
+[node name="SM_Building_H4" parent="Past" unique_id=2060665509 instance=ExtResource("4_f5ci5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -66.9, 10.8, -81)
 
-[node name="SM_Building_H2" parent="." unique_id=1127591845 instance=ExtResource("4_f5ci5")]
+[node name="SM_Building_H2" parent="Past" unique_id=1127591845 instance=ExtResource("4_f5ci5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.1, 10.8, -81)
 
-[node name="SM_Building_H7" parent="." unique_id=2060366880 instance=ExtResource("4_f5ci5")]
+[node name="SM_Building_H7" parent="Past" unique_id=2060366880 instance=ExtResource("4_f5ci5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 92.1, 10.8, -81)
 
-[node name="SM_Building_H8" parent="." unique_id=948206172 instance=ExtResource("4_f5ci5")]
+[node name="SM_Building_H8" parent="Past" unique_id=948206172 instance=ExtResource("4_f5ci5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 92.1, 10.8, -35)
 
-[node name="SM_BuildingT" parent="." unique_id=2029111758 instance=ExtResource("6_f5p2u")]
+[node name="SM_BuildingT" parent="Past" unique_id=2029111758 instance=ExtResource("6_f5p2u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 9.3, -16)
 
-[node name="SM_Building" parent="." unique_id=1855679327 instance=ExtResource("2_22jki")]
+[node name="SM_Building" parent="Past" unique_id=1855679327 instance=ExtResource("2_22jki")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 5.8, -100)
 
-[node name="SM_Building2" parent="." unique_id=1107732661 instance=ExtResource("2_22jki")]
+[node name="SM_Building2" parent="Past" unique_id=1107732661 instance=ExtResource("2_22jki")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -23, 5.8, -100)
 
-[node name="SM_Building3" parent="." unique_id=42214403 instance=ExtResource("2_22jki")]
+[node name="SM_Building3" parent="Past" unique_id=42214403 instance=ExtResource("2_22jki")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -23, 5.8, -16)
+
+[node name="SM_Bridge" parent="Past" unique_id=900737147 instance=ExtResource("1_w4aad")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.2, -58)
+
+[node name="Present" type="Node3D" parent="." unique_id=1799893727]
+
+[node name="WallDestroyed5" type="Node3D" parent="Present" unique_id=618562765]
+
+[node name="SM_BuildingDebris9" parent="Present/WallDestroyed5" unique_id=2139080371 instance=ExtResource("8_e4wue")]
+transform = Transform3D(-0.0871558, 0.86273, -0.4980974, 0, 0.5, 0.8660255, 0.99619484, 0.07547913, -0.04357789, 23.804604, 4.001459, -40.20927)
+
+[node name="SM_BuildingDebris10" parent="Present/WallDestroyed5" unique_id=1849528949 instance=ExtResource("8_e4wue")]
+transform = Transform3D(0.25881898, -0.8365163, -0.48296285, 7.713408e-09, 0.49999994, -0.8660254, 0.9659257, 0.2241438, 0.12940954, 33.404602, 4.001459, -39.70927)
+
+[node name="SM_BuildingDebris18" parent="Present/WallDestroyed5" unique_id=235578668 instance=ExtResource("8_e4wue")]
+transform = Transform3D(0.18301266, -0.9450598, 0.27086613, 0.1830127, -0.23795298, -0.9538788, 0.9659259, 0.22414385, 0.12940955, 33.404602, 9.001459, -39.70927)
+
+[node name="SM_BuildingDebris11" parent="Present/WallDestroyed5" unique_id=502301733 instance=ExtResource("8_e4wue")]
+transform = Transform3D(-0.17364828, 0.9512512, 0.25488687, 2.58756e-09, -0.25881895, 0.9659259, 0.9848077, 0.16773129, 0.04494345, 43.404602, 4.501459, -40.225014)
+
+[node name="SM_BuildingDebris12" parent="Present/WallDestroyed5" unique_id=309620933 instance=ExtResource("8_e4wue")]
+transform = Transform3D(0.258819, 0.93301266, -0.2500001, -3.856704e-09, 0.25881916, 0.9659258, 0.96592575, -0.24999993, 0.066987336, 56.604607, 4.501459, -40.610104)
+
+[node name="SM_BuildingDebris13" parent="Present/WallDestroyed5" unique_id=1188515041 instance=ExtResource("8_e4wue")]
+transform = Transform3D(0.08715588, -0.86273, 0.4980974, -3.7111147e-09, 0.5, 0.8660255, -0.99619484, -0.07547922, 0.04357793, 51.804604, 9.001459, -39.459267)
+
+[node name="SM_BuildingDebris14" parent="Present/WallDestroyed5" unique_id=2146074337 instance=ExtResource("8_e4wue")]
+transform = Transform3D(-0.1294094, 0.8512708, -0.5085186, 0.2241438, -0.47444436, -0.8512707, -0.96592575, -0.22414377, -0.12940945, 41.204605, 13.001459, -39.95927)
+
+[node name="SM_BuildingDebris15" parent="Present/WallDestroyed5" unique_id=1827322063 instance=ExtResource("8_e4wue")]
+transform = Transform3D(0.42261842, -0.8754262, -0.23456964, 0, -0.25881895, 0.9659259, -0.9063078, -0.40821812, -0.1093817, 30.204605, 9.501459, -39.95927)
+
+[node name="SM_BuildingDebris16" parent="Present/WallDestroyed5" unique_id=1042044424 instance=ExtResource("8_e4wue")]
+transform = Transform3D(-0.25881886, -0.93301266, 0.25000006, -1.4910112e-08, 0.2588192, 0.96592593, -0.9659258, 0.24999988, -0.06698731, 19.004602, 9.501459, -39.959274)
+
+[node name="WallDestroyed6" type="Node3D" parent="Present" unique_id=231221433]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, 0)
+
+[node name="SM_BuildingDebris9" parent="Present/WallDestroyed6" unique_id=879225759 instance=ExtResource("8_e4wue")]
+transform = Transform3D(-0.0871558, 0.86273, -0.4980974, 0, 0.5, 0.8660255, 0.99619484, 0.07547913, -0.04357789, 23.804604, 4.001459, -40.20927)
+
+[node name="SM_BuildingDebris10" parent="Present/WallDestroyed6" unique_id=1937590299 instance=ExtResource("8_e4wue")]
+transform = Transform3D(0.25881898, -0.8365163, -0.48296285, 7.713408e-09, 0.49999994, -0.8660254, 0.9659257, 0.2241438, 0.12940954, 33.404602, 4.001459, -39.70927)
+
+[node name="SM_BuildingDebris18" parent="Present/WallDestroyed6" unique_id=587298076 instance=ExtResource("8_e4wue")]
+transform = Transform3D(0.18301266, -0.9450598, 0.27086613, 0.1830127, -0.23795298, -0.9538788, 0.9659259, 0.22414385, 0.12940955, 33.404602, 9.001459, -39.70927)
+
+[node name="SM_BuildingDebris11" parent="Present/WallDestroyed6" unique_id=974897839 instance=ExtResource("8_e4wue")]
+transform = Transform3D(-0.17364828, 0.9512512, 0.25488687, 2.58756e-09, -0.25881895, 0.9659259, 0.9848077, 0.16773129, 0.04494345, 43.404602, 4.501459, -40.225014)
+
+[node name="SM_BuildingDebris12" parent="Present/WallDestroyed6" unique_id=1532721608 instance=ExtResource("8_e4wue")]
+transform = Transform3D(0.258819, 0.93301266, -0.2500001, -3.856704e-09, 0.25881916, 0.9659258, 0.96592575, -0.24999993, 0.066987336, 56.604607, 4.501459, -40.610104)
+
+[node name="SM_BuildingDebris13" parent="Present/WallDestroyed6" unique_id=1226153078 instance=ExtResource("8_e4wue")]
+transform = Transform3D(0.08715588, -0.86273, 0.4980974, -3.7111147e-09, 0.5, 0.8660255, -0.99619484, -0.07547922, 0.04357793, 51.804604, 9.001459, -39.459267)
+
+[node name="SM_BuildingDebris14" parent="Present/WallDestroyed6" unique_id=1243539296 instance=ExtResource("8_e4wue")]
+transform = Transform3D(-0.1294094, 0.8512708, -0.5085186, 0.2241438, -0.47444436, -0.8512707, -0.96592575, -0.22414377, -0.12940945, 41.204605, 13.001459, -39.95927)
+
+[node name="SM_BuildingDebris15" parent="Present/WallDestroyed6" unique_id=549145134 instance=ExtResource("8_e4wue")]
+transform = Transform3D(0.42261842, -0.8754262, -0.23456964, 0, -0.25881895, 0.9659259, -0.9063078, -0.40821812, -0.1093817, 30.204605, 9.501459, -39.95927)
+
+[node name="SM_BuildingDebris16" parent="Present/WallDestroyed6" unique_id=72956066 instance=ExtResource("8_e4wue")]
+transform = Transform3D(-0.25881886, -0.93301266, 0.25000006, -1.4910112e-08, 0.2588192, 0.96592593, -0.9659258, 0.24999988, -0.06698731, 19.004602, 9.501459, -39.959274)
+
+[node name="WallDestroyed7" type="Node3D" parent="Present" unique_id=1665792074]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -36)
+
+[node name="SM_BuildingDebris9" parent="Present/WallDestroyed7" unique_id=1276815324 instance=ExtResource("8_e4wue")]
+transform = Transform3D(-0.0871558, 0.86273, -0.4980974, 0, 0.5, 0.8660255, 0.99619484, 0.07547913, -0.04357789, 23.804604, 4.001459, -40.20927)
+
+[node name="SM_BuildingDebris10" parent="Present/WallDestroyed7" unique_id=576991573 instance=ExtResource("8_e4wue")]
+transform = Transform3D(0.25881898, -0.8365163, -0.48296285, 7.713408e-09, 0.49999994, -0.8660254, 0.9659257, 0.2241438, 0.12940954, 33.404602, 4.001459, -39.70927)
+
+[node name="SM_BuildingDebris18" parent="Present/WallDestroyed7" unique_id=257220931 instance=ExtResource("8_e4wue")]
+transform = Transform3D(0.18301266, -0.9450598, 0.27086613, 0.1830127, -0.23795298, -0.9538788, 0.9659259, 0.22414385, 0.12940955, 33.404602, 9.001459, -39.70927)
+
+[node name="SM_BuildingDebris11" parent="Present/WallDestroyed7" unique_id=1501915733 instance=ExtResource("8_e4wue")]
+transform = Transform3D(-0.17364828, 0.9512512, 0.25488687, 2.58756e-09, -0.25881895, 0.9659259, 0.9848077, 0.16773129, 0.04494345, 43.404602, 4.501459, -40.225014)
+
+[node name="SM_BuildingDebris12" parent="Present/WallDestroyed7" unique_id=605749783 instance=ExtResource("8_e4wue")]
+transform = Transform3D(0.258819, 0.93301266, -0.2500001, -3.856704e-09, 0.25881916, 0.9659258, 0.96592575, -0.24999993, 0.066987336, 56.604607, 4.501459, -40.610104)
+
+[node name="SM_BuildingDebris13" parent="Present/WallDestroyed7" unique_id=1363692113 instance=ExtResource("8_e4wue")]
+transform = Transform3D(0.08715588, -0.86273, 0.4980974, -3.7111147e-09, 0.5, 0.8660255, -0.99619484, -0.07547922, 0.04357793, 51.804604, 9.001459, -39.459267)
+
+[node name="SM_BuildingDebris14" parent="Present/WallDestroyed7" unique_id=372953181 instance=ExtResource("8_e4wue")]
+transform = Transform3D(-0.1294094, 0.8512708, -0.5085186, 0.2241438, -0.47444436, -0.8512707, -0.96592575, -0.22414377, -0.12940945, 41.204605, 13.001459, -39.95927)
+
+[node name="SM_BuildingDebris15" parent="Present/WallDestroyed7" unique_id=1870288453 instance=ExtResource("8_e4wue")]
+transform = Transform3D(0.42261842, -0.8754262, -0.23456964, 0, -0.25881895, 0.9659259, -0.9063078, -0.40821812, -0.1093817, 30.204605, 9.501459, -39.95927)
+
+[node name="SM_BuildingDebris16" parent="Present/WallDestroyed7" unique_id=373438688 instance=ExtResource("8_e4wue")]
+transform = Transform3D(-0.25881886, -0.93301266, 0.25000006, -1.4910112e-08, 0.2588192, 0.96592593, -0.9659258, 0.24999988, -0.06698731, 19.004602, 9.501459, -39.959274)
+
+[node name="WallDestroyed8" type="Node3D" parent="Present" unique_id=1806237316]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, -36)
+
+[node name="SM_BuildingDebris9" parent="Present/WallDestroyed8" unique_id=1893443039 instance=ExtResource("8_e4wue")]
+transform = Transform3D(-0.0871558, 0.86273, -0.4980974, 0, 0.5, 0.8660255, 0.99619484, 0.07547913, -0.04357789, 23.804604, 4.001459, -40.20927)
+
+[node name="SM_BuildingDebris10" parent="Present/WallDestroyed8" unique_id=1358250523 instance=ExtResource("8_e4wue")]
+transform = Transform3D(0.25881898, -0.8365163, -0.48296285, 7.713408e-09, 0.49999994, -0.8660254, 0.9659257, 0.2241438, 0.12940954, 33.404602, 4.001459, -39.70927)
+
+[node name="SM_BuildingDebris18" parent="Present/WallDestroyed8" unique_id=488427597 instance=ExtResource("8_e4wue")]
+transform = Transform3D(0.18301266, -0.9450598, 0.27086613, 0.1830127, -0.23795298, -0.9538788, 0.9659259, 0.22414385, 0.12940955, 33.404602, 9.001459, -39.70927)
+
+[node name="SM_BuildingDebris11" parent="Present/WallDestroyed8" unique_id=194169082 instance=ExtResource("8_e4wue")]
+transform = Transform3D(-0.17364828, 0.9512512, 0.25488687, 2.58756e-09, -0.25881895, 0.9659259, 0.9848077, 0.16773129, 0.04494345, 43.404602, 4.501459, -40.225014)
+
+[node name="SM_BuildingDebris12" parent="Present/WallDestroyed8" unique_id=1305940976 instance=ExtResource("8_e4wue")]
+transform = Transform3D(0.258819, 0.93301266, -0.2500001, -3.856704e-09, 0.25881916, 0.9659258, 0.96592575, -0.24999993, 0.066987336, 56.604607, 4.501459, -40.610104)
+
+[node name="SM_BuildingDebris13" parent="Present/WallDestroyed8" unique_id=1585785079 instance=ExtResource("8_e4wue")]
+transform = Transform3D(0.08715588, -0.86273, 0.4980974, -3.7111147e-09, 0.5, 0.8660255, -0.99619484, -0.07547922, 0.04357793, 51.804604, 9.001459, -39.459267)
+
+[node name="SM_BuildingDebris14" parent="Present/WallDestroyed8" unique_id=794434105 instance=ExtResource("8_e4wue")]
+transform = Transform3D(-0.1294094, 0.8512708, -0.5085186, 0.2241438, -0.47444436, -0.8512707, -0.96592575, -0.22414377, -0.12940945, 41.204605, 13.001459, -39.95927)
+
+[node name="SM_BuildingDebris15" parent="Present/WallDestroyed8" unique_id=323798671 instance=ExtResource("8_e4wue")]
+transform = Transform3D(0.42261842, -0.8754262, -0.23456964, 0, -0.25881895, 0.9659259, -0.9063078, -0.40821812, -0.1093817, 30.204605, 9.501459, -39.95927)
+
+[node name="SM_BuildingDebris16" parent="Present/WallDestroyed8" unique_id=1872266671 instance=ExtResource("8_e4wue")]
+transform = Transform3D(-0.25881886, -0.93301266, 0.25000006, -1.4910112e-08, 0.2588192, 0.96592593, -0.9659258, 0.24999988, -0.06698731, 19.004602, 9.501459, -39.959274)
+
+[node name="WallDestroyed9" type="Node3D" parent="Present" unique_id=2140797131]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -144, 0, 0)
+
+[node name="SM_BuildingDebris9" parent="Present/WallDestroyed9" unique_id=733126213 instance=ExtResource("8_e4wue")]
+transform = Transform3D(-0.0871558, 0.86273, -0.4980974, 0, 0.5, 0.8660255, 0.99619484, 0.07547913, -0.04357789, 23.804604, 4.001459, -40.20927)
+
+[node name="SM_BuildingDebris10" parent="Present/WallDestroyed9" unique_id=188880132 instance=ExtResource("8_e4wue")]
+transform = Transform3D(0.25881898, -0.8365163, -0.48296285, 7.713408e-09, 0.49999994, -0.8660254, 0.9659257, 0.2241438, 0.12940954, 33.404602, 4.001459, -39.70927)
+
+[node name="SM_BuildingDebris18" parent="Present/WallDestroyed9" unique_id=1935398650 instance=ExtResource("8_e4wue")]
+transform = Transform3D(0.18301266, -0.9450598, 0.27086613, 0.1830127, -0.23795298, -0.9538788, 0.9659259, 0.22414385, 0.12940955, 33.404602, 9.001459, -39.70927)
+
+[node name="SM_BuildingDebris11" parent="Present/WallDestroyed9" unique_id=165041126 instance=ExtResource("8_e4wue")]
+transform = Transform3D(-0.17364828, 0.9512512, 0.25488687, 2.58756e-09, -0.25881895, 0.9659259, 0.9848077, 0.16773129, 0.04494345, 43.404602, 4.501459, -40.225014)
+
+[node name="SM_BuildingDebris12" parent="Present/WallDestroyed9" unique_id=1811172915 instance=ExtResource("8_e4wue")]
+transform = Transform3D(0.258819, 0.93301266, -0.2500001, -3.856704e-09, 0.25881916, 0.9659258, 0.96592575, -0.24999993, 0.066987336, 56.604607, 4.501459, -40.610104)
+
+[node name="SM_BuildingDebris13" parent="Present/WallDestroyed9" unique_id=1962940471 instance=ExtResource("8_e4wue")]
+transform = Transform3D(0.08715588, -0.86273, 0.4980974, -3.7111147e-09, 0.5, 0.8660255, -0.99619484, -0.07547922, 0.04357793, 51.804604, 9.001459, -39.459267)
+
+[node name="SM_BuildingDebris14" parent="Present/WallDestroyed9" unique_id=2139815759 instance=ExtResource("8_e4wue")]
+transform = Transform3D(-0.1294094, 0.8512708, -0.5085186, 0.2241438, -0.47444436, -0.8512707, -0.96592575, -0.22414377, -0.12940945, 41.204605, 13.001459, -39.95927)
+
+[node name="SM_BuildingDebris15" parent="Present/WallDestroyed9" unique_id=1960754451 instance=ExtResource("8_e4wue")]
+transform = Transform3D(0.42261842, -0.8754262, -0.23456964, 0, -0.25881895, 0.9659259, -0.9063078, -0.40821812, -0.1093817, 30.204605, 9.501459, -39.95927)
+
+[node name="SM_BuildingDebris16" parent="Present/WallDestroyed9" unique_id=124262798 instance=ExtResource("8_e4wue")]
+transform = Transform3D(-0.25881886, -0.93301266, 0.25000006, -1.4910112e-08, 0.2588192, 0.96592593, -0.9659258, 0.24999988, -0.06698731, 19.004602, 9.501459, -39.959274)
+
+[node name="WallDestroyed10" type="Node3D" parent="Present" unique_id=446393931]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -84, 0, 0)
+
+[node name="SM_BuildingDebris9" parent="Present/WallDestroyed10" unique_id=248207644 instance=ExtResource("8_e4wue")]
+transform = Transform3D(-0.0871558, 0.86273, -0.4980974, 0, 0.5, 0.8660255, 0.99619484, 0.07547913, -0.04357789, 23.804604, 4.001459, -40.20927)
+
+[node name="SM_BuildingDebris10" parent="Present/WallDestroyed10" unique_id=407974065 instance=ExtResource("8_e4wue")]
+transform = Transform3D(0.25881898, -0.8365163, -0.48296285, 7.713408e-09, 0.49999994, -0.8660254, 0.9659257, 0.2241438, 0.12940954, 33.404602, 4.001459, -39.70927)
+
+[node name="SM_BuildingDebris18" parent="Present/WallDestroyed10" unique_id=1778161746 instance=ExtResource("8_e4wue")]
+transform = Transform3D(0.18301266, -0.9450598, 0.27086613, 0.1830127, -0.23795298, -0.9538788, 0.9659259, 0.22414385, 0.12940955, 33.404602, 9.001459, -39.70927)
+
+[node name="SM_BuildingDebris11" parent="Present/WallDestroyed10" unique_id=552263581 instance=ExtResource("8_e4wue")]
+transform = Transform3D(-0.17364828, 0.9512512, 0.25488687, 2.58756e-09, -0.25881895, 0.9659259, 0.9848077, 0.16773129, 0.04494345, 43.404602, 4.501459, -40.225014)
+
+[node name="SM_BuildingDebris12" parent="Present/WallDestroyed10" unique_id=531164842 instance=ExtResource("8_e4wue")]
+transform = Transform3D(0.258819, 0.93301266, -0.2500001, -3.856704e-09, 0.25881916, 0.9659258, 0.96592575, -0.24999993, 0.066987336, 56.604607, 4.501459, -40.610104)
+
+[node name="SM_BuildingDebris13" parent="Present/WallDestroyed10" unique_id=361968758 instance=ExtResource("8_e4wue")]
+transform = Transform3D(0.08715588, -0.86273, 0.4980974, -3.7111147e-09, 0.5, 0.8660255, -0.99619484, -0.07547922, 0.04357793, 51.804604, 9.001459, -39.459267)
+
+[node name="SM_BuildingDebris14" parent="Present/WallDestroyed10" unique_id=1566729161 instance=ExtResource("8_e4wue")]
+transform = Transform3D(-0.1294094, 0.8512708, -0.5085186, 0.2241438, -0.47444436, -0.8512707, -0.96592575, -0.22414377, -0.12940945, 41.204605, 13.001459, -39.95927)
+
+[node name="SM_BuildingDebris15" parent="Present/WallDestroyed10" unique_id=258537521 instance=ExtResource("8_e4wue")]
+transform = Transform3D(0.42261842, -0.8754262, -0.23456964, 0, -0.25881895, 0.9659259, -0.9063078, -0.40821812, -0.1093817, 30.204605, 9.501459, -39.95927)
+
+[node name="SM_BuildingDebris16" parent="Present/WallDestroyed10" unique_id=419035241 instance=ExtResource("8_e4wue")]
+transform = Transform3D(-0.25881886, -0.93301266, 0.25000006, -1.4910112e-08, 0.2588192, 0.96592593, -0.9659258, 0.24999988, -0.06698731, 19.004602, 9.501459, -39.959274)
+
+[node name="WallDestroyed11" type="Node3D" parent="Present" unique_id=357598814]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -144, 0, -36)
+
+[node name="SM_BuildingDebris9" parent="Present/WallDestroyed11" unique_id=109994042 instance=ExtResource("8_e4wue")]
+transform = Transform3D(-0.0871558, 0.86273, -0.4980974, 0, 0.5, 0.8660255, 0.99619484, 0.07547913, -0.04357789, 23.804604, 4.001459, -40.20927)
+
+[node name="SM_BuildingDebris10" parent="Present/WallDestroyed11" unique_id=593248816 instance=ExtResource("8_e4wue")]
+transform = Transform3D(0.25881898, -0.8365163, -0.48296285, 7.713408e-09, 0.49999994, -0.8660254, 0.9659257, 0.2241438, 0.12940954, 33.404602, 4.001459, -39.70927)
+
+[node name="SM_BuildingDebris18" parent="Present/WallDestroyed11" unique_id=548716489 instance=ExtResource("8_e4wue")]
+transform = Transform3D(0.18301266, -0.9450598, 0.27086613, 0.1830127, -0.23795298, -0.9538788, 0.9659259, 0.22414385, 0.12940955, 33.404602, 9.001459, -39.70927)
+
+[node name="SM_BuildingDebris11" parent="Present/WallDestroyed11" unique_id=1907264780 instance=ExtResource("8_e4wue")]
+transform = Transform3D(-0.17364828, 0.9512512, 0.25488687, 2.58756e-09, -0.25881895, 0.9659259, 0.9848077, 0.16773129, 0.04494345, 43.404602, 4.501459, -40.225014)
+
+[node name="SM_BuildingDebris12" parent="Present/WallDestroyed11" unique_id=1818306910 instance=ExtResource("8_e4wue")]
+transform = Transform3D(0.258819, 0.93301266, -0.2500001, -3.856704e-09, 0.25881916, 0.9659258, 0.96592575, -0.24999993, 0.066987336, 56.604607, 4.501459, -40.610104)
+
+[node name="SM_BuildingDebris13" parent="Present/WallDestroyed11" unique_id=673491305 instance=ExtResource("8_e4wue")]
+transform = Transform3D(0.08715588, -0.86273, 0.4980974, -3.7111147e-09, 0.5, 0.8660255, -0.99619484, -0.07547922, 0.04357793, 51.804604, 9.001459, -39.459267)
+
+[node name="SM_BuildingDebris14" parent="Present/WallDestroyed11" unique_id=1542969840 instance=ExtResource("8_e4wue")]
+transform = Transform3D(-0.1294094, 0.8512708, -0.5085186, 0.2241438, -0.47444436, -0.8512707, -0.96592575, -0.22414377, -0.12940945, 41.204605, 13.001459, -39.95927)
+
+[node name="SM_BuildingDebris15" parent="Present/WallDestroyed11" unique_id=1394165859 instance=ExtResource("8_e4wue")]
+transform = Transform3D(0.42261842, -0.8754262, -0.23456964, 0, -0.25881895, 0.9659259, -0.9063078, -0.40821812, -0.1093817, 30.204605, 9.501459, -39.95927)
+
+[node name="SM_BuildingDebris16" parent="Present/WallDestroyed11" unique_id=1602934025 instance=ExtResource("8_e4wue")]
+transform = Transform3D(-0.25881886, -0.93301266, 0.25000006, -1.4910112e-08, 0.2588192, 0.96592593, -0.9659258, 0.24999988, -0.06698731, 19.004602, 9.501459, -39.959274)
+
+[node name="WallDestroyed12" type="Node3D" parent="Present" unique_id=1126213058]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -84, 0, -36)
+
+[node name="SM_BuildingDebris9" parent="Present/WallDestroyed12" unique_id=1825911204 instance=ExtResource("8_e4wue")]
+transform = Transform3D(-0.0871558, 0.86273, -0.4980974, 0, 0.5, 0.8660255, 0.99619484, 0.07547913, -0.04357789, 23.804604, 4.001459, -40.20927)
+
+[node name="SM_BuildingDebris10" parent="Present/WallDestroyed12" unique_id=196942960 instance=ExtResource("8_e4wue")]
+transform = Transform3D(0.25881898, -0.8365163, -0.48296285, 7.713408e-09, 0.49999994, -0.8660254, 0.9659257, 0.2241438, 0.12940954, 33.404602, 4.001459, -39.70927)
+
+[node name="SM_BuildingDebris18" parent="Present/WallDestroyed12" unique_id=1043464791 instance=ExtResource("8_e4wue")]
+transform = Transform3D(0.18301266, -0.9450598, 0.27086613, 0.1830127, -0.23795298, -0.9538788, 0.9659259, 0.22414385, 0.12940955, 33.404602, 9.001459, -39.70927)
+
+[node name="SM_BuildingDebris11" parent="Present/WallDestroyed12" unique_id=1024351123 instance=ExtResource("8_e4wue")]
+transform = Transform3D(-0.17364828, 0.9512512, 0.25488687, 2.58756e-09, -0.25881895, 0.9659259, 0.9848077, 0.16773129, 0.04494345, 43.404602, 4.501459, -40.225014)
+
+[node name="SM_BuildingDebris12" parent="Present/WallDestroyed12" unique_id=637374399 instance=ExtResource("8_e4wue")]
+transform = Transform3D(0.258819, 0.93301266, -0.2500001, -3.856704e-09, 0.25881916, 0.9659258, 0.96592575, -0.24999993, 0.066987336, 56.604607, 4.501459, -40.610104)
+
+[node name="SM_BuildingDebris13" parent="Present/WallDestroyed12" unique_id=1218402059 instance=ExtResource("8_e4wue")]
+transform = Transform3D(0.08715588, -0.86273, 0.4980974, -3.7111147e-09, 0.5, 0.8660255, -0.99619484, -0.07547922, 0.04357793, 51.804604, 9.001459, -39.459267)
+
+[node name="SM_BuildingDebris14" parent="Present/WallDestroyed12" unique_id=1768184041 instance=ExtResource("8_e4wue")]
+transform = Transform3D(-0.1294094, 0.8512708, -0.5085186, 0.2241438, -0.47444436, -0.8512707, -0.96592575, -0.22414377, -0.12940945, 41.204605, 13.001459, -39.95927)
+
+[node name="SM_BuildingDebris15" parent="Present/WallDestroyed12" unique_id=193743907 instance=ExtResource("8_e4wue")]
+transform = Transform3D(0.42261842, -0.8754262, -0.23456964, 0, -0.25881895, 0.9659259, -0.9063078, -0.40821812, -0.1093817, 30.204605, 9.501459, -39.95927)
+
+[node name="SM_BuildingDebris16" parent="Present/WallDestroyed12" unique_id=1116772269 instance=ExtResource("8_e4wue")]
+transform = Transform3D(-0.25881886, -0.93301266, 0.25000006, -1.4910112e-08, 0.2588192, 0.96592593, -0.9659258, 0.24999988, -0.06698731, 19.004602, 9.501459, -39.959274)
+
+[node name="WallDestroyed" type="Node3D" parent="Present" unique_id=1163273972]
+
+[node name="SM_BuildingT2" type="StaticBody3D" parent="Present/WallDestroyed" unique_id=1148918867]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 9.3, -16)
+
+[node name="Mesh" type="MeshInstance3D" parent="Present/WallDestroyed/SM_BuildingT2" unique_id=924969645]
+mesh = SubResource("ArrayMesh_07v67")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Present/WallDestroyed/SM_BuildingT2" unique_id=859342937]
+shape = SubResource("BoxShape3D_aisic")
+
+[node name="TimeComponent" type="Node" parent="Present/WallDestroyed/SM_BuildingT2" unique_id=8249188 node_paths=PackedStringArray("custom_owner")]
+script = ExtResource("8_ng3iq")
+custom_owner = NodePath("..")
+metadata/_custom_type_script = "uid://c3y5yun2o302u"
+
+[node name="SM_BuildingDebris" parent="Present/WallDestroyed" unique_id=163068050 instance=ExtResource("8_e4wue")]
+transform = Transform3D(0.9961947, 0.07547908, -0.043577865, 0, 0.49999997, 0.8660254, 0.08715574, -0.8627299, 0.49809733, 16.75089, -0.09087944, 0.20000005)
+
+[node name="SM_BuildingDebris2" parent="Present/WallDestroyed" unique_id=36719421 instance=ExtResource("8_e4wue")]
+transform = Transform3D(0.9659258, 0.22414388, 0.12940952, 0, 0.5, -0.86602545, -0.25881904, 0.8365163, 0.4829629, 17.25089, -0.09087944, -9.4)
+
+[node name="SM_BuildingDebris17" parent="Present/WallDestroyed" unique_id=262907414 instance=ExtResource("8_e4wue")]
+transform = Transform3D(0.96592575, 0.22414386, 0.12940952, 0.18301268, -0.23795295, -0.9538787, -0.1830127, 0.94505966, -0.2708661, 17.25089, 4.9091206, -9.4)
+
+[node name="SM_BuildingDebris3" parent="Present/WallDestroyed" unique_id=1374844701 instance=ExtResource("8_e4wue")]
+transform = Transform3D(0.9848077, 0.16773126, 0.044943422, 0, -0.25881895, 0.9659259, 0.17364822, -0.9512512, -0.25488687, 16.735147, 0.40912056, -19.400002)
+
+[node name="SM_BuildingDebris4" parent="Present/WallDestroyed" unique_id=1867166893 instance=ExtResource("8_e4wue")]
+transform = Transform3D(0.9659258, -0.25, 0.06698733, 0, 0.25881916, 0.9659258, -0.25881904, -0.93301266, 0.25000012, 16.350056, 0.40912056, -32.600002)
+
+[node name="SM_BuildingDebris5" parent="Present/WallDestroyed" unique_id=1683020195 instance=ExtResource("8_e4wue")]
+transform = Transform3D(-0.99619484, -0.07547917, 0.04357791, 0, 0.5, 0.8660255, -0.087155834, 0.86273, -0.4980974, 17.500893, 4.9091206, -27.800003)
+
+[node name="SM_BuildingDebris6" parent="Present/WallDestroyed" unique_id=2144456211 instance=ExtResource("8_e4wue")]
+transform = Transform3D(-0.96592575, -0.22414382, -0.12940945, 0.2241438, -0.4744444, -0.8512707, 0.12940945, -0.85127074, 0.50851864, 17.00089, 8.909121, -17.200003)
+
+[node name="SM_BuildingDebris7" parent="Present/WallDestroyed" unique_id=2142070608 instance=ExtResource("8_e4wue")]
+transform = Transform3D(-0.9063077, -0.408218, -0.10938165, 0, -0.25881895, 0.9659259, -0.42261836, 0.87542605, 0.23456962, 17.00089, 5.4091206, -6.200001)
+
+[node name="SM_BuildingDebris8" parent="Present/WallDestroyed" unique_id=1627566765 instance=ExtResource("8_e4wue")]
+transform = Transform3D(-0.9659258, 0.24999993, -0.0669873, -3.8567043e-09, 0.25881916, 0.9659258, 0.25881892, 0.93301266, -0.25000006, 17.000889, 5.4091206, 5)
+
+[node name="WallDestroyed2" type="Node3D" parent="Present" unique_id=772984719]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -84)
+
+[node name="SM_Building4" parent="Present/WallDestroyed2" unique_id=2079586419 instance=ExtResource("2_22jki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 5.8, -16)
+
+[node name="TimeComponent" parent="Present/WallDestroyed2/SM_Building4" index="2" unique_id=375329432 node_paths=PackedStringArray("custom_owner")]
+time_period = 1
+custom_owner = NodePath("..")
+
+[node name="SM_BuildingDebris" parent="Present/WallDestroyed2" unique_id=1316854823 instance=ExtResource("8_e4wue")]
+transform = Transform3D(0.9961947, 0.07547908, -0.043577865, 0, 0.49999997, 0.8660254, 0.08715574, -0.8627299, 0.49809733, 16.75089, -0.09087944, 0.20000005)
+
+[node name="SM_BuildingDebris2" parent="Present/WallDestroyed2" unique_id=460697098 instance=ExtResource("8_e4wue")]
+transform = Transform3D(0.9659258, 0.22414388, 0.12940952, 0, 0.5, -0.86602545, -0.25881904, 0.8365163, 0.4829629, 17.25089, -0.09087944, -9.4)
+
+[node name="SM_BuildingDebris17" parent="Present/WallDestroyed2" unique_id=924828179 instance=ExtResource("8_e4wue")]
+transform = Transform3D(0.96592575, 0.22414386, 0.12940952, 0.18301268, -0.23795295, -0.9538787, -0.1830127, 0.94505966, -0.2708661, 17.25089, 4.9091206, -9.4)
+
+[node name="SM_BuildingDebris3" parent="Present/WallDestroyed2" unique_id=312198119 instance=ExtResource("8_e4wue")]
+transform = Transform3D(0.9848077, 0.16773126, 0.044943422, 0, -0.25881895, 0.9659259, 0.17364822, -0.9512512, -0.25488687, 16.735147, 0.40912056, -19.400002)
+
+[node name="SM_BuildingDebris4" parent="Present/WallDestroyed2" unique_id=1038824737 instance=ExtResource("8_e4wue")]
+transform = Transform3D(0.9659258, -0.25, 0.06698733, 0, 0.25881916, 0.9659258, -0.25881904, -0.93301266, 0.25000012, 16.350056, 0.40912056, -32.600002)
+
+[node name="SM_BuildingDebris5" parent="Present/WallDestroyed2" unique_id=2128392556 instance=ExtResource("8_e4wue")]
+transform = Transform3D(-0.99619484, -0.07547917, 0.04357791, 0, 0.5, 0.8660255, -0.087155834, 0.86273, -0.4980974, 17.500893, 4.9091206, -27.800003)
+
+[node name="SM_BuildingDebris6" parent="Present/WallDestroyed2" unique_id=221184071 instance=ExtResource("8_e4wue")]
+transform = Transform3D(-0.96592575, -0.22414382, -0.12940945, 0.2241438, -0.4744444, -0.8512707, 0.12940945, -0.85127074, 0.50851864, 17.00089, 8.909121, -17.200003)
+
+[node name="SM_BuildingDebris7" parent="Present/WallDestroyed2" unique_id=1517916564 instance=ExtResource("8_e4wue")]
+transform = Transform3D(-0.9063077, -0.408218, -0.10938165, 0, -0.25881895, 0.9659259, -0.42261836, 0.87542605, 0.23456962, 17.00089, 5.4091206, -6.200001)
+
+[node name="SM_BuildingDebris8" parent="Present/WallDestroyed2" unique_id=1380838506 instance=ExtResource("8_e4wue")]
+transform = Transform3D(-0.9659258, 0.24999993, -0.0669873, -3.8567043e-09, 0.25881916, 0.9659258, 0.25881892, 0.93301266, -0.25000006, 17.000889, 5.4091206, 5)
+
+[node name="WallDestroyed3" type="Node3D" parent="Present" unique_id=1975946761]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -116)
+
+[node name="SM_Building4" parent="Present/WallDestroyed3" unique_id=243586266 instance=ExtResource("2_22jki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 5.8, -16)
+
+[node name="TimeComponent" parent="Present/WallDestroyed3/SM_Building4" index="2" unique_id=375329432 node_paths=PackedStringArray("custom_owner")]
+time_period = 1
+custom_owner = NodePath("..")
+
+[node name="SM_BuildingDebris" parent="Present/WallDestroyed3" unique_id=1823189457 instance=ExtResource("8_e4wue")]
+transform = Transform3D(0.9961947, 0.07547908, -0.043577865, 0, 0.49999997, 0.8660254, 0.08715574, -0.8627299, 0.49809733, 16.75089, -0.09087944, 0.20000005)
+
+[node name="SM_BuildingDebris2" parent="Present/WallDestroyed3" unique_id=828748225 instance=ExtResource("8_e4wue")]
+transform = Transform3D(0.9659258, 0.22414388, 0.12940952, 0, 0.5, -0.86602545, -0.25881904, 0.8365163, 0.4829629, 17.25089, -0.09087944, -9.4)
+
+[node name="SM_BuildingDebris17" parent="Present/WallDestroyed3" unique_id=577661819 instance=ExtResource("8_e4wue")]
+transform = Transform3D(0.96592575, 0.22414386, 0.12940952, 0.18301268, -0.23795295, -0.9538787, -0.1830127, 0.94505966, -0.2708661, 17.25089, 4.9091206, -9.4)
+
+[node name="SM_BuildingDebris3" parent="Present/WallDestroyed3" unique_id=1213143494 instance=ExtResource("8_e4wue")]
+transform = Transform3D(0.9848077, 0.16773126, 0.044943422, 0, -0.25881895, 0.9659259, 0.17364822, -0.9512512, -0.25488687, 16.735147, 0.40912056, -19.400002)
+
+[node name="SM_BuildingDebris4" parent="Present/WallDestroyed3" unique_id=1904949179 instance=ExtResource("8_e4wue")]
+transform = Transform3D(0.9659258, -0.25, 0.06698733, 0, 0.25881916, 0.9659258, -0.25881904, -0.93301266, 0.25000012, 16.350056, 0.40912056, -32.600002)
+
+[node name="SM_BuildingDebris5" parent="Present/WallDestroyed3" unique_id=2020267202 instance=ExtResource("8_e4wue")]
+transform = Transform3D(-0.99619484, -0.07547917, 0.04357791, 0, 0.5, 0.8660255, -0.087155834, 0.86273, -0.4980974, 17.500893, 4.9091206, -27.800003)
+
+[node name="SM_BuildingDebris6" parent="Present/WallDestroyed3" unique_id=281088439 instance=ExtResource("8_e4wue")]
+transform = Transform3D(-0.96592575, -0.22414382, -0.12940945, 0.2241438, -0.4744444, -0.8512707, 0.12940945, -0.85127074, 0.50851864, 17.00089, 8.909121, -17.200003)
+
+[node name="SM_BuildingDebris7" parent="Present/WallDestroyed3" unique_id=1361004828 instance=ExtResource("8_e4wue")]
+transform = Transform3D(-0.9063077, -0.408218, -0.10938165, 0, -0.25881895, 0.9659259, -0.42261836, 0.87542605, 0.23456962, 17.00089, 5.4091206, -6.200001)
+
+[node name="SM_BuildingDebris8" parent="Present/WallDestroyed3" unique_id=1400256188 instance=ExtResource("8_e4wue")]
+transform = Transform3D(-0.9659258, 0.24999993, -0.0669873, -3.8567043e-09, 0.25881916, 0.9659258, 0.25881892, 0.93301266, -0.25000006, 17.000889, 5.4091206, 5)
+
+[node name="WallDestroyed4" type="Node3D" parent="Present" unique_id=848356195]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -32)
+
+[node name="SM_Building4" parent="Present/WallDestroyed4" unique_id=2010386917 instance=ExtResource("2_22jki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 5.8, -16)
+
+[node name="TimeComponent" parent="Present/WallDestroyed4/SM_Building4" index="2" unique_id=375329432 node_paths=PackedStringArray("custom_owner")]
+time_period = 1
+custom_owner = NodePath("..")
+
+[node name="SM_BuildingDebris" parent="Present/WallDestroyed4" unique_id=1142478412 instance=ExtResource("8_e4wue")]
+transform = Transform3D(0.9961947, 0.07547908, -0.043577865, 0, 0.49999997, 0.8660254, 0.08715574, -0.8627299, 0.49809733, 16.75089, -0.09087944, 0.20000005)
+
+[node name="SM_BuildingDebris2" parent="Present/WallDestroyed4" unique_id=1876186673 instance=ExtResource("8_e4wue")]
+transform = Transform3D(0.9659258, 0.22414388, 0.12940952, 0, 0.5, -0.86602545, -0.25881904, 0.8365163, 0.4829629, 17.25089, -0.09087944, -9.4)
+
+[node name="SM_BuildingDebris17" parent="Present/WallDestroyed4" unique_id=541919254 instance=ExtResource("8_e4wue")]
+transform = Transform3D(0.96592575, 0.22414386, 0.12940952, 0.18301268, -0.23795295, -0.9538787, -0.1830127, 0.94505966, -0.2708661, 17.25089, 4.9091206, -9.4)
+
+[node name="SM_BuildingDebris3" parent="Present/WallDestroyed4" unique_id=658711508 instance=ExtResource("8_e4wue")]
+transform = Transform3D(0.9848077, 0.16773126, 0.044943422, 0, -0.25881895, 0.9659259, 0.17364822, -0.9512512, -0.25488687, 16.735147, 0.40912056, -19.400002)
+
+[node name="SM_BuildingDebris4" parent="Present/WallDestroyed4" unique_id=1338002685 instance=ExtResource("8_e4wue")]
+transform = Transform3D(0.9659258, -0.25, 0.06698733, 0, 0.25881916, 0.9659258, -0.25881904, -0.93301266, 0.25000012, 16.350056, 0.40912056, -32.600002)
+
+[node name="SM_BuildingDebris5" parent="Present/WallDestroyed4" unique_id=1870947479 instance=ExtResource("8_e4wue")]
+transform = Transform3D(-0.99619484, -0.07547917, 0.04357791, 0, 0.5, 0.8660255, -0.087155834, 0.86273, -0.4980974, 17.500893, 4.9091206, -27.800003)
+
+[node name="SM_BuildingDebris6" parent="Present/WallDestroyed4" unique_id=1194287798 instance=ExtResource("8_e4wue")]
+transform = Transform3D(-0.96592575, -0.22414382, -0.12940945, 0.2241438, -0.4744444, -0.8512707, 0.12940945, -0.85127074, 0.50851864, 17.00089, 8.909121, -17.200003)
+
+[node name="SM_BuildingDebris7" parent="Present/WallDestroyed4" unique_id=848028510 instance=ExtResource("8_e4wue")]
+transform = Transform3D(-0.9063077, -0.408218, -0.10938165, 0, -0.25881895, 0.9659259, -0.42261836, 0.87542605, 0.23456962, 17.00089, 5.4091206, -6.200001)
+
+[node name="SM_BuildingDebris8" parent="Present/WallDestroyed4" unique_id=958933822 instance=ExtResource("8_e4wue")]
+transform = Transform3D(-0.9659258, 0.24999993, -0.0669873, -3.8567043e-09, 0.25881916, 0.9659258, 0.25881892, 0.93301266, -0.25000006, 17.000889, 5.4091206, 5)
+
+[editable path="Present/WallDestroyed2/SM_Building4"]
+[editable path="Present/WallDestroyed3/SM_Building4"]
+[editable path="Present/WallDestroyed4/SM_Building4"]
