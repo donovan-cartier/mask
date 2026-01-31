@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://d04emj8eyj5b8"]
+
+[ext_resource type="Texture2D" uid="uid://btix7lpxxr3ql" path="res://player/arms/BrasAnim_Image_0.png" id="1_gkxn1"]
+[ext_resource type="Texture2D" uid="uid://i07e8y1sid2h" path="res://player/arms/BrasAnim_Image_1.png" id="2_irhti"]
+[ext_resource type="Texture2D" uid="uid://w7li4rn0ejb7" path="res://player/arms/BrasAnim_Image_2.png" id="3_mubrg"]
+
+[resource]
+resource_name = "material"
+albedo_texture = ExtResource("1_gkxn1")
+metallic_texture = ExtResource("2_irhti")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_irhti")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_mubrg")
