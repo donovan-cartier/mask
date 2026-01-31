@@ -252,7 +252,7 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -23,
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -23, 5.8, -16)
 
 [node name="SM_Bridge" parent="Past" unique_id=900737147 instance=ExtResource("1_w4aad")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.2, -58)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.248667, -59.376675)
 
 [node name="Present" type="Node3D" parent="." unique_id=1799893727]
 

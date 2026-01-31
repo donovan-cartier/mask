@@ -7,6 +7,7 @@ const JUMP_VELOCITY = 4.0
 const GRAVITY = 9.8
 
 @export var camera: Camera3D
+@onready var animation_player: AnimationPlayer = %AnimationPlayer
 
 var current_time_period: TimeComponent.TimePeriod = TimeComponent.TimePeriod.PRESENT
 
@@ -63,6 +64,7 @@ func _handle_time_period_change() -> void:
 		var previous_time_period: TimeComponent.TimePeriod = _get_previous_time_period(current_time_period)
 		current_time_period = previous_time_period
 		changed_time_period.emit(previous_time_period)
+		animation_player.play("ArmatureAction")
 
 	elif Input.is_action_just_pressed("next_time_period"):
 		if current_time_period == TimeComponent.TimePeriod.FUTURE:
@@ -72,6 +74,7 @@ func _handle_time_period_change() -> void:
 		current_time_period = next_time_period
 		changed_time_period.emit(next_time_period)
 
+		animation_player.play("ArmatureAction")
 
 func _get_previous_time_period(current: TimeComponent.TimePeriod) -> TimeComponent.TimePeriod:
 	match current:
