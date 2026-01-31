@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cpy4p6l2rwplm"]
+
+[sub_resource type="Curve3D" id="Curve3D_o8qhl"]
+resource_local_to_scene = true
+
+[node name="EnemyPath" type="Path3D" unique_id=465993253]
+curve = SubResource("Curve3D_o8qhl")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="." unique_id=915562882]
+transform = Transform3D(0.9877673, 0.019552303, -0.15467237, -8.458231e-06, 0.9921095, 0.1253597, 0.15590274, -0.12382549, 0.97997874, 1.4283756, 2.3210826, 2.7793448)

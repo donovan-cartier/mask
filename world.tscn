@@ -3,11 +3,13 @@
 [ext_resource type="PackedScene" uid="uid://bb5uc6nu74o4k" path="res://player/player.tscn" id="1_f3sb7"]
 [ext_resource type="PackedScene" uid="uid://doo3gukgrqyan" path="res://levels/level_tuto.tscn" id="2_fj7yv"]
 [ext_resource type="Script" uid="uid://cjqd4fm7p63bi" path="res://ui/ui.gd" id="3_tlwt5"]
-[ext_resource type="Script" path="res://environments/environment_manager.gd" id="4_env_manager"]
-[ext_resource type="Environment" path="res://environments/past_environment.tres" id="5_past_env"]
-[ext_resource type="Environment" path="res://environments/present_environment.tres" id="6_present_env"]
-[ext_resource type="Environment" path="res://environments/future_environment.tres" id="7_future_env"]
+[ext_resource type="Script" uid="uid://bs3wlst63ntb5" path="res://environments/environment_manager.gd" id="4_env_manager"]
+[ext_resource type="Environment" uid="uid://dlpppkhljj7l3" path="res://environments/past_environment.tres" id="5_past_env"]
+[ext_resource type="Environment" uid="uid://dadcdr27y36mc" path="res://environments/present_environment.tres" id="6_present_env"]
+[ext_resource type="Environment" uid="uid://lfhamhx4gvcp" path="res://environments/future_environment.tres" id="7_future_env"]
 [ext_resource type="PackedScene" path="res://components/particle_manager.tscn" id="8_particles"]
+[ext_resource type="PackedScene" uid="uid://cc6os0v7jxpjb" path="res://enemy/enemy_torn.tscn" id="9_ioo17"]
+[ext_resource type="PackedScene" uid="uid://cpy4p6l2rwplm" path="res://enemy/enemy_path.tscn" id="10_wse8f"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f3sb7"]
 sky_top_color = Color(0.44344002, 0.4359725, 0.5365931, 1)
@@ -28,6 +30,16 @@ fog_sky_affect = 0.121
 [sub_resource type="LabelSettings" id="LabelSettings_fj7yv"]
 font_size = 32
 
+[sub_resource type="Curve3D" id="Curve3D_wse8f"]
+resource_local_to_scene = true
+closed = true
+bake_interval = 21.76
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -6.4268837, 0, -48.622658, 0, 0, 0, 0, 0, 0, -3.1181872, 0, -52.694893, 0, 0, 0, 0, 0, 0, 1.802429, 0, -53.458443, 0, 0, 0, 0, 0, 0, 5.6201515, 0, -51.252647, 0, 0, 0, 0, 0, 0, 6.977566, 0, -46.67138, 0, 0, 0, 0, 0, 0, 6.044346, 0, -42.68397, 0, 0, 0, 0, 0, 0, 4.432419, 0, -39.12076, 0, 0, 0, 0, 0, 0, -1.1669123, 0, -37.593678, 0, 0, 0, 0, 0, 0, -6.172367, 0, -40.053986),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 9
+
 [node name="World" type="Node3D" unique_id=1342245001]
 
 [node name="Player" parent="." unique_id=1752358920 instance=ExtResource("1_f3sb7")]
@@ -38,9 +50,8 @@ script = ExtResource("4_env_manager")
 past_environment = ExtResource("5_past_env")
 present_environment = ExtResource("6_present_env")
 future_environment = ExtResource("7_future_env")
-transition_duration = 0.0
 
-[node name="ParticleManager" parent="." instance=ExtResource("8_particles")]
+[node name="ParticleManager" parent="." unique_id=2107681253 instance=ExtResource("8_particles")]
 
 [node name="Level_Tuto" parent="." unique_id=209618876 instance=ExtResource("2_fj7yv")]
 
@@ -74,3 +85,16 @@ size_flags_vertical = 8
 text = "PRESENT"
 label_settings = SubResource("LabelSettings_fj7yv")
 horizontal_alignment = 2
+
+[node name="EnemyPath" parent="." unique_id=465993253 instance=ExtResource("10_wse8f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20)
+curve = SubResource("Curve3D_wse8f")
+
+[node name="PathFollow3D" parent="EnemyPath" index="0" unique_id=915562882]
+transform = Transform3D(0.7761073, 0, -0.63059086, 0, 0.99999815, 0, 0.63058823, 0, 0.77611053, -6.4268837, 0, -48.622658)
+
+[node name="Enemy_Torn" parent="EnemyPath/PathFollow3D" index="0" unique_id=1007347102 node_paths=PackedStringArray("path_follow") instance=ExtResource("9_ioo17")]
+transform = Transform3D(1, -1.8626451e-09, 0, 1.8626451e-09, 1.0000001, 0, 2.9802322e-08, -5.551115e-17, 1.0000001, 0, 1.0000019, 0)
+path_follow = NodePath("..")
+
+[editable path="EnemyPath"]
