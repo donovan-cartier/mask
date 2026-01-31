@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://by6t200hhjhvg"]
+
+[ext_resource type="Script" uid="uid://c3y5yun2o302u" path="res://components/disappear_component.gd" id="1_lq14j"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_f5p2u"]
+size = Vector3(2, 12, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ng3iq"]
+size = Vector3(2, 12, 5)
+
+[node name="SM_BuildingDebris" type="StaticBody3D" unique_id=2139080371]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=894754485]
+mesh = SubResource("BoxMesh_f5p2u")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=212631930]
+shape = SubResource("BoxShape3D_ng3iq")
+
+[node name="TimeComponent" type="Node" parent="." unique_id=1630205464]
+script = ExtResource("1_lq14j")
+metadata/_custom_type_script = "uid://c3y5yun2o302u"
