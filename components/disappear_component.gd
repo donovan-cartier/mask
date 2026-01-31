@@ -18,6 +18,11 @@ func _ready():
 	if custom_owner:
 		owner = custom_owner
 	assert(owner is StaticBody3D, "Faut que le owner soit un StaticBody3D mon bro")
+
+	# Wait for player to be ready if not yet initialized
+	if Nodes.player == null:
+		await get_tree().process_frame
+
 	Nodes.player.changed_time_period.connect(_on_time_period_changed)
 
 	if Nodes.player.current_time_period == time_period && !invert:
