@@ -10,6 +10,7 @@
 [ext_resource type="Material" uid="uid://ctyeqqmrfnj7x" path="res://player/shifter/m_screen.tres" id="6_hg6s5"]
 [ext_resource type="Texture2D" uid="uid://cotwt2a5qtpxh" path="res://player/shifter/Shifter2 (2)_Metal053B_1K-JPG_Metalness.png" id="7_ebec5"]
 [ext_resource type="Texture2D" uid="uid://be5v1scbitdjq" path="res://player/shifter/Shifter2 (2)_Metal053B_1K-JPG_NormalGL.jpg" id="8_yllr7"]
+[ext_resource type="AudioStream" uid="uid://t55cgr5fy5td" path="res://player/AFX_ELCTRO_INCOMINGMESSAGE.ogg" id="11_2ieo8"]
 
 [sub_resource type="Skin" id="Skin_v2wg5"]
 resource_name = "Skin"
@@ -193,14 +194,14 @@ bones/0/parent = -1
 bones/0/rest = Transform3D(0.9997806, -0.020816145, 0.0023422868, 0.020945381, 0.995005, -0.09760078, -0.0002989152, 0.09762841, 0.99522287, -0.016100608, 0.04832487, -0.0023401668)
 bones/0/enabled = true
 bones/0/position = Vector3(-0.016100608, 0.04832487, -0.0023401668)
-bones/0/rotation = Quaternion(0.04886837, 0.00066112744, 0.010453452, 0.9987503)
+bones/0/rotation = Quaternion(0.04864188, 0.0007046227, 0.010455768, 0.99876136)
 bones/0/scale = Vector3(1, 0.9999998, 0.99999994)
 bones/1/name = "Bone.001"
 bones/1/parent = 0
 bones/1/rest = Transform3D(0.9756798, 0.21884249, -0.0125259645, -0.217643, 0.9739637, 0.06345223, 0.026085882, -0.059182867, 0.99790627, 1.7444108e-08, 0.7498021, 5.820766e-09)
 bones/1/enabled = true
 bones/1/position = Vector3(1.7444108e-08, 0.7498021, 5.820766e-09)
-bones/1/rotation = Quaternion(-0.030861787, -0.009716879, -0.10984393, 0.9934221)
+bones/1/rotation = Quaternion(-0.031027628, -0.009604168, -0.1100164, 0.99339896)
 bones/1/scale = Vector3(1, 0.99999994, 1)
 bones/2/name = "Bone.002"
 bones/2/parent = 1
@@ -233,3 +234,6 @@ mesh = SubResource("ArrayMesh_b6l1p")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=381246786]
 shape = SubResource("CapsuleShape3D_kqu6x")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=461014508]
+stream = ExtResource("11_2ieo8")

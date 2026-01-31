@@ -26,5 +26,4 @@ shape = SubResource("BoxShape3D_wp7e1")
 
 [node name="TimeComponent" type="Node" parent="." unique_id=1240724594]
 script = ExtResource("1_v3erm")
-time_period = 0
 metadata/_custom_type_script = "uid://c3y5yun2o302u"

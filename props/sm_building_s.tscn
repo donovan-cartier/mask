@@ -93,7 +93,6 @@ shape = SubResource("BoxShape3D_f5p2u")
 
 [node name="TimeComponent" type="Node" parent="." unique_id=589874001]
 script = ExtResource("1_7im1o")
-time_period = 0
 metadata/_custom_type_script = "uid://c3y5yun2o302u"
 
 [node name="Building1" type="Node3D" parent="." unique_id=95141320]
