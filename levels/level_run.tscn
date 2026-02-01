@@ -1,6 +1,6 @@
-[gd_scene format=4 uid="uid://w530dwg5a4sm"]
+[gd_scene format=4 uid="uid://cyhsyvhdjyhvx"]
 
-[ext_resource type="Script" path="res://levels/level_script.gd" id="1_t0xkt"]
+[ext_resource type="Script" uid="uid://bmm4bi8fxt40b" path="res://levels/level_script.gd" id="1_t0xkt"]
 [ext_resource type="Material" uid="uid://o8sriepvtnf1" path="res://assets/models/sols/Route.tres" id="2_gfmma"]
 [ext_resource type="PackedScene" path="res://levels/chat.tscn" id="3_qg8sb"]
 [ext_resource type="PackedScene" path="res://levels/can.tscn" id="4_fxg6n"]
@@ -8,8 +8,9 @@
 [ext_resource type="PackedScene" path="res://levels/cig.tscn" id="6_xjd5t"]
 [ext_resource type="PackedScene" path="res://levels/pont.tscn" id="7_xjd5t"]
 [ext_resource type="PackedScene" uid="uid://bb5uc6nu74o4k" path="res://player/player.tscn" id="8_qhrip"]
-[ext_resource type="PackedScene" uid="uid://dx7rfquoxlukc" path="res://props/kill_zone.tscn" id="9_killzone"]
-[ext_resource type="PackedScene" uid="uid://w6eu3hvw4jnq" path="res://ui/epoch_hud.tscn" id="10_epochhud"]
+[ext_resource type="PackedScene" path="res://props/kill_zone.tscn" id="9_killzone"]
+[ext_resource type="Texture2D" uid="uid://omwa3ll5e4wf" path="res://assets/models/Chat_Le chat.png" id="9_yk306"]
+[ext_resource type="PackedScene" path="res://ui/epoch_hud.tscn" id="10_epochhud"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_f5ci5"]
 _surfaces = [{
@@ -28,18 +29,15 @@ size = Vector3(16.600586, 1, 24.075195)
 [sub_resource type="BoxShape3D" id="BoxShape3D_07v67"]
 size = Vector3(33.382813, 1, 49.658203)
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1"]
-sky_top_color = Color(0.3, 0.5, 0.9, 1)
-sky_horizon_color = Color(0.6, 0.75, 0.95, 1)
-ground_bottom_color = Color(0.2, 0.25, 0.2, 1)
-ground_horizon_color = Color(0.5, 0.6, 0.5, 1)
-sun_angle_max = 60.0
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ncjdl"]
+panorama = ExtResource("9_yk306")
 
 [sub_resource type="Sky" id="Sky_1"]
-sky_material = SubResource("ProceduralSkyMaterial_1")
+sky_material = SubResource("PanoramaSkyMaterial_ncjdl")
 
 [sub_resource type="Environment" id="Environment_1"]
 background_mode = 2
+background_energy_multiplier = 0.8
 sky = SubResource("Sky_1")
 ambient_light_source = 2
 ambient_light_color = Color(0.9, 0.95, 1, 1)
