@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://o8sriepvtnf1"]
+
+[ext_resource type="Texture2D" uid="uid://d0ad8cnjadahb" path="res://assets/models/sols/Route_SolPontSeamless.png" id="1_736f5"]
+[ext_resource type="Texture2D" uid="uid://bn4cjvnkg2c0s" path="res://assets/models/sols/Route_SolPontSeamless_normal.png" id="2_xuycs"]
+
+[resource]
+resource_name = "Route"
+cull_mode = 2
+albedo_texture = ExtResource("1_736f5")
+roughness = 0.5
+normal_enabled = true
+normal_texture = ExtResource("2_xuycs")
