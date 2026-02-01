@@ -8,7 +8,7 @@ const GRAVITY = 9.8
 
 @export var camera: Camera3D
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
-@onready var head: Node3D = $Head
+@onready var head: Node3D = %Head
 
 var current_time_period: TimeComponent.TimePeriod = TimeComponent.TimePeriod.PRESENT
 
@@ -59,6 +59,9 @@ func _calculate_speed() -> float:
 	return SPEED
 
 func _handle_time_period_change() -> void:
+	if animation_player.is_playing():
+		return 
+
 	if Input.is_action_just_pressed("previous_time_period"):
 		if current_time_period == TimeComponent.TimePeriod.PAST:
 			return

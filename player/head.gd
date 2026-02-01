@@ -11,10 +11,15 @@ var flicker_interval: float = 0.0
 var shake_intensity: float = 0.0
 var shake_decay: float = 5.0
 
-@onready var hands = %Hands
+@onready var hands: Node3D = %Hands
 @onready var default_hand_position = hands.position
 @onready var m_screen = load("res://player/shifter/m_screen.tres")
-@onready var camera: Camera3D = $Camera3D
+@onready var camera: Camera3D = %Camera3D
+@onready var item_camera: Camera3D = %ItemCamera
+@onready var subviewport: SubViewport = %SubViewport
+
+func _ready():
+	subviewport.world_3d = get_viewport().world_3d
 
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -48,11 +53,16 @@ func _process(delta):
 			camera.h_offset = 0.0
 			camera.v_offset = 0.0
 
+	item_camera.global_transform = camera.global_transform
 
 func start_flicker(duration: float = 3.0) -> void:
 	flicker_active = true
 	flicker_duration = duration
 	flicker_interval = 0.0
+
+func random_flicker() -> void:
+	var flicker_value = randf_range(0, 1.93)  # Valeur aléatoire entre 0 et 1
+	m_screen.set("emission_energy_multiplier", flicker_value)
 
 func sway(sway_amount: Vector2) -> void:
 	hands.position.x -= sway_amount.x * 0.0001
