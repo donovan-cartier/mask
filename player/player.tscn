@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://wshncrmt6flv" path="res://player/player.gd" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://7ppk8ndvrgcq" path="res://player/head.gd" id="2_rkbax"]
-[ext_resource type="ArrayMesh" uid="uid://bceshsjyouxhc" path="res://player/arms/arms.tres" id="3_hg6s5"]
+[ext_resource type="ArrayMesh" path="res://player/arms/arms.tres" id="3_hg6s5"]
 [ext_resource type="Animation" uid="uid://rfdw1ry7c1vm" path="res://player/arms/arms_anim.tres" id="4_8t03j"]
 [ext_resource type="Texture2D" uid="uid://baigktmm5byld" path="res://player/shifter/Shifter2 (2)_door014-Dither.png" id="4_hg6s5"]
 [ext_resource type="Texture2D" uid="uid://bqcvmicovjtvl" path="res://player/shifter/Shifter2 (2)_SurfaceImperfections003_1K-JPG_Color.jpg" id="5_8t03j"]
-[ext_resource type="Animation" uid="uid://ckgkparv638h" path="res://player/arms/arms_anim_v2.tres" id="5_ebec5"]
+[ext_resource type="Animation" uid="uid://1rd6ju20ddi1" path="res://player/arms/arms_anim_v2.tres" id="5_ebec5"]
 [ext_resource type="Texture2D" uid="uid://cvm8ncyfv0w2" path="res://player/shifter/Shifter2 (2)_Metal053B_1K-JPG_Color.jpg" id="6_2ieo8"]
 [ext_resource type="Material" uid="uid://ctyeqqmrfnj7x" path="res://player/shifter/m_screen.tres" id="6_hg6s5"]
 [ext_resource type="Texture2D" uid="uid://cotwt2a5qtpxh" path="res://player/shifter/Shifter2 (2)_Metal053B_1K-JPG_Metalness.png" id="7_ebec5"]
@@ -205,14 +205,14 @@ bones/1/parent = 0
 bones/1/rest = Transform3D(0.9756798, 0.21884249, -0.0125259645, -0.217643, 0.9739637, 0.06345223, 0.026085882, -0.059182867, 0.99790627, 1.7444108e-08, 0.7498021, 5.820766e-09)
 bones/1/enabled = true
 bones/1/position = Vector3(1.7444108e-08, 0.7498021, 5.820766e-09)
-bones/1/rotation = Quaternion(-0.0074759675, -0.011668747, -0.08863648, 0.9959676)
+bones/1/rotation = Quaternion(-0.030861787, -0.009716879, -0.10984393, 0.9934221)
 bones/1/scale = Vector3(1, 0.99999994, 1)
 bones/2/name = "Bone.002"
 bones/2/parent = 1
 bones/2/rest = Transform3D(0.99993694, 0.011221857, 0.00031116136, -0.01118534, 0.99355584, 0.11279155, 0.0009565743, -0.112787925, 0.9936188, -1.0122312e-07, 0.7170131, -2.7939677e-09)
 bones/2/enabled = true
 bones/2/position = Vector3(-1.0122312e-07, 0.7170131, -2.7939677e-09)
-bones/2/rotation = Quaternion(-0.047802623, 4.4441196e-05, -0.026478153, 0.99850583)
+bones/2/rotation = Quaternion(-0.056485947, -0.00016161354, -0.005610852, 0.99838763)
 bones/2/scale = Vector3(0.99999994, 1.0000001, 1.0000001)
 bones/3/name = "neutral_bone"
 bones/3/parent = -1

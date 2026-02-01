@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bwvbtaqfrrog5"]
 
+[ext_resource type="Script" uid="uid://dm7dsfhs4a7wx" path="res://world.gd" id="1_bc84e"]
 [ext_resource type="PackedScene" uid="uid://bb5uc6nu74o4k" path="res://player/player.tscn" id="1_f3sb7"]
 [ext_resource type="PackedScene" uid="uid://doo3gukgrqyan" path="res://levels/level_tuto.tscn" id="2_fj7yv"]
 [ext_resource type="Script" uid="uid://cjqd4fm7p63bi" path="res://ui/ui.gd" id="3_tlwt5"]
@@ -7,15 +8,11 @@
 [ext_resource type="Environment" uid="uid://dlpppkhljj7l3" path="res://environments/past_environment.tres" id="5_past_env"]
 [ext_resource type="Environment" uid="uid://dadcdr27y36mc" path="res://environments/present_environment.tres" id="6_present_env"]
 [ext_resource type="Environment" uid="uid://lfhamhx4gvcp" path="res://environments/future_environment.tres" id="7_future_env"]
-[ext_resource type="PackedScene" uid="uid://dx7rfquoxlukc" path="res://props/kill_zone.tscn" id="8_ikiii"]
 [ext_resource type="PackedScene" path="res://components/particle_manager.tscn" id="8_particles"]
-[ext_resource type="PackedScene" uid="uid://cc6os0v7jxpjb" path="res://enemy/enemy_torn.tscn" id="9_ioo17"]
 [ext_resource type="Script" uid="uid://bpl36gdikyp1b" path="res://enemy/camera.gd" id="9_k3n1d"]
-[ext_resource type="PackedScene" uid="uid://cpy4p6l2rwplm" path="res://enemy/enemy_path.tscn" id="10_wse8f"]
 [ext_resource type="Shader" uid="uid://bsffi1xpfh43y" path="res://shaders/npc_censor_.gdshader" id="11_udxuc"]
 [ext_resource type="PackedScene" uid="uid://b4pm4prxptjn6" path="res://ui/radar_hud.tscn" id="12_radar"]
 [ext_resource type="PackedScene" uid="uid://w6eu3hvw4jnq" path="res://ui/epoch_hud.tscn" id="13_epoch"]
-[ext_resource type="PackedScene" path="res://npc/npc_past.tscn" id="15_udxuc"]
 [ext_resource type="Script" path="res://components/music_manager.gd" id="18_ikiii"]
 [ext_resource type="PackedScene" path="res://ui/pause_menu.tscn" id="18_pause"]
 [ext_resource type="AudioStream" uid="uid://ce1cvop71jgqv" path="res://assets/bgm/Shifter_Future.mp3" id="19_cbp6q"]
@@ -44,19 +41,14 @@ shader = ExtResource("11_udxuc")
 shader_parameter/pixel_size = 1.200000057
 shader_parameter/dither_threshold = 0.0800000038
 
-[sub_resource type="Curve3D" id="Curve3D_cbp6q"]
-resource_local_to_scene = true
-closed = true
-bake_interval = 21.76
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -6.4268837, 0, -48.622658, 0, 0, 0, 0, 0, 0, -3.1181872, 0, -52.694893, 0, 0, 0, 0, 0, 0, 1.802429, 0, -53.458443, 0, 0, 0, 0, 0, 0, 5.6201515, 0, -51.252647, 0, 0, 0, 0, 0, 0, 6.977566, 0, -46.67138, 0, 0, 0, 0, 0, 0, 6.044346, 0, -42.68397, 0, 0, 0, 0, 0, 0, 4.432419, 0, -39.12076, 0, 0, 0, 0, 0, 0, -1.1669123, 0, -37.593678, 0, 0, 0, 0, 0, 0, -6.172367, 0, -40.053986),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0)
-}
-point_count = 9
-
-[node name="World" type="Node3D" unique_id=1342245001]
+[node name="World" type="Node3D" unique_id=1342245001 node_paths=PackedStringArray("current_map")]
+script = ExtResource("1_bc84e")
+current_map = NodePath("Level_Tuto")
 
 [node name="Player" parent="." unique_id=1752358920 instance=ExtResource("1_f3sb7")]
+
+[node name="AudioStreamPlayer" parent="Player" index="2" unique_id=461014508]
+stream = null
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=134965959]
 environment = SubResource("Environment_tlwt5")
@@ -76,9 +68,6 @@ shadow_enabled = true
 
 [node name="Level_Tuto" parent="." unique_id=209618876 instance=ExtResource("2_fj7yv")]
 transform = Transform3D(0.99782884, 0, 0, 0, 0.99782884, 0, 0, 0, 0.99782884, 0.3046531, -0.22037053, -0.08948684)
-
-[node name="KillZone" parent="Level_Tuto" unique_id=1772287783 instance=ExtResource("8_ikiii")]
-transform = Transform3D(-4.371138e-08, 0, 0.9999998, 0, 0.9999998, 0, -0.9999998, 0, -4.371138e-08, 5.866, -8, -82.736)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=419538800]
 layer = -1
@@ -162,23 +151,6 @@ cull_mask = 1047554
 current = true
 script = ExtResource("9_k3n1d")
 
-[node name="EnemyPath" parent="." unique_id=465993253 instance=ExtResource("10_wse8f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20)
-curve = SubResource("Curve3D_cbp6q")
-
-[node name="PathFollow3D" parent="EnemyPath" index="0" unique_id=915562882]
-transform = Transform3D(0.7761073, 0, -0.63059086, 0, 0.99999815, 0, 0.63058823, 0, 0.77611053, -6.4268837, 0, -48.622658)
-
-[node name="Enemy_Torn" parent="EnemyPath/PathFollow3D" index="0" unique_id=1007347102 node_paths=PackedStringArray("path_follow") instance=ExtResource("9_ioo17")]
-transform = Transform3D(1, -1.8626451e-09, 0, 1.8626451e-09, 1.0000001, 0, 2.9802322e-08, -5.551115e-17, 1.0000001, 0, 1.0000019, 0)
-path_follow = NodePath("..")
-
-[node name="NPCPast" parent="." unique_id=1002532803 instance=ExtResource("15_udxuc")]
-transform = Transform3D(0.99782884, 0, 0, 0, 0.99782884, 0, 0, 0, 0.99782884, 0.66010374, -0.86408836, -13.170407)
-
-[node name="NPCPast2" parent="." unique_id=534007340 instance=ExtResource("15_udxuc")]
-transform = Transform3D(0.99782884, 0, 0, 0, 0.99782884, 0, 0, 0, 0.99782884, 2.6601038, -0.86408836, -13.170407)
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=457166507]
 
 [node name="MusicManager" type="Node" parent="." unique_id=1732524261 node_paths=PackedStringArray("audio_stream_player")]
@@ -187,6 +159,6 @@ audio_stream_player = NodePath("../AudioStreamPlayer")
 future_music = ExtResource("19_cbp6q")
 
 [node name="PauseMenu" parent="." unique_id=2035095311 instance=ExtResource("18_pause")]
+visible = false
 
 [editable path="Player"]
-[editable path="EnemyPath"]
