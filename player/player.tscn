@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" uid="uid://wshncrmt6flv" path="res://player/player.gd" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://7ppk8ndvrgcq" path="res://player/head.gd" id="2_rkbax"]
-[ext_resource type="ArrayMesh" path="res://player/arms/arms.tres" id="3_hg6s5"]
+[ext_resource type="ArrayMesh" uid="uid://bceshsjyouxhc" path="res://player/arms/arms.tres" id="3_hg6s5"]
 [ext_resource type="Animation" uid="uid://rfdw1ry7c1vm" path="res://player/arms/arms_anim.tres" id="4_8t03j"]
 [ext_resource type="Texture2D" uid="uid://baigktmm5byld" path="res://player/shifter/Shifter2 (2)_door014-Dither.png" id="4_hg6s5"]
 [ext_resource type="Texture2D" uid="uid://bqcvmicovjtvl" path="res://player/shifter/Shifter2 (2)_SurfaceImperfections003_1K-JPG_Color.jpg" id="5_8t03j"]
 [ext_resource type="Texture2D" uid="uid://cvm8ncyfv0w2" path="res://player/shifter/Shifter2 (2)_Metal053B_1K-JPG_Color.jpg" id="6_2ieo8"]
-[ext_resource type="Material" path="res://player/shifter/m_screen.tres" id="6_hg6s5"]
+[ext_resource type="Material" uid="uid://ctyeqqmrfnj7x" path="res://player/shifter/m_screen.tres" id="6_hg6s5"]
 [ext_resource type="Texture2D" uid="uid://cotwt2a5qtpxh" path="res://player/shifter/Shifter2 (2)_Metal053B_1K-JPG_Metalness.png" id="7_ebec5"]
 [ext_resource type="Texture2D" uid="uid://be5v1scbitdjq" path="res://player/shifter/Shifter2 (2)_Metal053B_1K-JPG_NormalGL.jpg" id="8_yllr7"]
 [ext_resource type="AudioStream" uid="uid://t55cgr5fy5td" path="res://player/AFX_ELCTRO_INCOMINGMESSAGE.ogg" id="11_2ieo8"]
@@ -174,11 +174,13 @@ script = ExtResource("1_oul6g")
 camera = NodePath("Head/Camera3D")
 
 [node name="Head" type="Node3D" parent="." unique_id=187524052]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 script = ExtResource("2_rkbax")
 
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=717190747]
-cull_mask = 1048573
+unique_name_in_owner = true
+cull_mask = 1048571
 current = true
 
 [node name="Hands" type="Node3D" parent="Head/Camera3D" unique_id=230037989]
@@ -219,6 +221,7 @@ bones/3/rotation = Quaternion(-0.70710677, 0, 0, 0.70710677)
 bones/3/scale = Vector3(1, 1, 1)
 
 [node name="Object_7" type="MeshInstance3D" parent="Head/Camera3D/Hands/Armature/Skeleton3D" unique_id=1453898668]
+layers = 4
 mesh = ExtResource("3_hg6s5")
 skin = SubResource("Skin_v2wg5")
 skeleton = NodePath("..")
@@ -230,7 +233,28 @@ speed_scale = 2.0
 
 [node name="Shifter" type="MeshInstance3D" parent="Head/Camera3D/Hands" unique_id=1982065073]
 transform = Transform3D(-0.28499058, 0.001297383, -0.0009508473, 0.0001176876, 0.24400501, 0.07285665, 0.0023158465, 0.14725776, -0.12071456, 2.5559533e-08, -0.035353273, 0.4628164)
+layers = 4
 mesh = SubResource("ArrayMesh_b6l1p")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Head/Camera3D" unique_id=1858380329]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="Head/Camera3D/SubViewportContainer" unique_id=2066063134]
+unique_name_in_owner = true
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1280, 720)
+render_target_update_mode = 4
+
+[node name="ItemCamera" type="Camera3D" parent="Head/Camera3D/SubViewportContainer/SubViewport" unique_id=1881493820]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+cull_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=381246786]
 shape = SubResource("CapsuleShape3D_kqu6x")

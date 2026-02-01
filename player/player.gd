@@ -8,7 +8,7 @@ const GRAVITY = 9.8
 
 @export var camera: Camera3D
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
-@onready var head: Node3D = $Head
+@onready var head: Node3D = %Head
 
 var current_time_period: TimeComponent.TimePeriod = TimeComponent.TimePeriod.PRESENT
 
