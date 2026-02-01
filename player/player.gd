@@ -8,25 +8,30 @@ const GRAVITY = 9.8
 
 @export var camera: Camera3D
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
-@onready var head: Node3D = $Head
+@onready var head: Node3D = %Head
 
 var current_time_period: TimeComponent.TimePeriod = TimeComponent.TimePeriod.PRESENT
 
 signal changed_time_period(new_time_period: TimeComponent.TimePeriod)
 
-func _ready():	
+func _ready():
 	Nodes.player = self
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	animation_player.animation_finished.connect(_on_animation_finished)
+
+
+func _on_animation_finished(_anim_name: String) -> void:
+	head.start_flicker(2.0)
 
 func _input(event):
-	if event is InputEventKey and event.pressed and event.keycode == Key.KEY_ESCAPE:
-		get_tree().quit()
-
-	elif event is InputEventKey and event.pressed and event.keycode == Key.KEY_F1:
+	if event is InputEventKey and event.pressed and event.keycode == Key.KEY_F1:
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+	if event is InputEventKey and event.pressed and event.keycode == Key.KEY_ENTER:
+		get_tree().quit()
 
 func _physics_process(delta):
 	if not is_on_floor():
@@ -52,12 +57,14 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _calculate_speed() -> float:
-	# Can only sprint when on the ground
-	if Input.is_action_pressed("run") and is_on_floor():
+	if Input.is_action_pressed("run"):
 		return RUN_SPEED
 	return SPEED
 
 func _handle_time_period_change() -> void:
+	if animation_player.is_playing():
+		return 
+
 	if Input.is_action_just_pressed("previous_time_period"):
 		if current_time_period == TimeComponent.TimePeriod.PAST:
 			return

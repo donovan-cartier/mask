@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://cc6os0v7jxpjb"]
 
 [ext_resource type="Script" uid="uid://ctv766bhltms6" path="res://enemy/enemy_torn.gd" id="1_62w7k"]
+[ext_resource type="AudioStream" uid="uid://gb13vk4sh07o" path="res://assets/sfx/sfx_enemy_nearby.ogg" id="2_vf2on"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u1hrx"]
 resource_name = "Skin"
@@ -421,5 +422,13 @@ skeleton = NodePath("..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1173147032]
 shape = SubResource("CapsuleShape3D_vqb0i")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1493872393]
+stream = ExtResource("2_vf2on")
+volume_db = 8.515
+unit_size = 2.26
+autoplay = true
+doppler_tracking = 1
+parameters/looping = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

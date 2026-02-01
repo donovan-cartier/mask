@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://water_plane_scene"]
+
+[ext_resource type="Shader" path="res://shaders/water.gdshader" id="1_shader"]
+[ext_resource type="Script" path="res://components/temporal_water_component.gd" id="2_temporal"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1"]
+size = Vector2(50, 50)
+subdivide_width = 32
+subdivide_depth = 32
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1"]
+render_priority = 0
+shader = ExtResource("1_shader")
+shader_parameter/water_color = Color(0.1, 0.3, 0.5, 0.85)
+shader_parameter/foam_color = Color(0.8, 0.9, 1, 0.5)
+shader_parameter/wave_speed = 1.0
+shader_parameter/wave_strength = 0.08
+shader_parameter/wave_frequency = 2.0
+shader_parameter/fresnel_power = 2.0
+
+[node name="Water" type="MeshInstance3D"]
+mesh = SubResource("PlaneMesh_1")
+surface_material_override/0 = SubResource("ShaderMaterial_1")
+
+[node name="TemporalWater" type="Node" parent="."]
+script = ExtResource("2_temporal")
+past_color = Color(0.15, 0.25, 0.35, 0.9)
+past_wave_speed = 0.5
+past_wave_strength = 0.03
+present_color = Color(0.4, 0.15, 0.1, 0.85)
+present_wave_speed = 1.0
+present_wave_strength = 0.08
+future_color = Color(0.1, 0.2, 0.15, 0.6)
+future_wave_speed = 2.0
+future_wave_strength = 0.15
+transition_duration = 0.0
