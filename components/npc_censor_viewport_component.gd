@@ -9,46 +9,24 @@ class_name NPCCensorViewportComponent
 @export_group("Shader Settings")
 @export var pixel_size: float = 8.0
 @export var dither_threshold: float = 0.5
-@export var overflow_scale: float = 1.2  # How much pixels overflow the mesh (1.0 = no overflow, 1.5 = 50% larger)
+@export var overflow_scale: float = 1.2
 
 var sub_viewport: SubViewport
 var viewport_camera: Camera3D
 var billboard_sprite: Sprite3D
 var shader_material: ShaderMaterial
 var main_camera: Camera3D
-var hidden_meshes: Array[MeshInstance3D] = []
 
 
 func _ready() -> void:
-	# Use parent as target if not specified
 	if target_npc == null:
 		target_npc = get_parent() as Node3D
-		assert(target_npc != null, "NPCCensorViewportComponent must have a Node3D parent or target_npc set!")
 
 	# Don't activate if we're inside a SubViewport (we're a clone)
-	var current_viewport = get_viewport()
-	if current_viewport is SubViewport:
+	if get_viewport() is SubViewport:
 		return
 
-	# Connect to time period changes
-	Nodes.player.changed_time_period.connect(_on_time_period_changed)
-
-	# Apply initial state
-	_update_censorship(Nodes.player.current_time_period)
-
-
-func _on_time_period_changed(new_period: TimeComponent.TimePeriod) -> void:
-	_update_censorship(new_period)
-
-
-func _update_censorship(period: TimeComponent.TimePeriod) -> void:
-	print("[NPCCensor] Update censorship for period: ", period)
-	if period == TimeComponent.TimePeriod.PAST:
-		print("[NPCCensor] Enabling viewport censorship")
-		_enable_viewport_censorship()
-	else:
-		print("[NPCCensor] Disabling viewport censorship")
-		_disable_viewport_censorship()
+	_enable_viewport_censorship()
 
 
 func _enable_viewport_censorship() -> void:
@@ -66,37 +44,37 @@ func _enable_viewport_censorship() -> void:
 	# Find main camera
 	main_camera = get_viewport().get_camera_3d()
 
-	# Duplicate NPC into viewport (keep original hidden)
+	# Duplicate NPC into viewport
 	var npc_clone = target_npc.duplicate()
 
-	# Remove the censor component from the clone to avoid recursion
+	# Remove censor component from clone to avoid recursion
 	for child in npc_clone.get_children():
 		if child is NPCCensorViewportComponent:
 			npc_clone.remove_child(child)
 			child.queue_free()
 			break
 
-	# Reset clone position to viewport origin (keep rotation/scale)
-	npc_clone.position = Vector3.ZERO
 	sub_viewport.add_child(npc_clone)
+	npc_clone.global_transform = target_npc.global_transform  # FIX: preserve world position
+	_make_unshaded(npc_clone)
 
-	# Hide original NPC meshes (not the whole node, to keep billboard visible)
-	hidden_meshes = _find_all_meshes(target_npc)
-	for mesh in hidden_meshes:
-		mesh.visible = false
+	print("=== DEBUG POSITIONS ===")
+	print("target_npc: ", target_npc.name)
+	print("target_npc.global_position: ", target_npc.global_position)
+	print("target_npc.get_parent(): ", target_npc.get_parent().name)
+	print("npc_clone.global_position: ", npc_clone.global_position)
+
+	target_npc.visible = false
 
 	# Create billboard sprite to display the viewport
 	billboard_sprite = Sprite3D.new()
 	billboard_sprite.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	billboard_sprite.texture = sub_viewport.get_texture()
 	billboard_sprite.pixel_size = 0.01
-	billboard_sprite.layers = 2  # Same layer as the NPC meshes
 
-	# Calculate sprite size based on NPC bounds and overflow
+	# Calculate sprite size based on NPC bounds
 	var npc_aabb = _get_npc_aabb(target_npc)
-	print("[NPCCensor] NPC AABB: ", npc_aabb)
 	var sprite_size = max(npc_aabb.size.x, npc_aabb.size.y) * overflow_scale
-	print("[NPCCensor] Billboard sprite size: ", sprite_size)
 	billboard_sprite.scale = Vector3(sprite_size, sprite_size, sprite_size)
 
 	# Setup shader material
@@ -108,70 +86,42 @@ func _enable_viewport_censorship() -> void:
 	billboard_sprite.material_override = shader_material
 
 	target_npc.add_child(billboard_sprite)
-	print("[NPCCensor] Billboard sprite created and added to ", target_npc.name)
-
-
-func _disable_viewport_censorship() -> void:
-	# Restore mesh visibility before hiding whole node
-	for mesh in hidden_meshes:
-		if mesh:
-			mesh.visible = true
-	hidden_meshes.clear()
-
-	# Hide NPC - they only exist in the PAST
-	if target_npc:
-		target_npc.visible = false
-
-	# Clean up viewport and sprite
-	if billboard_sprite:
-		billboard_sprite.queue_free()
-		billboard_sprite = null
-
-	if sub_viewport:
-		sub_viewport.queue_free()
-		sub_viewport = null
-
-	viewport_camera = null
-	main_camera = null
+	print("billboard_sprite.global_position: ", billboard_sprite.global_position)
+	print("main_camera.global_position: ", main_camera.global_position if main_camera else "null")
 
 
 func _process(_delta: float) -> void:
-	# Update viewport camera to match main camera's viewing angle
-	if viewport_camera and main_camera and target_npc:
-		# Calculate transform from NPC's local space to camera
-		var npc_to_camera = target_npc.global_transform.affine_inverse() * main_camera.global_transform
-
-		# Apply this relative transform to viewport camera
-		# (positions camera relative to clone the same way main camera is relative to original)
-		viewport_camera.transform = npc_to_camera
+	# Update viewport camera to match main camera
+	if viewport_camera and main_camera:
+		viewport_camera.global_transform = main_camera.global_transform
 		viewport_camera.fov = main_camera.fov
 
 
-func _get_npc_aabb(npc: Node3D) -> AABB:
-	# Calculate combined AABB of all MeshInstance3D descendants (recursive search)
-	var meshes = _find_all_meshes(npc)
-
-	if meshes.is_empty():
-		return AABB(Vector3.ZERO, Vector3.ONE)
-
-	var combined_aabb = meshes[0].get_aabb()
-	for i in range(1, meshes.size()):
-		combined_aabb = combined_aabb.merge(meshes[i].get_aabb())
-
-	return combined_aabb
-
-
-func _find_all_meshes(node: Node, depth: int = 0) -> Array[MeshInstance3D]:
-	var meshes: Array[MeshInstance3D] = []
-
-	if depth > 10:  # Prevent infinite recursion
-		return meshes
+func _make_unshaded(node: Node) -> void:
+	if node is MeshInstance3D:
+		var mesh_instance = node as MeshInstance3D
+		for i in mesh_instance.get_surface_override_material_count():
+			var mat = mesh_instance.get_active_material(i)
+			if mat is StandardMaterial3D:
+				var unshaded_mat = mat.duplicate()
+				unshaded_mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+				mesh_instance.set_surface_override_material(i, unshaded_mat)
 
 	for child in node.get_children():
-		if child is MeshInstance3D:
-			meshes.append(child)
-		# Continue searching in children recursively
-		if child.get_child_count() > 0:
-			meshes.append_array(_find_all_meshes(child, depth + 1))
+		_make_unshaded(child)
 
-	return meshes
+
+func _get_npc_aabb(npc: Node3D) -> AABB:
+	var combined_aabb = AABB()
+	var first = true
+
+	for child in npc.get_children():
+		if child is MeshInstance3D:
+			var mesh_aabb = child.get_aabb()
+			if first:
+				combined_aabb = mesh_aabb
+				first = false
+			else:
+				combined_aabb = combined_aabb.merge(mesh_aabb)
+
+	return combined_aabb if not first else AABB(Vector3.ZERO, Vector3.ONE)
