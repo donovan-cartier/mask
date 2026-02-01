@@ -11,9 +11,9 @@ class_name RadarHudComponent
 @export var rotation_speed: float = 8.0
 
 @export_group("Colors")
-@export var color_past: Color = Color(0.2, 0.6, 0.9)      # Cold blue
-@export var color_present: Color = Color(1.0, 0.5, 0.1)   # Orange
-@export var color_future: Color = Color(0.5, 0.7, 0.5)    # Grey-green
+@export var color_past: Color = Color(0.2, 0.6, 0.9)     
+@export var color_present: Color = Color(1.0, 0.5, 0.1)   
+@export var color_future: Color = Color(0.5, 0.7, 0.5)   
 
 var shader_material: ShaderMaterial
 var target_rotation_y: float = 0.0
