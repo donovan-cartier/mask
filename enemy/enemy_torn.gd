@@ -11,19 +11,10 @@ func _ready():
 	visible = false
 	Nodes.player.changed_time_period.connect(_on_time_period_changed)
 
-	# Add viewport-based censorship component for PAST time period
-	var censor_component = NPCCensorViewportComponent.new()
-	censor_component.target_npc = self
-	censor_component.viewport_resolution = 128  # Small resolution for performance
-	censor_component.pixel_size = 4.0  # Pixel size for censorship effect
-	censor_component.dither_threshold = 0.5  # Dithering amount
-	censor_component.overflow_scale = 1.3  # Pixels overflow 30% beyond mesh
-	add_child(censor_component)
-
 func _physics_process(delta):
 	path_follow.progress_ratio += SPEED * delta
 
-func _on_time_period_changed(new_time_period: TimeComponent.TimePeriod) -> void:
+func _on_time_period_changed(_new_time_period: TimeComponent.TimePeriod) -> void:
 	if timer:
 		timer.timeout.disconnect(_on_timeout)
 	visible = true
