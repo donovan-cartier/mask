@@ -146,9 +146,11 @@ transform = Transform3D(0.40198326, 0.8811356, -0.24901731, -0.4019831, 0.414173
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.2, -16)
 
 [node name="Mesh" type="MeshInstance3D" parent="Ground" unique_id=1655643610]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11603737, 0.06130719, -2.1607819)
 mesh = SubResource("ArrayMesh_f5ci5")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=1746156751]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.4651337)
 shape = SubResource("BoxShape3D_07v67")
 
 [node name="Ground2" type="StaticBody3D" parent="." unique_id=221377945]

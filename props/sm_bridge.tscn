@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bguaklclvfmpm" path="res://assets/models/bridge/stone_bridge_3arch_2.png" id="3_2ug2g"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_w4aad"]
-size = Vector3(10, 1, 36)
+size = Vector3(10, 1, 45.43799)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4w8a2"]
 resource_name = "M_3arch_StoneBridge"
@@ -57,6 +57,7 @@ shadow_mesh = SubResource("ArrayMesh_tf0q1")
 [node name="SM_Bridge" type="StaticBody3D" unique_id=900737147]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=422151764]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.2324448, 0, -2.2887907, -5.8159)
 shape = SubResource("BoxShape3D_w4aad")
 
 [node name="Mesh" type="MeshInstance3D" parent="." unique_id=787042852]
