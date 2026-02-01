@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://d2gccm2scwqhn"]
+
+[ext_resource type="PackedScene" uid="uid://c4rrl5x256qtr" path="res://levels/AssetsNiveau.blend" id="1_7joxu"]
+
+[node name="Level_Tuto" type="Node3D" unique_id=209618876]
+
+[node name="AssetsNiveau" parent="." unique_id=857102085 instance=ExtResource("1_7joxu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1286753, -2.1410108, 0.34905505)
