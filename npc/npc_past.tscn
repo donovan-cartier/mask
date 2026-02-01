@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://fkfju3xla6mi"]
 
+[ext_resource type="Script" uid="uid://b366slnruml7o" path="res://npc/npc_past.gd" id="1_m34s2"]
 [ext_resource type="Texture2D" uid="uid://lm5dofov3l6b" path="res://SoldatLOW10_Ch15__UDIM__Diffuse.png" id="2_m34s2"]
 [ext_resource type="Material" uid="uid://b8f0kormeiuat" path="res://assets/models/building/mesh/high_past.tres" id="3_vrnkw"]
 [ext_resource type="Script" uid="uid://c3y5yun2o302u" path="res://components/disappear_component.gd" id="4_m34s2"]
@@ -777,6 +778,7 @@ _data = {
 
 [node name="SoldatLOW10" type="Node3D" unique_id=534007340]
 transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0)
+script = ExtResource("1_m34s2")
 
 [node name="Armature" type="Node3D" parent="." unique_id=588660158]
 transform = Transform3D(0.01, 0, 0, 0, 0, -0.01, 0, 0.01, 0, 0, 0, 0)
@@ -1249,8 +1251,7 @@ deterministic = true
 reset_on_save = false
 libraries/ = SubResource("AnimationLibrary_1qmns")
 
-[node name="TimeComponent" type="Node" parent="." unique_id=91232398 node_paths=PackedStringArray("custom_owner")]
+[node name="TimeComponent" type="Node" parent="." unique_id=91232398]
 script = ExtResource("4_m34s2")
 time_period = 0
-custom_owner = NodePath("")
 metadata/_custom_type_script = "uid://c3y5yun2o302u"

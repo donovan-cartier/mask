@@ -6,10 +6,12 @@
 [ext_resource type="Animation" uid="uid://rfdw1ry7c1vm" path="res://player/arms/arms_anim.tres" id="4_8t03j"]
 [ext_resource type="Texture2D" uid="uid://baigktmm5byld" path="res://player/shifter/Shifter2 (2)_door014-Dither.png" id="4_hg6s5"]
 [ext_resource type="Texture2D" uid="uid://bqcvmicovjtvl" path="res://player/shifter/Shifter2 (2)_SurfaceImperfections003_1K-JPG_Color.jpg" id="5_8t03j"]
+[ext_resource type="Animation" uid="uid://ckgkparv638h" path="res://player/arms/arms_anim_v2.tres" id="5_ebec5"]
 [ext_resource type="Texture2D" uid="uid://cvm8ncyfv0w2" path="res://player/shifter/Shifter2 (2)_Metal053B_1K-JPG_Color.jpg" id="6_2ieo8"]
 [ext_resource type="Material" uid="uid://ctyeqqmrfnj7x" path="res://player/shifter/m_screen.tres" id="6_hg6s5"]
 [ext_resource type="Texture2D" uid="uid://cotwt2a5qtpxh" path="res://player/shifter/Shifter2 (2)_Metal053B_1K-JPG_Metalness.png" id="7_ebec5"]
 [ext_resource type="Texture2D" uid="uid://be5v1scbitdjq" path="res://player/shifter/Shifter2 (2)_Metal053B_1K-JPG_NormalGL.jpg" id="8_yllr7"]
+[ext_resource type="AudioStream" uid="uid://voq62op34a81" path="res://assets/sfx/sfx_change_time.ogg" id="11_2ieo8"]
 
 [sub_resource type="Skin" id="Skin_v2wg5"]
 resource_name = "Skin"
@@ -29,7 +31,8 @@ bind/3/pose = Transform3D(3.629819, -2.9251783e-09, 0.66517645, -0.032173954, 3.
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7qbf4"]
 _data = {
-&"arms_anim": ExtResource("4_8t03j")
+&"arms_anim": ExtResource("4_8t03j"),
+&"arms_anim_v2": ExtResource("5_ebec5")
 }
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ka7ve"]
@@ -202,14 +205,14 @@ bones/1/parent = 0
 bones/1/rest = Transform3D(0.9756798, 0.21884249, -0.0125259645, -0.217643, 0.9739637, 0.06345223, 0.026085882, -0.059182867, 0.99790627, 1.7444108e-08, 0.7498021, 5.820766e-09)
 bones/1/enabled = true
 bones/1/position = Vector3(1.7444108e-08, 0.7498021, 5.820766e-09)
-bones/1/rotation = Quaternion(-0.030861787, -0.009716879, -0.10984393, 0.9934221)
+bones/1/rotation = Quaternion(-0.0074759675, -0.011668747, -0.08863648, 0.9959676)
 bones/1/scale = Vector3(1, 0.99999994, 1)
 bones/2/name = "Bone.002"
 bones/2/parent = 1
 bones/2/rest = Transform3D(0.99993694, 0.011221857, 0.00031116136, -0.01118534, 0.99355584, 0.11279155, 0.0009565743, -0.112787925, 0.9936188, -1.0122312e-07, 0.7170131, -2.7939677e-09)
 bones/2/enabled = true
 bones/2/position = Vector3(-1.0122312e-07, 0.7170131, -2.7939677e-09)
-bones/2/rotation = Quaternion(-0.056485947, -0.00016161354, -0.005610852, 0.99838763)
+bones/2/rotation = Quaternion(-0.047802623, 4.4441196e-05, -0.026478153, 0.99850583)
 bones/2/scale = Vector3(0.99999994, 1.0000001, 1.0000001)
 bones/3/name = "neutral_bone"
 bones/3/parent = -1
@@ -220,8 +223,8 @@ bones/3/rotation = Quaternion(-0.70710677, 0, 0, 0.70710677)
 bones/3/scale = Vector3(1, 1, 1)
 
 [node name="Object_7" type="MeshInstance3D" parent="Head/Camera3D/Hands/Armature/Skeleton3D" unique_id=1453898668]
-cast_shadow = 0
 layers = 4
+cast_shadow = 0
 mesh = ExtResource("3_hg6s5")
 skin = SubResource("Skin_v2wg5")
 skeleton = NodePath("..")
@@ -233,8 +236,8 @@ speed_scale = 3.0
 
 [node name="Shifter" type="MeshInstance3D" parent="Head/Camera3D/Hands" unique_id=1982065073]
 transform = Transform3D(-0.28499058, 0.001297383, -0.0009508473, 0.0001176876, 0.24400501, 0.07285665, 0.0023158465, 0.14725776, -0.12071456, 2.5559533e-08, -0.035353273, 0.4628164)
-cast_shadow = 0
 layers = 4
+cast_shadow = 0
 mesh = SubResource("ArrayMesh_b6l1p")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="Head/Camera3D" unique_id=1858380329]
@@ -261,3 +264,4 @@ cull_mask = 4
 shape = SubResource("CapsuleShape3D_kqu6x")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=461014508]
+stream = ExtResource("11_2ieo8")

@@ -4,7 +4,7 @@ class_name EnemyTorn
 @export var path_follow: PathFollow3D
 var timer: SceneTreeTimer
 
-const SPEED = .1
+const SPEED = .01
 
 func _ready():
 	assert(path_follow != null, "Il faut un path_follow")

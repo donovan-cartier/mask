@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://nj062aydiwtq"]
+
+[ext_resource type="PackedScene" uid="uid://bcndarh8yr5cj" path="res://assets/models/canette/can.glb" id="1_5pf6c"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_i8m7r"]
+height = 3.1923828
+radius = 1.0576172
+
+[node name="StaticBody3D" type="StaticBody3D" unique_id=682736198]
+transform = Transform3D(0.8161779, 0.40179458, -0.4152285, 0, 0.7186363, 0.6953862, 0.57780063, -0.5675588, 0.58653504, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1141462242]
+transform = Transform3D(0.9999999, 1.4901161e-07, 0, 1.1920929e-07, 0.9999999, 0, -5.9604645e-08, 8.940697e-08, 1, 4.7683716e-07, 1.802242, 4.172325e-06)
+shape = SubResource("CylinderShape3D_i8m7r")
+
+[node name="can2" parent="." unique_id=894835424 instance=ExtResource("1_5pf6c")]

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://7advkwq6iukd"]
+
+[ext_resource type="PackedScene" uid="uid://du5lcb8hba4bo" path="res://assets/models/cigarette/cigaret.glb" id="1_134o6"]
+[ext_resource type="Script" uid="uid://c3y5yun2o302u" path="res://components/disappear_component.gd" id="2_lb7mx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_134o6"]
+size = Vector3(5.901123, 0.75146484, 0.70458984)
+
+[node name="StaticBody3D3" type="StaticBody3D" unique_id=899671309]
+
+[node name="cigaret" parent="." unique_id=1314717692 instance=ExtResource("1_134o6")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1096844694]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02331543, 2.522705, 0.026611328)
+shape = SubResource("BoxShape3D_134o6")
+
+[node name="TimeComponent" type="Node" parent="." unique_id=1789722309]
+script = ExtResource("2_lb7mx")
+metadata/_custom_type_script = "uid://c3y5yun2o302u"
