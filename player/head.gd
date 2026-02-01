@@ -1,8 +1,11 @@
 extends Node3D
 
 var mouse_sense = 0.1
-var flicker_timer = 0.0
-var flicker_delay = 0.5  # Délai initial
+
+# Screen flicker
+var flicker_active: bool = false
+var flicker_duration: float = 0.0
+var flicker_interval: float = 0.0
 
 # Screen shake
 var shake_intensity: float = 0.0
@@ -28,10 +31,17 @@ func _input(event):
 func _process(delta):
 	hands.position.x = lerp(hands.position.x, default_hand_position.x, delta * 5)
 	hands.position.y = lerp(hands.position.y, default_hand_position.y, delta * 5)
-	flicker_timer -= delta
-	if flicker_timer <= 0:
-		random_flicker()
-		flicker_timer = randf_range(0.1, .2)  # Délai aléatoire entre 0.1 et 1.0 secondes
+
+	# Flicker cycle
+	if flicker_active:
+		flicker_duration -= delta
+		flicker_interval -= delta
+		if flicker_interval <= 0:
+			m_screen.set("emission_energy_multiplier", randf_range(0.5, 2.0))
+			flicker_interval = randf_range(0.05, 0.15)
+		if flicker_duration <= 0:
+			flicker_active = false
+			m_screen.set("emission_energy_multiplier", 0.0)
 
 	# Apply screen shake
 	if shake_intensity > 0:
@@ -44,6 +54,11 @@ func _process(delta):
 			camera.v_offset = 0.0
 
 	item_camera.global_transform = camera.global_transform
+
+func start_flicker(duration: float = 3.0) -> void:
+	flicker_active = true
+	flicker_duration = duration
+	flicker_interval = 0.0
 
 func random_flicker() -> void:
 	var flicker_value = randf_range(0, 1.93)  # Valeur aléatoire entre 0 et 1
