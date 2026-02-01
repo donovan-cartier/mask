@@ -1,12 +1,12 @@
 [gd_scene format=4 uid="uid://doo3gukgrqyan"]
 
-[ext_resource type="Script" path="res://levels/level_script.gd" id="1_wp7e1"]
+[ext_resource type="Script" uid="uid://bmm4bi8fxt40b" path="res://levels/level_script.gd" id="1_wp7e1"]
 [ext_resource type="Material" uid="uid://o8sriepvtnf1" path="res://assets/models/sols/Route.tres" id="2_f5ci5"]
-[ext_resource type="PackedScene" path="res://props/sm_auto_building.tscn" id="3_f5ci5"]
+[ext_resource type="PackedScene" uid="uid://dg5l43n1ulycj" path="res://props/sm_auto_building.tscn" id="3_f5ci5"]
 [ext_resource type="Resource" uid="uid://df8bywsts0nbe" path="res://props/buildings/building_tall.tres" id="4_07v67"]
 [ext_resource type="Resource" uid="uid://ck8mfq40jr5p5" path="res://props/buildings/hausmannian.tres" id="6_d57tx"]
 [ext_resource type="PackedScene" uid="uid://bdf5bg57ul2vw" path="res://assets/models/sols/Trotoire5.glb" id="6_ng3iq"]
-[ext_resource type="Resource" path="res://props/buildings/bridge.tres" id="6_vu34y"]
+[ext_resource type="Resource" uid="uid://cuc5x5gw1amf7" path="res://props/buildings/bridge.tres" id="6_vu34y"]
 [ext_resource type="PackedScene" uid="uid://buusp4b26d4it" path="res://assets/models/pile_pappers/paper01.glb" id="7_aisic"]
 [ext_resource type="Resource" uid="uid://i6x7on05x8gr" path="res://props/buildings/hlm-hole.tres" id="8_6vvj7"]
 [ext_resource type="PackedScene" uid="uid://bcndarh8yr5cj" path="res://assets/models/canette/can.glb" id="8_vu34y"]
@@ -460,12 +460,27 @@ type = 2
 custom_rotation = Vector3(-90, 0, 0)
 
 [node name="SM_AutoBuilding43" parent="." unique_id=2093897855 instance=ExtResource("3_f5ci5")]
-transform = Transform3D(0.62999994, 0, -3.9790393e-15, 0, 0.62999994, 0, 4.476419e-15, 0, 0.39199996, 16.149572, 9.300001, -5.661846)
+transform = Transform3D(0.62999994, 0, -2.7853277e-15, 0, 0.62999994, 0, 4.476419e-15, 0, 0.39199996, 16.149572, 9.300001, -5.661846)
 building = ExtResource("8_6vvj7")
 type = 2
 
 [node name="SM_AutoBuilding44" parent="." unique_id=894056701 instance=ExtResource("3_f5ci5")]
 transform = Transform3D(0.62999994, 0, -3.9790393e-15, 0, 0.378, 0, 4.476419e-15, 0, 0.39199996, 18.149572, 4.300001, -33.661846)
+building = ExtResource("9_5ddvy")
+type = 2
+
+[node name="SM_AutoBuilding45" parent="." unique_id=657470784 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(-0.62999946, 0, 0.0004925936, 0, 0.62999994, 0, -0.00079166837, 0, -0.39199966, -14.911898, 8.19758, -33.890984)
+building = ExtResource("8_6vvj7")
+type = 2
+
+[node name="SM_AutoBuilding46" parent="." unique_id=1395940035 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(-0.6299995, 0, 0.0004925937, 0, 0.378, 0, -0.0007916684, 0, -0.3919997, -16.947083, 4.300001, -2.1412106)
+building = ExtResource("9_5ddvy")
+type = 2
+
+[node name="SM_AutoBuilding47" parent="." unique_id=222151295 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(0.6299829, 0, 0.0029009003, 0, 0.37799996, 0, -0.004662171, 0, 0.39198926, -15.1107025, 4.300001, -14.566286)
 building = ExtResource("9_5ddvy")
 type = 2
 

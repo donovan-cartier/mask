@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://sb26glav60ke" path="res://assets/models/Eglise.glb" id="1_5cv3b"]
 [ext_resource type="Script" uid="uid://c3y5yun2o302u" path="res://components/disappear_component.gd" id="2_bn247"]
+[ext_resource type="PackedScene" uid="uid://cl04qg3mosde1" path="res://assets/models/present_pannel.glb" id="3_khmjt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qhrip"]
 size = Vector3(19.77655, 26.646881, 1)
@@ -19,3 +20,6 @@ shape = SubResource("BoxShape3D_qhrip")
 script = ExtResource("2_bn247")
 time_period = 0
 metadata/_custom_type_script = "uid://c3y5yun2o302u"
+
+[node name="present_pannel" parent="." unique_id=1761758027 instance=ExtResource("3_khmjt")]
+transform = Transform3D(0.08141293, -0.029790634, 0.23448795, -0.21757628, 0.08747427, 0.08665456, -0.09237251, -0.23229517, 0.0025592, -4.2888575, 13.338878, -14.64688)
