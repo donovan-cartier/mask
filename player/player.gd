@@ -71,7 +71,7 @@ func _handle_time_period_change() -> void:
 
 		var previous_time_period: TimeComponent.TimePeriod = _get_previous_time_period(current_time_period)
 		current_time_period = previous_time_period
-		animation_player.play("arms_anim")
+		animation_player.play("arms_anim_v2")
 
 	elif Input.is_action_just_pressed("next_time_period"):
 		if current_time_period == TimeComponent.TimePeriod.FUTURE:
@@ -80,7 +80,7 @@ func _handle_time_period_change() -> void:
 		var next_time_period: TimeComponent.TimePeriod = _get_next_time_period(current_time_period)
 		current_time_period = next_time_period
 
-		animation_player.play("arms_anim")
+		animation_player.play("arms_anim_v2")
 
 func _get_previous_time_period(current: TimeComponent.TimePeriod) -> TimeComponent.TimePeriod:
 	match current:
