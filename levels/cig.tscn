@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://du5lcb8hba4bo" path="res://assets/models/cigarette/cigaret.glb" id="1_134o6"]
 [ext_resource type="Script" uid="uid://c3y5yun2o302u" path="res://components/disappear_component.gd" id="2_lb7mx"]
+[ext_resource type="PackedScene" uid="uid://26pgoc4sx8l1" path="res://assets/models/future_pannel.glb" id="3_704xi"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_134o6"]
 size = Vector3(5.901123, 0.75146484, 0.70458984)
@@ -17,3 +18,6 @@ shape = SubResource("BoxShape3D_134o6")
 [node name="TimeComponent" type="Node" parent="." unique_id=1789722309]
 script = ExtResource("2_lb7mx")
 metadata/_custom_type_script = "uid://c3y5yun2o302u"
+
+[node name="future_pannel" parent="." unique_id=1202556378 instance=ExtResource("3_704xi")]
+transform = Transform3D(0.14036913, 0.009705555, -0.05198375, 0.0016898958, 0.1465535, 0.031925213, 0.05285501, -0.030461075, 0.13703457, -2.5830088, 2.8037372, -0.06433916)

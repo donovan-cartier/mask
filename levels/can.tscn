@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://nj062aydiwtq"]
 
 [ext_resource type="PackedScene" uid="uid://bcndarh8yr5cj" path="res://assets/models/canette/can.glb" id="1_5pf6c"]
+[ext_resource type="PackedScene" uid="uid://bgc1s7ft6wyea" path="res://assets/models/past_pannel.glb" id="2_i8m7r"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_i8m7r"]
 height = 3.1923828
@@ -14,3 +15,6 @@ transform = Transform3D(0.9999999, 1.4901161e-07, 0, 1.1920929e-07, 0.9999999, 0
 shape = SubResource("CylinderShape3D_i8m7r")
 
 [node name="can2" parent="." unique_id=894835424 instance=ExtResource("1_5pf6c")]
+
+[node name="past_pannel" parent="." unique_id=1208258959 instance=ExtResource("2_i8m7r")]
+transform = Transform3D(0.13883825, 0.026289186, -0.050327156, -0.052724972, 0.10903288, -0.088498086, 0.021071814, 0.099602774, 0.11016019, 0.5514306, 3.1673582, 0.64154476)
