@@ -1,7 +1,7 @@
 shader_type canvas_item;
 
 // Pixelation and dithering parameters
-uniform float pixel_size : hint_range(1.0, 32.0) = 8.0;
+uniform float pixel_size : hint_range(0.0, 32.0) = 8.0;
 uniform float dither_threshold : hint_range(0.0, 1.0) = 0.5;
 
 // Bayer 4x4 dithering matrix

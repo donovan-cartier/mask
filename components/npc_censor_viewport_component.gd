@@ -16,6 +16,7 @@ var viewport_camera: Camera3D
 var billboard_sprite: Sprite3D
 var shader_material: ShaderMaterial
 var main_camera: Camera3D
+var hidden_meshes: Array[MeshInstance3D] = []
 
 
 func _ready() -> void:
@@ -41,9 +42,12 @@ func _on_time_period_changed(new_period: TimeComponent.TimePeriod) -> void:
 
 
 func _update_censorship(period: TimeComponent.TimePeriod) -> void:
+	print("[NPCCensor] Update censorship for period: ", period)
 	if period == TimeComponent.TimePeriod.PAST:
+		print("[NPCCensor] Enabling viewport censorship")
 		_enable_viewport_censorship()
 	else:
+		print("[NPCCensor] Disabling viewport censorship")
 		_disable_viewport_censorship()
 
 
@@ -75,17 +79,24 @@ func _enable_viewport_censorship() -> void:
 	# Reset clone position to viewport origin (keep rotation/scale)
 	npc_clone.position = Vector3.ZERO
 	sub_viewport.add_child(npc_clone)
-	target_npc.visible = false
+
+	# Hide original NPC meshes (not the whole node, to keep billboard visible)
+	hidden_meshes = _find_all_meshes(target_npc)
+	for mesh in hidden_meshes:
+		mesh.visible = false
 
 	# Create billboard sprite to display the viewport
 	billboard_sprite = Sprite3D.new()
 	billboard_sprite.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	billboard_sprite.texture = sub_viewport.get_texture()
-	billboard_sprite.pixel_size = 0.01  # Adjust to match NPC size
+	billboard_sprite.pixel_size = 0.01
+	billboard_sprite.layers = 2  # Same layer as the NPC meshes
 
 	# Calculate sprite size based on NPC bounds and overflow
 	var npc_aabb = _get_npc_aabb(target_npc)
+	print("[NPCCensor] NPC AABB: ", npc_aabb)
 	var sprite_size = max(npc_aabb.size.x, npc_aabb.size.y) * overflow_scale
+	print("[NPCCensor] Billboard sprite size: ", sprite_size)
 	billboard_sprite.scale = Vector3(sprite_size, sprite_size, sprite_size)
 
 	# Setup shader material
@@ -97,12 +108,19 @@ func _enable_viewport_censorship() -> void:
 	billboard_sprite.material_override = shader_material
 
 	target_npc.add_child(billboard_sprite)
+	print("[NPCCensor] Billboard sprite created and added to ", target_npc.name)
 
 
 func _disable_viewport_censorship() -> void:
-	# Show original NPC
+	# Restore mesh visibility before hiding whole node
+	for mesh in hidden_meshes:
+		if mesh:
+			mesh.visible = true
+	hidden_meshes.clear()
+
+	# Hide NPC - they only exist in the PAST
 	if target_npc:
-		target_npc.visible = true
+		target_npc.visible = false
 
 	# Clean up viewport and sprite
 	if billboard_sprite:
@@ -130,17 +148,30 @@ func _process(_delta: float) -> void:
 
 
 func _get_npc_aabb(npc: Node3D) -> AABB:
-	# Calculate combined AABB of all MeshInstance3D children
-	var combined_aabb = AABB()
-	var first = true
+	# Calculate combined AABB of all MeshInstance3D descendants (recursive search)
+	var meshes = _find_all_meshes(npc)
 
-	for child in npc.get_children():
+	if meshes.is_empty():
+		return AABB(Vector3.ZERO, Vector3.ONE)
+
+	var combined_aabb = meshes[0].get_aabb()
+	for i in range(1, meshes.size()):
+		combined_aabb = combined_aabb.merge(meshes[i].get_aabb())
+
+	return combined_aabb
+
+
+func _find_all_meshes(node: Node, depth: int = 0) -> Array[MeshInstance3D]:
+	var meshes: Array[MeshInstance3D] = []
+
+	if depth > 10:  # Prevent infinite recursion
+		return meshes
+
+	for child in node.get_children():
 		if child is MeshInstance3D:
-			var mesh_aabb = child.get_aabb()
-			if first:
-				combined_aabb = mesh_aabb
-				first = false
-			else:
-				combined_aabb = combined_aabb.merge(mesh_aabb)
+			meshes.append(child)
+		# Continue searching in children recursively
+		if child.get_child_count() > 0:
+			meshes.append_array(_find_all_meshes(child, depth + 1))
 
-	return combined_aabb if not first else AABB(Vector3.ZERO, Vector3.ONE)
+	return meshes
