@@ -1,0 +1,16 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://be75uwbbgdmpv"]
+
+[ext_resource type="Texture2D" uid="uid://b51hrte7fmltj" path="res://assets/models/building/Building1_Image_0.jpg" id="1_sdxdo"]
+[ext_resource type="Texture2D" uid="uid://cfypm30rdavq5" path="res://assets/models/building/Building1_Image_1.png" id="2_nnxuf"]
+[ext_resource type="Texture2D" uid="uid://80m61i00sb7y" path="res://assets/models/building/Building1_Image_2.png" id="3_efd2m"]
+
+[resource]
+resource_name = "building"
+cull_mode = 2
+albedo_texture = ExtResource("1_sdxdo")
+metallic_texture = ExtResource("2_nnxuf")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_nnxuf")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_efd2m")

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dg5l43n1ulycj"]
+
+[ext_resource type="Script" uid="uid://c65ercydb8vgj" path="res://props/sm_auto_building.gd" id="1_albyo"]
+
+[node name="SM_AutoBuilding" type="StaticBody3D" unique_id=1803780547 groups=["autobuilding"]]
+script = ExtResource("1_albyo")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=589550950]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2088620081]

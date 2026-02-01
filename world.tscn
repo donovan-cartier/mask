@@ -1,7 +1,6 @@
 [gd_scene format=4 uid="uid://bwvbtaqfrrog5"]
 
 [ext_resource type="PackedScene" uid="uid://bb5uc6nu74o4k" path="res://player/player.tscn" id="1_f3sb7"]
-[ext_resource type="PackedScene" uid="uid://doo3gukgrqyan" path="res://levels/level_tuto.tscn" id="2_fj7yv"]
 [ext_resource type="Script" uid="uid://cjqd4fm7p63bi" path="res://ui/ui.gd" id="3_tlwt5"]
 [ext_resource type="Script" uid="uid://bs3wlst63ntb5" path="res://environments/environment_manager.gd" id="4_env_manager"]
 [ext_resource type="Environment" uid="uid://dlpppkhljj7l3" path="res://environments/past_environment.tres" id="5_past_env"]
@@ -13,6 +12,7 @@
 [ext_resource type="Script" uid="uid://bpl36gdikyp1b" path="res://enemy/camera.gd" id="9_k3n1d"]
 [ext_resource type="PackedScene" uid="uid://cpy4p6l2rwplm" path="res://enemy/enemy_path.tscn" id="10_wse8f"]
 [ext_resource type="Texture2D" uid="uid://duhwsatrqy7s5" path="res://icon.svg" id="11_k3n1d"]
+[ext_resource type="PackedScene" uid="uid://cct7ph8bc5igv" path="res://levels/autobuilding_test.tscn" id="13_2o6r5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f3sb7"]
 sky_top_color = Color(0.44344002, 0.4359725, 0.5365931, 1)
@@ -177,7 +177,7 @@ bind/36/name = &"toe.R"
 bind/36/bone = -1
 bind/36/pose = Transform3D(-0.99337864, 0.040370982, 0.107559465, 0.10387476, -0.08434068, 0.9910066, 0.049079727, 0.9956188, 0.079589084, -0.4089489, -0.041872375, -0.01837041)
 
-[sub_resource type="Curve3D" id="Curve3D_k3n1d"]
+[sub_resource type="Curve3D" id="Curve3D_2o6r5"]
 resource_local_to_scene = true
 closed = true
 bake_interval = 21.76
@@ -199,9 +199,6 @@ present_environment = ExtResource("6_present_env")
 future_environment = ExtResource("7_future_env")
 
 [node name="ParticleManager" parent="." unique_id=2107681253 instance=ExtResource("8_particles")]
-
-[node name="Level_Tuto" parent="." unique_id=209618876 instance=ExtResource("2_fj7yv")]
-transform = Transform3D(0.99782884, 0, 0, 0, 0.99782884, 0, 0, 0, 0.99782884, 0.27954572, -0.22037053, -0.09231925)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=419538800]
 
@@ -531,7 +528,7 @@ skeleton = NodePath("..")
 
 [node name="EnemyPath" parent="." unique_id=465993253 instance=ExtResource("10_wse8f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20)
-curve = SubResource("Curve3D_k3n1d")
+curve = SubResource("Curve3D_2o6r5")
 
 [node name="PathFollow3D" parent="EnemyPath" index="0" unique_id=915562882]
 transform = Transform3D(0.7761073, 0, -0.63059086, 0, 0.99999815, 0, 0.63058823, 0, 0.77611053, -6.4268837, 0, -48.622658)
@@ -539,5 +536,7 @@ transform = Transform3D(0.7761073, 0, -0.63059086, 0, 0.99999815, 0, 0.63058823,
 [node name="Enemy_Torn" parent="EnemyPath/PathFollow3D" index="0" unique_id=1007347102 node_paths=PackedStringArray("path_follow") instance=ExtResource("9_ioo17")]
 transform = Transform3D(1, -1.8626451e-09, 0, 1.8626451e-09, 1.0000001, 0, 2.9802322e-08, -5.551115e-17, 1.0000001, 0, 1.0000019, 0)
 path_follow = NodePath("..")
+
+[node name="Level_Tuto" parent="." unique_id=209618876 instance=ExtResource("13_2o6r5")]
 
 [editable path="EnemyPath"]
