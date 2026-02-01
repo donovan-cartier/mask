@@ -62,6 +62,9 @@ func _calculate_speed() -> float:
 	return SPEED
 
 func _handle_time_period_change() -> void:
+	if animation_player.is_playing():
+		return 
+
 	if Input.is_action_just_pressed("previous_time_period"):
 		if current_time_period == TimeComponent.TimePeriod.PAST:
 			return
