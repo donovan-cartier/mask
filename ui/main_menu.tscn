@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://djhr8noqlwjck"]
 
 [ext_resource type="Script" uid="uid://cjejls2ovpv7n" path="res://ui/main_menu.gd" id="1_script"]
-[ext_resource type="Texture2D" uid="uid://ilwbbvh1na6w" path="res://ui/Group 5.jpg" id="2_0dkrt"]
+[ext_resource type="Texture2D" uid="uid://cq3hiqhlemnk6" path="res://ui/BG.png" id="2_wk0pr"]
+[ext_resource type="Texture2D" uid="uid://cvdpluju2psn" path="res://ui/ebc21d30-9bc3-466c-8707-83e033997697_removalai_preview.png" id="3_wk0pr"]
 
-[node name="MainMenu" type="Control" unique_id=187725763]
+[node name="MainMenu" type="Control" unique_id=292153213]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,39 +13,53 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_script")
 
-[node name="Background" type="TextureRect" parent="." unique_id=1049846848]
+[node name="Background" type="TextureRect" parent="." unique_id=2098875297]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -79.0
-offset_top = -39.0
-offset_right = 17.0
-offset_bottom = 55.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_0dkrt")
+texture = ExtResource("2_wk0pr")
 expand_mode = 1
+stretch_mode = 6
 
-[node name="Buttons" type="VBoxContainer" parent="." unique_id=1498108923]
+[node name="LeftContainer" type="VBoxContainer" parent="." unique_id=1382765857]
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 175.0
-offset_top = -329.0
-offset_right = 617.0
-grow_vertical = 0
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 100.0
+offset_top = -150.0
+offset_right = 734.0
+offset_bottom = 201.57117
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="Logo" type="TextureRect" parent="LeftContainer" unique_id=2099924306]
+custom_minimum_size = Vector2(300, 150)
+layout_mode = 2
+texture = ExtResource("3_wk0pr")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="LeftContainer" unique_id=595578459]
+layout_mode = 2
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_top = 20
+
+[node name="Buttons" type="VBoxContainer" parent="LeftContainer/MarginContainer" unique_id=1149128224]
+layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="PlayButton" type="Button" parent="Buttons" unique_id=995998587]
+[node name="PlayButton" type="Button" parent="LeftContainer/MarginContainer/Buttons" unique_id=916439603]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "PLAY"
 
-[node name="QuitButton" type="Button" parent="Buttons" unique_id=1134320370]
+[node name="QuitButton" type="Button" parent="LeftContainer/MarginContainer/Buttons" unique_id=973952654]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
