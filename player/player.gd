@@ -30,6 +30,9 @@ func _input(event):
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
+	if event is InputEventKey and event.pressed and event.keycode == Key.KEY_ENTER:
+		get_tree().quit()
+
 func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y -= GRAVITY * delta
