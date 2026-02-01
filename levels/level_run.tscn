@@ -26,7 +26,7 @@ size = Vector3(16.600586, 1, 24.075195)
 [sub_resource type="BoxShape3D" id="BoxShape3D_07v67"]
 size = Vector3(33.382813, 1, 49.658203)
 
-[node name="Level_Tuto" type="Node3D" unique_id=209618876]
+[node name="level_run" type="Node3D" unique_id=209618876]
 script = ExtResource("1_t0xkt")
 
 [node name="Player" parent="." unique_id=1752358920 instance=ExtResource("8_qhrip")]
@@ -70,8 +70,12 @@ transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 13.857555, 36.740025, -153.39
 [node name="StaticBody3D2" parent="." unique_id=747756022 instance=ExtResource("5_mquu4")]
 transform = Transform3D(-0.06278984, -0.46682113, -0.16773629, -0.05958114, 0.17494833, -0.46458918, 0.49245045, -0.038355127, -0.07759743, -6.0476007, -4.104924, -64.84968)
 
+[node name="StaticBody3D7" parent="." unique_id=1215886578 instance=ExtResource("5_mquu4")]
+transform = Transform3D(-0.06278984, -0.46682113, -0.16773629, -0.05958114, 0.17494833, -0.46458918, 0.49245045, -0.038355127, -0.07759743, -6.0476007, -4.104924, -64.84968)
+
 [node name="cigaret" parent="." unique_id=899671309 instance=ExtResource("6_xjd5t")]
 transform = Transform3D(0.54047036, 0.43570244, -0.7197605, -0.2616228, 0.90009075, 0.34841087, 0.79965323, 0, 0.6004621, -16.968903, 3.9570346, -71.49618)
+visible = false
 
 [node name="StaticBody3D3" parent="." unique_id=313069973 instance=ExtResource("7_xjd5t")]
 transform = Transform3D(-0.3676575, 0.119200535, 0.9222902, 0.49371147, 0.86546636, 0.08495451, -0.78808457, 0.48657945, -0.3770458, -23.21333, -0.26485157, -89.46175)
