@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Building" format=3 uid="uid://henofb30v2ar"]
+
+[ext_resource type="ArrayMesh" uid="uid://bfh8gh81h07ed" path="res://props/buildings/hlm_hole_future.tres" id="1_jw5h0"]
+[ext_resource type="Shape3D" uid="uid://1d6fnxfns4hy" path="res://assets/models/building/mesh/building_tall_shape.tres" id="2_7yoa8"]
+[ext_resource type="Script" uid="uid://0s6ikh6u26ov" path="res://props/buildings/building.gd" id="4_tiio6"]
+
+[resource]
+script = ExtResource("4_tiio6")
+future_mesh = ExtResource("1_jw5h0")
+past_shape = ExtResource("2_7yoa8")
+present_shape = ExtResource("2_7yoa8")
+metadata/_custom_type_script = "uid://0s6ikh6u26ov"

@@ -4,11 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://c4rrl5x256qtr"
-valid=false
+path="res://.godot/imported/AssetsNiveau.blend-3a5587c98a3d6c5cce833d858d2c9f0f.scn"
 
 [deps]
 
 source_file="res://levels/AssetsNiveau.blend"
+dest_files=["res://.godot/imported/AssetsNiveau.blend-3a5587c98a3d6c5cce833d858d2c9f0f.scn"]
 
 [params]
 

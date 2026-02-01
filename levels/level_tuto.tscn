@@ -2,17 +2,17 @@
 
 [ext_resource type="Script" uid="uid://bmm4bi8fxt40b" path="res://levels/level_script.gd" id="1_wp7e1"]
 [ext_resource type="Material" uid="uid://o8sriepvtnf1" path="res://assets/models/sols/Route.tres" id="2_f5ci5"]
+[ext_resource type="PackedScene" uid="uid://u6a61wxvtrt7" path="res://assets/models/SacDeSable1.glb" id="3_75lo3"]
 [ext_resource type="PackedScene" uid="uid://dg5l43n1ulycj" path="res://props/sm_auto_building.tscn" id="3_f5ci5"]
+[ext_resource type="PackedScene" uid="uid://dgd6mt7hxklfg" path="res://assets/models/PoteauElec.glb" id="4_2oy0l"]
 [ext_resource type="Resource" uid="uid://df8bywsts0nbe" path="res://props/buildings/building_tall.tres" id="4_07v67"]
 [ext_resource type="Resource" uid="uid://ck8mfq40jr5p5" path="res://props/buildings/hausmannian.tres" id="6_d57tx"]
 [ext_resource type="PackedScene" uid="uid://bdf5bg57ul2vw" path="res://assets/models/sols/Trotoire5.glb" id="6_ng3iq"]
 [ext_resource type="Resource" uid="uid://cuc5x5gw1amf7" path="res://props/buildings/bridge.tres" id="6_vu34y"]
 [ext_resource type="PackedScene" uid="uid://buusp4b26d4it" path="res://assets/models/pile_pappers/paper01.glb" id="7_aisic"]
-[ext_resource type="Resource" uid="uid://i6x7on05x8gr" path="res://props/buildings/hlm-hole.tres" id="8_6vvj7"]
 [ext_resource type="PackedScene" uid="uid://bcndarh8yr5cj" path="res://assets/models/canette/can.glb" id="8_vu34y"]
-[ext_resource type="Resource" uid="uid://sbjnyaiphsdo" path="res://props/buildings/hlm-half-future.tres" id="9_5ddvy"]
 [ext_resource type="PackedScene" uid="uid://du5lcb8hba4bo" path="res://assets/models/cigarette/cigaret.glb" id="9_d57tx"]
-[ext_resource type="PackedScene" uid="uid://rituksa5cdpp" path="res://props/sm_camp_fence.tscn" id="10_aisic"]
+[ext_resource type="Resource" uid="uid://henofb30v2ar" path="res://props/buildings/futur.tres" id="9_jkvda"]
 [ext_resource type="PackedScene" uid="uid://d3wav4uyiew56" path="res://props/affiche.glb" id="12_d57tx"]
 [ext_resource type="PackedScene" uid="uid://b13smbpupblla" path="res://props/buildings/stop_V1.glb" id="13_2am7o"]
 [ext_resource type="PackedScene" path="res://props/water.tscn" id="14_hucgk"]
@@ -21,7 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://cpy4p6l2rwplm" path="res://enemy/enemy_path.tscn" id="19_puwvh"]
 [ext_resource type="PackedScene" uid="uid://cc6os0v7jxpjb" path="res://enemy/enemy_torn.tscn" id="20_l1d8s"]
 [ext_resource type="PackedScene" uid="uid://cug18c4ajqd6t" path="res://components/a_tp.tscn" id="21_l1d8s"]
-[ext_resource type="PackedScene" path="res://levels/level_Noe.tscn" id="22_ae85m"]
+[ext_resource type="PackedScene" uid="uid://cm7ol7kb13nog" path="res://levels/level_Noe.tscn" id="22_ae85m"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_f5ci5"]
 _surfaces = [{
@@ -94,11 +94,63 @@ mesh = SubResource("ArrayMesh_f5ci5")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.4651337)
 shape = SubResource("BoxShape3D_07v67")
 
+[node name="SacDeSable1" parent="Ground" unique_id=746754025 instance=ExtResource("3_75lo3")]
+transform = Transform3D(-0.7409336, 0, 0.6715783, 0, 1, 0, -0.6715783, 0, -0.7409336, -5.009309, 0.5958748, -17.163841)
+
+[node name="SacDeSable2" parent="Ground" unique_id=1958541098 instance=ExtResource("3_75lo3")]
+transform = Transform3D(0.61410606, 0, 0.78922343, 0, 1, 0, -0.78922343, 0, 0.61410606, -1.0714693, 0.5958748, -19.412212)
+
+[node name="SacDeSable3" parent="Ground" unique_id=1277420672 instance=ExtResource("3_75lo3")]
+transform = Transform3D(-0.72978044, 0, -0.6836815, 0, 1, 0, 0.6836815, 0, -0.72978044, -6.441499, 0.5958748, -3.6180458)
+
+[node name="SacDeSable4" parent="Ground" unique_id=471513876 instance=ExtResource("3_75lo3")]
+transform = Transform3D(-0.7364986, 0, 0.6764389, 0, 1, 0, -0.6764389, 0, -0.7364986, -8.361155, 0.5958748, -7.7261696)
+
+[node name="SacDeSable5" parent="Ground" unique_id=185997223 instance=ExtResource("3_75lo3")]
+transform = Transform3D(0.09742665, 0, -0.9952426, 0, 1, 0, 0.9952426, 0, 0.09742665, -3.6118846, 0.5958748, 3.7605038)
+
+[node name="SacDeSable6" parent="Ground" unique_id=259984373 instance=ExtResource("3_75lo3")]
+transform = Transform3D(-0.98513013, 0, -0.17180887, 0, 1, 0, 0.17180887, 0, -0.98513013, -8.03899, 0.5958748, 2.7794342)
+
+[node name="PoteauElec" parent="Ground" unique_id=72221359 instance=ExtResource("4_2oy0l")]
+transform = Transform3D(-0.34682417, -0.07459383, -0.9349593, -0.0012325622, 0.99686784, -0.07907586, 0.9379296, -0.026273027, -0.34582984, 12.495228, 0.49999738, -17.63498)
+
+[node name="PoteauElec2" parent="Ground" unique_id=1398419888 instance=ExtResource("4_2oy0l")]
+transform = Transform3D(-0.15360323, 0.07794877, 0.98505354, -0.001232564, 0.99686784, -0.07907586, -0.9881321, -0.013360441, -0.15302593, -9.656471, 0.49999738, -17.63498)
+
+[node name="PoteauElec3" parent="Ground" unique_id=1251268365 instance=ExtResource("4_2oy0l")]
+transform = Transform3D(-0.34682417, -0.07459383, -0.9349593, -0.0012325622, 0.99686784, -0.07907586, 0.9379296, -0.026273027, -0.34582984, 12.78543, 0.49999738, -12.887363)
+
+[node name="PoteauElec4" parent="Ground" unique_id=870684668 instance=ExtResource("4_2oy0l")]
+transform = Transform3D(-0.15360323, 0.07794877, 0.98505354, -0.001232564, 0.99686784, -0.07907586, -0.9881321, -0.013360441, -0.15302593, -9.366269, 0.49999738, -12.887363)
+
+[node name="PoteauElec5" parent="Ground" unique_id=1725723942 instance=ExtResource("4_2oy0l")]
+transform = Transform3D(-0.34682417, -0.07459383, -0.9349593, -0.0012325622, 0.99686784, -0.07907586, 0.9379296, -0.026273027, -0.34582984, 11.041872, 0.49999738, 0.028001785)
+
+[node name="PoteauElec6" parent="Ground" unique_id=438302275 instance=ExtResource("4_2oy0l")]
+transform = Transform3D(-0.15360323, 0.07794877, 0.98505354, -0.001232564, 0.99686784, -0.07907586, -0.9881321, -0.013360441, -0.15302593, -11.109827, 0.49999738, 0.028001785)
+
+[node name="PoteauElec7" parent="Ground" unique_id=1060196324 instance=ExtResource("4_2oy0l")]
+transform = Transform3D(-0.34682417, -0.07459383, -0.9349593, -0.0012325622, 0.99686784, -0.07907586, 0.9379296, -0.026273027, -0.34582984, 11.041872, 0.49999738, 12.537178)
+
+[node name="PoteauElec8" parent="Ground" unique_id=1906955363 instance=ExtResource("4_2oy0l")]
+transform = Transform3D(-0.15360323, 0.07794877, 0.98505354, -0.001232564, 0.99686784, -0.07907586, -0.9881321, -0.013360441, -0.15302593, -10.450506, 0.49999738, 12.537178)
+
 [node name="Ground9" type="StaticBody3D" parent="." unique_id=1435642098]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.037823, -1.2, -16)
 
 [node name="Mesh" type="MeshInstance3D" parent="Ground9" unique_id=615929217]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11603737, 0.06130719, -2.1607819)
+material_override = ExtResource("2_f5ci5")
+mesh = SubResource("ArrayMesh_f5ci5")
+
+[node name="Mesh2" type="MeshInstance3D" parent="Ground9" unique_id=341826415]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.49519, 0.06130719, -2.1607819)
+material_override = ExtResource("2_f5ci5")
+mesh = SubResource("ArrayMesh_f5ci5")
+
+[node name="Mesh3" type="MeshInstance3D" parent="Ground9" unique_id=1763901806]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -96.30438, 0.06130719, -2.1607819)
 material_override = ExtResource("2_f5ci5")
 mesh = SubResource("ArrayMesh_f5ci5")
 
@@ -113,56 +165,71 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.2, -100)
 material_override = ExtResource("2_f5ci5")
 mesh = SubResource("ArrayMesh_f5ci5")
 
+[node name="Mesh2" type="MeshInstance3D" parent="Ground2" unique_id=329363940]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.073168, 0, 0)
+material_override = ExtResource("2_f5ci5")
+mesh = SubResource("ArrayMesh_f5ci5")
+
+[node name="Mesh5" type="MeshInstance3D" parent="Ground2" unique_id=449640521]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.52036, 0, 0)
+material_override = ExtResource("2_f5ci5")
+mesh = SubResource("ArrayMesh_f5ci5")
+
+[node name="Mesh3" type="MeshInstance3D" parent="Ground2" unique_id=75882869]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.764196, 0, 0)
+material_override = ExtResource("2_f5ci5")
+mesh = SubResource("ArrayMesh_f5ci5")
+
+[node name="Mesh4" type="MeshInstance3D" parent="Ground2" unique_id=1314321740]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.343872, 0, 0)
+material_override = ExtResource("2_f5ci5")
+mesh = SubResource("ArrayMesh_f5ci5")
+
+[node name="Mesh6" type="MeshInstance3D" parent="Ground2" unique_id=809741332]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -43.390076)
+material_override = ExtResource("2_f5ci5")
+mesh = SubResource("ArrayMesh_f5ci5")
+
+[node name="Mesh7" type="MeshInstance3D" parent="Ground2" unique_id=598746804]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.073168, 0, -43.390076)
+material_override = ExtResource("2_f5ci5")
+mesh = SubResource("ArrayMesh_f5ci5")
+
+[node name="Mesh8" type="MeshInstance3D" parent="Ground2" unique_id=1356986626]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.52036, 0, -43.390076)
+material_override = ExtResource("2_f5ci5")
+mesh = SubResource("ArrayMesh_f5ci5")
+
+[node name="Mesh9" type="MeshInstance3D" parent="Ground2" unique_id=714959543]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.764196, 0, -43.390076)
+material_override = ExtResource("2_f5ci5")
+mesh = SubResource("ArrayMesh_f5ci5")
+
+[node name="Mesh10" type="MeshInstance3D" parent="Ground2" unique_id=187457915]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.343872, 0, -43.390076)
+material_override = ExtResource("2_f5ci5")
+mesh = SubResource("ArrayMesh_f5ci5")
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground2" unique_id=262620866]
 shape = SubResource("BoxShape3D_07v67")
 
 [node name="Ground3" type="StaticBody3D" parent="." unique_id=37560263]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.2, -146)
 
-[node name="Mesh" type="MeshInstance3D" parent="Ground3" unique_id=1978631475]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
-mesh = SubResource("ArrayMesh_f5ci5")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground3" unique_id=603539520]
-shape = SubResource("BoxShape3D_07v67")
-
 [node name="Ground4" type="StaticBody3D" parent="." unique_id=651169722]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33, -1.2, -146)
-
-[node name="Mesh" type="MeshInstance3D" parent="Ground4" unique_id=264141344]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
-mesh = SubResource("ArrayMesh_f5ci5")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground4" unique_id=196687163]
-shape = SubResource("BoxShape3D_07v67")
 
 [node name="Ground5" type="StaticBody3D" parent="." unique_id=1423047900]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33, -1.2, -146)
 
-[node name="Mesh" type="MeshInstance3D" parent="Ground5" unique_id=18470282]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
-mesh = SubResource("ArrayMesh_f5ci5")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground5" unique_id=1049580070]
-shape = SubResource("BoxShape3D_07v67")
-
 [node name="Ground6" type="StaticBody3D" parent="." unique_id=731551854]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.2, -194)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground6" unique_id=217732974]
-shape = SubResource("BoxShape3D_07v67")
 
 [node name="Ground7" type="StaticBody3D" parent="." unique_id=1633118501]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33, -1.2, -194)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground7" unique_id=1057475550]
-shape = SubResource("BoxShape3D_07v67")
-
 [node name="Ground8" type="StaticBody3D" parent="." unique_id=1791660599]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33, -1.2, -194)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground8" unique_id=2104811946]
-shape = SubResource("BoxShape3D_07v67")
 
 [node name="CanalSide" type="StaticBody3D" parent="." unique_id=863400686]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.7, -39.5)
@@ -193,312 +260,12 @@ mesh = SubResource("ArrayMesh_e4wue")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Canal" unique_id=874451044]
 shape = SubResource("BoxShape3D_f5p2u")
 
-[node name="SM_CampFence" parent="." unique_id=1421260081 instance=ExtResource("10_aisic")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -134)
-
-[node name="SM_AutoBuilding" parent="." unique_id=1803780547 instance=ExtResource("3_f5ci5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.126, 4.1000004, -4.645789)
-building = ExtResource("4_07v67")
-type = 2
-custom_rotation = Vector3(-90, 0, 0)
-
-[node name="SM_AutoBuilding5" parent="." unique_id=1034854222 instance=ExtResource("3_f5ci5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.8, 3.6900005, -36.105644)
-building = ExtResource("4_07v67")
-type = 2
-custom_scale = 1.3
-custom_rotation = Vector3(-90, 90, 0)
-
-[node name="SM_AutoBuilding6" parent="." unique_id=1533486692 instance=ExtResource("3_f5ci5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.8, 4.3747044, -36.294033)
-building = ExtResource("4_07v67")
-type = 2
-custom_scale = 1.3
-custom_rotation = Vector3(-90, 90, 0)
-
-[node name="SM_AutoBuilding21" parent="." unique_id=1781523561 instance=ExtResource("3_f5ci5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.78482, 4.3747044, 5.440486)
-building = ExtResource("4_07v67")
-type = 2
-custom_scale = 1.3
-custom_rotation = Vector3(-90, 90, 0)
-
-[node name="SM_AutoBuilding23" parent="." unique_id=1724481549 instance=ExtResource("3_f5ci5")]
+[node name="bridge" parent="." unique_id=1724481549 instance=ExtResource("3_f5ci5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2729645, -11.6554, -54.357456)
 building = ExtResource("6_vu34y")
 type = 2
 custom_rotation = Vector3(0, 90, 0)
 mesh_offset = Vector3(0, 3, 11.95)
-
-[node name="SM_AutoBuilding22" parent="." unique_id=1211206825 instance=ExtResource("3_f5ci5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.512794, 4.3747044, 5.440486)
-building = ExtResource("4_07v67")
-type = 2
-custom_scale = 1.3
-custom_rotation = Vector3(-90, 90, 0)
-
-[node name="SM_AutoBuilding38" parent="." unique_id=920446379 instance=ExtResource("3_f5ci5")]
-transform = Transform3D(-0.0014835671, 0, 0.999999, 0, 1, 0, -0.999999, 0, -0.0014835671, 48.956047, 4.3747044, -8.321383)
-building = ExtResource("4_07v67")
-type = 2
-custom_scale = 1.3
-custom_rotation = Vector3(-90, 90, 0)
-
-[node name="SM_AutoBuilding7" parent="." unique_id=1214841888 instance=ExtResource("3_f5ci5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.58405, 3.0197964, -37.1)
-building = ExtResource("4_07v67")
-type = 2
-custom_rotation = Vector3(-90, 90, 0)
-
-[node name="SM_AutoBuilding8" parent="." unique_id=1326740790 instance=ExtResource("3_f5ci5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.226807, 4.3747044, -36.294033)
-building = ExtResource("4_07v67")
-type = 2
-custom_scale = 1.3
-custom_rotation = Vector3(-90, 90, 0)
-
-[node name="SM_AutoBuilding9" parent="." unique_id=72716938 instance=ExtResource("3_f5ci5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 119.6481, 3.0197964, -37.1)
-building = ExtResource("4_07v67")
-type = 2
-custom_rotation = Vector3(-90, 90, 0)
-
-[node name="SM_AutoBuilding10" parent="." unique_id=927853096 instance=ExtResource("3_f5ci5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.29085, 4.3747044, -36.294033)
-building = ExtResource("4_07v67")
-type = 2
-custom_scale = 1.3
-custom_rotation = Vector3(-90, 90, 0)
-
-[node name="SM_AutoBuilding11" parent="." unique_id=1584818638 instance=ExtResource("3_f5ci5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.15724, 3.0197964, -37.1)
-building = ExtResource("4_07v67")
-type = 2
-custom_rotation = Vector3(-90, 90, 0)
-
-[node name="SM_AutoBuilding20" parent="." unique_id=1976077008 instance=ExtResource("3_f5ci5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.619446, 3.0197964, -26.321133)
-building = ExtResource("4_07v67")
-type = 2
-custom_rotation = Vector3(-90, 0, 0)
-
-[node name="SM_AutoBuilding12" parent="." unique_id=1618188838 instance=ExtResource("3_f5ci5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -119.503845, 3.9241314, -36.429173)
-building = ExtResource("4_07v67")
-type = 2
-custom_scale = 1.3
-custom_rotation = Vector3(-90, 90, 0)
-
-[node name="SM_AutoBuilding13" parent="." unique_id=993697768 instance=ExtResource("3_f5ci5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.7198, 2.5692234, -37.23514)
-building = ExtResource("4_07v67")
-type = 2
-custom_rotation = Vector3(-90, 90, 0)
-
-[node name="SM_AutoBuilding14" parent="." unique_id=237476124 instance=ExtResource("3_f5ci5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.07704, 3.9241314, -36.429173)
-building = ExtResource("4_07v67")
-type = 2
-custom_scale = 1.3
-custom_rotation = Vector3(-90, 90, 0)
-
-[node name="SM_AutoBuilding15" parent="." unique_id=97310709 instance=ExtResource("3_f5ci5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.013004, 3.9241314, -36.429173)
-building = ExtResource("4_07v67")
-type = 2
-custom_scale = 1.3
-custom_rotation = Vector3(-90, 90, 0)
-
-[node name="SM_AutoBuilding16" parent="." unique_id=2065289495 instance=ExtResource("3_f5ci5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100.14661, 2.5692234, -37.23514)
-building = ExtResource("4_07v67")
-type = 2
-custom_rotation = Vector3(-90, 90, 0)
-
-[node name="SM_AutoBuilding28" parent="." unique_id=1858177972 instance=ExtResource("3_f5ci5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -119.503845, 3.9241314, -80.733795)
-building = ExtResource("4_07v67")
-type = 2
-custom_scale = 1.3
-custom_rotation = Vector3(-90, 90, 0)
-
-[node name="SM_AutoBuilding29" parent="." unique_id=1735456250 instance=ExtResource("3_f5ci5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.7198, 2.5692234, -81.539764)
-building = ExtResource("4_07v67")
-type = 2
-custom_rotation = Vector3(-90, 90, 0)
-
-[node name="SM_AutoBuilding30" parent="." unique_id=1981512735 instance=ExtResource("3_f5ci5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.07704, 3.9241314, -80.733795)
-building = ExtResource("4_07v67")
-type = 2
-custom_scale = 1.3
-custom_rotation = Vector3(-90, 90, 0)
-
-[node name="SM_AutoBuilding31" parent="." unique_id=1514286912 instance=ExtResource("3_f5ci5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.013004, 3.9241314, -80.733795)
-building = ExtResource("4_07v67")
-type = 2
-custom_scale = 1.3
-custom_rotation = Vector3(-90, 90, 0)
-
-[node name="SM_AutoBuilding32" parent="." unique_id=1836005086 instance=ExtResource("3_f5ci5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100.14661, 2.5692234, -81.539764)
-building = ExtResource("4_07v67")
-type = 2
-custom_rotation = Vector3(-90, 90, 0)
-
-[node name="SM_AutoBuilding33" parent="." unique_id=1275052533 instance=ExtResource("3_f5ci5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.352753, 3.9241314, -80.733795)
-building = ExtResource("4_07v67")
-type = 2
-custom_scale = 1.3
-custom_rotation = Vector3(-90, 90, 0)
-
-[node name="SM_AutoBuilding34" parent="." unique_id=1039722991 instance=ExtResource("3_f5ci5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103.136795, 2.5692234, -81.539764)
-building = ExtResource("4_07v67")
-type = 2
-custom_rotation = Vector3(-90, 90, 0)
-
-[node name="SM_AutoBuilding35" parent="." unique_id=633097154 instance=ExtResource("3_f5ci5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83.77956, 3.9241314, -80.733795)
-building = ExtResource("4_07v67")
-type = 2
-custom_scale = 1.3
-custom_rotation = Vector3(-90, 90, 0)
-
-[node name="SM_AutoBuilding36" parent="." unique_id=1060317788 instance=ExtResource("3_f5ci5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 121.8436, 3.9241314, -80.733795)
-building = ExtResource("4_07v67")
-type = 2
-custom_scale = 1.3
-custom_rotation = Vector3(-90, 90, 0)
-
-[node name="SM_AutoBuilding37" parent="." unique_id=836145178 instance=ExtResource("3_f5ci5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.70999, 2.5692234, -81.539764)
-building = ExtResource("4_07v67")
-type = 2
-custom_rotation = Vector3(-90, 90, 0)
-
-[node name="SM_AutoBuilding17" parent="." unique_id=524385921 instance=ExtResource("3_f5ci5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.8, 4.2716312, -79.58615)
-building = ExtResource("4_07v67")
-type = 2
-custom_scale = 1.3
-custom_rotation = Vector3(-90, 90, 0)
-
-[node name="SM_AutoBuilding24" parent="." unique_id=732121157 instance=ExtResource("3_f5ci5")]
-transform = Transform3D(-0.008115698, 0, -0.9999672, 0, 1, 0, 0.9999672, 0, -0.008115698, -18.086126, 6.31374, -95.8263)
-building = ExtResource("4_07v67")
-type = 2
-custom_scale = 1.5
-custom_rotation = Vector3(-90, 90, 0)
-
-[node name="SM_AutoBuilding39" parent="." unique_id=631438786 instance=ExtResource("3_f5ci5")]
-transform = Transform3D(-0.008115698, 0, -0.9999672, 0, 1, 0, 0.9999672, 0, -0.008115698, -18.086126, 6.31374, -25.648743)
-building = ExtResource("4_07v67")
-type = 2
-custom_scale = 1.5
-custom_rotation = Vector3(-90, 90, 0)
-
-[node name="SM_AutoBuilding25" parent="." unique_id=283825298 instance=ExtResource("3_f5ci5")]
-transform = Transform3D(-0.008115698, 0, -0.9999672, 0, 1, 0, 0.9999672, 0, -0.008115698, 20.393003, 6.31374, -95.8263)
-building = ExtResource("4_07v67")
-type = 2
-custom_scale = 1.5
-custom_rotation = Vector3(-90, 90, 0)
-
-[node name="SM_AutoBuilding26" parent="." unique_id=1809962366 instance=ExtResource("3_f5ci5")]
-transform = Transform3D(-0.008115698, 0, -0.9999672, 0, 1, 0, 0.9999672, 0, -0.008115698, 20.393003, 6.31374, -121.20421)
-building = ExtResource("4_07v67")
-type = 2
-custom_scale = 1.5
-custom_rotation = Vector3(-90, 90, 0)
-
-[node name="SM_AutoBuilding27" parent="." unique_id=972095135 instance=ExtResource("3_f5ci5")]
-transform = Transform3D(-0.008115698, 0, -0.9999672, 0, 1, 0, 0.9999672, 0, -0.008115698, -17.807127, 6.31374, -121.20421)
-building = ExtResource("4_07v67")
-type = 2
-custom_scale = 1.5
-custom_rotation = Vector3(-90, 90, 0)
-
-[node name="SM_AutoBuilding18" parent="." unique_id=1360587993 instance=ExtResource("3_f5ci5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.8, 4.2716312, -79.58615)
-building = ExtResource("4_07v67")
-type = 2
-custom_scale = 1.3
-custom_rotation = Vector3(-90, 90, 0)
-
-[node name="SM_AutoBuilding2" parent="." unique_id=588107509 instance=ExtResource("3_f5ci5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.653332, 4.654012, -18.02644)
-building = ExtResource("6_d57tx")
-type = 2
-custom_scale = 1.4
-custom_rotation = Vector3(0, 180, 0)
-
-[node name="SM_AutoBuilding4" parent="." unique_id=1114127192 instance=ExtResource("3_f5ci5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.674377, 4.654012, -4.4553814)
-building = ExtResource("6_d57tx")
-type = 2
-custom_scale = 1.4
-custom_rotation = Vector3(0, 180, 0)
-
-[node name="SM_AutoBuilding19" parent="." unique_id=1818588765 instance=ExtResource("3_f5ci5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.4013, 4.654012, -29.58226)
-building = ExtResource("6_d57tx")
-type = 2
-custom_scale = 1.4
-custom_rotation = Vector3(0, -90, 0)
-
-[node name="SM_AutoBuilding3" parent="." unique_id=1837916634 instance=ExtResource("3_f5ci5")]
-transform = Transform3D(1, 0, 0, 0, 2.2, 0, 0, 0, 1, 13.7, 4.1000004, -3.3999996)
-building = ExtResource("4_07v67")
-type = 2
-custom_rotation = Vector3(-90, 0, 0)
-
-[node name="SM_AutoBuilding3" parent="SM_AutoBuilding3" unique_id=1430186784 instance=ExtResource("3_f5ci5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.4, 0.6999998, 0.10000038, -19.4)
-building = ExtResource("4_07v67")
-type = 2
-custom_rotation = Vector3(-90, 0, 0)
-
-[node name="SM_AutoBuilding40" parent="." unique_id=806867566 instance=ExtResource("3_f5ci5")]
-transform = Transform3D(0.0015184437, 0, 0.99999887, 0, 1, 0, -0.99999887, 0, 0.0015184437, 3.9150305, 4.1000004, 6.338155)
-building = ExtResource("4_07v67")
-type = 2
-custom_rotation = Vector3(-90, 0, 0)
-
-[node name="SM_AutoBuilding41" parent="." unique_id=2145109326 instance=ExtResource("3_f5ci5")]
-transform = Transform3D(0.0015184437, 0, 0.99999887, 0, 1, 0, -0.99999887, 0, 0.0015184437, -10.250428, 4.1000004, 6.338155)
-building = ExtResource("4_07v67")
-type = 2
-custom_rotation = Vector3(-90, 0, 0)
-
-[node name="SM_AutoBuilding43" parent="." unique_id=2093897855 instance=ExtResource("3_f5ci5")]
-transform = Transform3D(0.62999994, 0, -2.7853277e-15, 0, 0.62999994, 0, 4.476419e-15, 0, 0.39199996, 16.149572, 9.300001, -5.661846)
-building = ExtResource("8_6vvj7")
-type = 2
-
-[node name="SM_AutoBuilding44" parent="." unique_id=894056701 instance=ExtResource("3_f5ci5")]
-transform = Transform3D(0.62999994, 0, -3.9790393e-15, 0, 0.378, 0, 4.476419e-15, 0, 0.39199996, 18.149572, 4.300001, -33.661846)
-building = ExtResource("9_5ddvy")
-type = 2
-
-[node name="SM_AutoBuilding45" parent="." unique_id=657470784 instance=ExtResource("3_f5ci5")]
-transform = Transform3D(-0.62999946, 0, 0.0004925936, 0, 0.62999994, 0, -0.00079166837, 0, -0.39199966, -14.911898, 8.19758, -33.890984)
-building = ExtResource("8_6vvj7")
-type = 2
-
-[node name="SM_AutoBuilding46" parent="." unique_id=1395940035 instance=ExtResource("3_f5ci5")]
-transform = Transform3D(-0.6299995, 0, 0.0004925937, 0, 0.378, 0, -0.0007916684, 0, -0.3919997, -16.947083, 4.300001, -2.1412106)
-building = ExtResource("9_5ddvy")
-type = 2
-
-[node name="SM_AutoBuilding47" parent="." unique_id=222151295 instance=ExtResource("3_f5ci5")]
-transform = Transform3D(0.6299829, 0, 0.0029009003, 0, 0.37799996, 0, -0.004662171, 0, 0.39198926, -15.1107025, 4.300001, -14.566286)
-building = ExtResource("9_5ddvy")
-type = 2
 
 [node name="Trotoire9" parent="." unique_id=21663966 instance=ExtResource("6_ng3iq")]
 transform = Transform3D(-1.3113416e-07, 0, 1, 0, 1, 0, -3, 0, -4.371139e-08, -14.570089, -13.668936, -14.593223)
@@ -518,15 +285,8 @@ transform = Transform3D(0.008166296, 0, 0.049328607, 0, 0.05, 0, -0.049328607, 0
 [node name="cigaret" parent="." unique_id=1314717692 instance=ExtResource("9_d57tx")]
 transform = Transform3D(0.02469409, 0, -0.017035311, 0, 0.03, 0, 0.017035311, 0, 0.02469409, -11.2553215, -0.03692168, -12.763458)
 
-[node name="SM_AutoBuilding42" parent="." unique_id=887352241 instance=ExtResource("3_f5ci5")]
-transform = Transform3D(-0.008115698, 0, -0.9999672, 0, 1, 0, 0.9999672, 0, -0.008115698, -18.086126, 6.31374, -95.8263)
-building = ExtResource("4_07v67")
-type = 2
-custom_scale = 1.5
-custom_rotation = Vector3(-90, 90, 0)
-
 [node name="affiche" parent="." unique_id=1486618505 instance=ExtResource("12_d57tx")]
-transform = Transform3D(-8.742278e-08, 0, -2, 0, 2, 0, 2, 0, -8.742278e-08, 10.951394, 7.0204, -2.25076)
+transform = Transform3D(-8.742278e-08, 0, -2, 0, 2, 0, 2, 0, -8.742278e-08, 10.951394, 6.379651, -2.25076)
 
 [node name="affiche3" parent="." unique_id=151720008 instance=ExtResource("12_d57tx")]
 transform = Transform3D(-8.742278e-08, 0, -2, 0, 2, 0, 2, 0, -8.742278e-08, 13.006984, 0.16291237, -36.407333)
@@ -563,5 +323,576 @@ path_follow = NodePath("..")
 [node name="a_TP" parent="." unique_id=367919950 instance=ExtResource("21_l1d8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1.1, -19)
 scene = ExtResource("22_ae85m")
+
+[node name="passé présent" type="Node3D" parent="." unique_id=504023629]
+
+[node name="SM_AutoBuilding42" parent="passé présent" unique_id=887352241 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(-0.008115698, 0, -0.9999672, 0, 1, 0, 0.9999672, 0, -0.008115698, -18.086126, 6.31374, -95.8263)
+building = ExtResource("4_07v67")
+type = 2
+custom_scale = 1.5
+custom_rotation = Vector3(-90, 90, 0)
+
+[node name="SM_AutoBuilding" parent="passé présent" unique_id=1803780547 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.126, 4.1000004, -4.645789)
+building = ExtResource("4_07v67")
+type = 2
+custom_rotation = Vector3(-90, 0, 0)
+
+[node name="SM_AutoBuilding5" parent="passé présent" unique_id=1034854222 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.8, 3.6900005, -36.105644)
+building = ExtResource("4_07v67")
+type = 2
+custom_scale = 1.3
+custom_rotation = Vector3(-90, 90, 0)
+
+[node name="SM_AutoBuilding6" parent="passé présent" unique_id=1533486692 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.8, 4.3747044, -36.294033)
+building = ExtResource("4_07v67")
+type = 2
+custom_scale = 1.3
+custom_rotation = Vector3(-90, 90, 0)
+
+[node name="SM_AutoBuilding21" parent="passé présent" unique_id=1781523561 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.78482, 4.3747044, 5.440486)
+building = ExtResource("4_07v67")
+type = 2
+custom_scale = 1.3
+custom_rotation = Vector3(-90, 90, 0)
+
+[node name="SM_AutoBuilding22" parent="passé présent" unique_id=1211206825 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.512794, 4.3747044, 5.440486)
+building = ExtResource("4_07v67")
+type = 2
+custom_scale = 1.3
+custom_rotation = Vector3(-90, 90, 0)
+
+[node name="SM_AutoBuilding38" parent="passé présent" unique_id=920446379 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(-0.0014835671, 0, 0.999999, 0, 1, 0, -0.999999, 0, -0.0014835671, 48.956047, 4.3747044, -8.321383)
+building = ExtResource("4_07v67")
+type = 2
+custom_scale = 1.3
+custom_rotation = Vector3(-90, 90, 0)
+
+[node name="SM_AutoBuilding7" parent="passé présent" unique_id=1214841888 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.58405, 3.0197964, -37.1)
+building = ExtResource("4_07v67")
+type = 2
+custom_rotation = Vector3(-90, 90, 0)
+
+[node name="SM_AutoBuilding8" parent="passé présent" unique_id=1326740790 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.226807, 4.3747044, -36.294033)
+building = ExtResource("4_07v67")
+type = 2
+custom_scale = 1.3
+custom_rotation = Vector3(-90, 90, 0)
+
+[node name="SM_AutoBuilding9" parent="passé présent" unique_id=72716938 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 119.6481, 3.0197964, -37.1)
+building = ExtResource("4_07v67")
+type = 2
+custom_rotation = Vector3(-90, 90, 0)
+
+[node name="SM_AutoBuilding10" parent="passé présent" unique_id=927853096 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.29085, 4.3747044, -36.294033)
+building = ExtResource("4_07v67")
+type = 2
+custom_scale = 1.3
+custom_rotation = Vector3(-90, 90, 0)
+
+[node name="SM_AutoBuilding11" parent="passé présent" unique_id=1584818638 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.15724, 3.0197964, -37.1)
+building = ExtResource("4_07v67")
+type = 2
+custom_rotation = Vector3(-90, 90, 0)
+
+[node name="SM_AutoBuilding20" parent="passé présent" unique_id=1976077008 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.619446, 3.0197964, -26.321133)
+building = ExtResource("4_07v67")
+type = 2
+custom_rotation = Vector3(-90, 0, 0)
+
+[node name="SM_AutoBuilding12" parent="passé présent" unique_id=1618188838 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -119.503845, 3.9241314, -36.429173)
+building = ExtResource("4_07v67")
+type = 2
+custom_scale = 1.3
+custom_rotation = Vector3(-90, 90, 0)
+
+[node name="SM_AutoBuilding13" parent="passé présent" unique_id=993697768 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.7198, 2.5692234, -37.23514)
+building = ExtResource("4_07v67")
+type = 2
+custom_rotation = Vector3(-90, 90, 0)
+
+[node name="SM_AutoBuilding14" parent="passé présent" unique_id=237476124 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.07704, 3.9241314, -36.429173)
+building = ExtResource("4_07v67")
+type = 2
+custom_scale = 1.3
+custom_rotation = Vector3(-90, 90, 0)
+
+[node name="SM_AutoBuilding15" parent="passé présent" unique_id=97310709 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.013004, 3.9241314, -36.429173)
+building = ExtResource("4_07v67")
+type = 2
+custom_scale = 1.3
+custom_rotation = Vector3(-90, 90, 0)
+
+[node name="SM_AutoBuilding16" parent="passé présent" unique_id=2065289495 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100.14661, 2.5692234, -37.23514)
+building = ExtResource("4_07v67")
+type = 2
+custom_rotation = Vector3(-90, 90, 0)
+
+[node name="SM_AutoBuilding28" parent="passé présent" unique_id=1858177972 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -119.503845, 3.9241314, -80.733795)
+building = ExtResource("4_07v67")
+type = 2
+custom_scale = 1.3
+custom_rotation = Vector3(-90, 90, 0)
+
+[node name="SM_AutoBuilding29" parent="passé présent" unique_id=1735456250 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.7198, 2.5692234, -81.539764)
+building = ExtResource("4_07v67")
+type = 2
+custom_rotation = Vector3(-90, 90, 0)
+
+[node name="SM_AutoBuilding30" parent="passé présent" unique_id=1981512735 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.07704, 3.9241314, -80.733795)
+building = ExtResource("4_07v67")
+type = 2
+custom_scale = 1.3
+custom_rotation = Vector3(-90, 90, 0)
+
+[node name="SM_AutoBuilding31" parent="passé présent" unique_id=1514286912 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.013004, 3.9241314, -80.733795)
+building = ExtResource("4_07v67")
+type = 2
+custom_scale = 1.3
+custom_rotation = Vector3(-90, 90, 0)
+
+[node name="SM_AutoBuilding32" parent="passé présent" unique_id=1836005086 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100.14661, 2.5692234, -81.539764)
+building = ExtResource("4_07v67")
+type = 2
+custom_rotation = Vector3(-90, 90, 0)
+
+[node name="SM_AutoBuilding33" parent="passé présent" unique_id=1275052533 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.352753, 3.9241314, -80.733795)
+building = ExtResource("4_07v67")
+type = 2
+custom_scale = 1.3
+custom_rotation = Vector3(-90, 90, 0)
+
+[node name="SM_AutoBuilding34" parent="passé présent" unique_id=1039722991 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103.136795, 2.5692234, -81.539764)
+building = ExtResource("4_07v67")
+type = 2
+custom_rotation = Vector3(-90, 90, 0)
+
+[node name="SM_AutoBuilding35" parent="passé présent" unique_id=633097154 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83.77956, 3.9241314, -80.733795)
+building = ExtResource("4_07v67")
+type = 2
+custom_scale = 1.3
+custom_rotation = Vector3(-90, 90, 0)
+
+[node name="SM_AutoBuilding36" parent="passé présent" unique_id=1060317788 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 121.8436, 3.9241314, -80.733795)
+building = ExtResource("4_07v67")
+type = 2
+custom_scale = 1.3
+custom_rotation = Vector3(-90, 90, 0)
+
+[node name="SM_AutoBuilding37" parent="passé présent" unique_id=836145178 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.70999, 2.5692234, -81.539764)
+building = ExtResource("4_07v67")
+type = 2
+custom_rotation = Vector3(-90, 90, 0)
+
+[node name="SM_AutoBuilding17" parent="passé présent" unique_id=524385921 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.8, 4.2716312, -79.58615)
+building = ExtResource("4_07v67")
+type = 2
+custom_scale = 1.3
+custom_rotation = Vector3(-90, 90, 0)
+
+[node name="SM_AutoBuilding24" parent="passé présent" unique_id=732121157 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(-0.008115698, 0, -0.9999672, 0, 1, 0, 0.9999672, 0, -0.008115698, -18.086126, 6.31374, -95.8263)
+building = ExtResource("4_07v67")
+type = 2
+custom_scale = 1.5
+custom_rotation = Vector3(-90, 90, 0)
+
+[node name="SM_AutoBuilding39" parent="passé présent" unique_id=631438786 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(-0.008115698, 0, -0.9999672, 0, 1, 0, 0.9999672, 0, -0.008115698, -18.086126, 6.31374, -25.648743)
+building = ExtResource("4_07v67")
+type = 2
+custom_scale = 1.5
+custom_rotation = Vector3(-90, 90, 0)
+
+[node name="SM_AutoBuilding25" parent="passé présent" unique_id=283825298 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(-0.008115698, 0, -0.9999672, 0, 1, 0, 0.9999672, 0, -0.008115698, 20.393003, 6.31374, -95.8263)
+building = ExtResource("4_07v67")
+type = 2
+custom_scale = 1.5
+custom_rotation = Vector3(-90, 90, 0)
+
+[node name="SM_AutoBuilding26" parent="passé présent" unique_id=1809962366 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(-0.008115698, 0, -0.9999672, 0, 1, 0, 0.9999672, 0, -0.008115698, 20.393003, 6.31374, -121.20421)
+building = ExtResource("4_07v67")
+type = 2
+custom_scale = 1.5
+custom_rotation = Vector3(-90, 90, 0)
+
+[node name="SM_AutoBuilding27" parent="passé présent" unique_id=972095135 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(-0.008115698, 0, -0.9999672, 0, 1, 0, 0.9999672, 0, -0.008115698, -17.807127, 6.31374, -121.20421)
+building = ExtResource("4_07v67")
+type = 2
+custom_scale = 1.5
+custom_rotation = Vector3(-90, 90, 0)
+
+[node name="SM_AutoBuilding18" parent="passé présent" unique_id=1360587993 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.8, 4.2716312, -79.58615)
+building = ExtResource("4_07v67")
+type = 2
+custom_scale = 1.3
+custom_rotation = Vector3(-90, 90, 0)
+
+[node name="SM_AutoBuilding2" parent="passé présent" unique_id=588107509 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.653332, 4.654012, -18.02644)
+building = ExtResource("4_07v67")
+type = 2
+custom_scale = 1.4
+custom_rotation = Vector3(0, 180, 0)
+
+[node name="SM_AutoBuilding4" parent="passé présent" unique_id=1114127192 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.674377, 4.654012, -4.4553814)
+building = ExtResource("4_07v67")
+type = 2
+custom_scale = 1.4
+custom_rotation = Vector3(0, 180, 0)
+
+[node name="SM_AutoBuilding19" parent="passé présent" unique_id=1818588765 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.4013, 4.654012, -29.58226)
+building = ExtResource("4_07v67")
+type = 2
+custom_scale = 1.4
+custom_rotation = Vector3(0, -90, 0)
+
+[node name="SM_AutoBuilding23" parent="passé présent" unique_id=1430186784 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 2.2, 0, 0, 0, 1.4, 14.4, 4.320001, -22.8)
+building = ExtResource("4_07v67")
+type = 2
+custom_rotation = Vector3(-90, 0, 0)
+
+[node name="SM_AutoBuilding3" parent="passé présent" unique_id=1837916634 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 2.2, 0, 0, 0, 1, 13.7, 4.1000004, -3.3999996)
+building = ExtResource("4_07v67")
+type = 2
+custom_rotation = Vector3(-90, 0, 0)
+
+[node name="SM_AutoBuilding40" parent="passé présent" unique_id=806867566 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(0.0015184437, 0, 0.99999887, 0, 1, 0, -0.99999887, 0, 0.0015184437, 3.9150305, 4.1000004, 6.338155)
+building = ExtResource("4_07v67")
+type = 2
+custom_rotation = Vector3(-90, 0, 0)
+
+[node name="SM_AutoBuilding41" parent="passé présent" unique_id=2145109326 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(0.0015184437, 0, 0.99999887, 0, 1, 0, -0.99999887, 0, 0.0015184437, -10.250428, 4.1000004, 6.338155)
+building = ExtResource("4_07v67")
+type = 2
+custom_rotation = Vector3(-90, 0, 0)
+
+[node name="futur" type="Node3D" parent="." unique_id=617045907]
+
+[node name="SM_AutoBuilding42" parent="futur" unique_id=1840224238 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(-0.008115698, 0, -0.9999672, 0, 1, 0, 0.9999672, 0, -0.008115698, -18.086126, 6.31374, -95.8263)
+building = ExtResource("9_jkvda")
+type = 2
+custom_scale = 0.7999999999999999
+custom_rotation = Vector3(0, 90, 0)
+
+[node name="SM_AutoBuilding" parent="futur" unique_id=641303754 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.126, 4.1000004, -4.645789)
+building = ExtResource("9_jkvda")
+type = 2
+custom_scale = 0.7999999999999999
+
+[node name="SM_AutoBuilding5" parent="futur" unique_id=1695196170 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.8, 3.6900005, -36.105644)
+building = ExtResource("9_jkvda")
+type = 2
+custom_scale = 0.7999999999999999
+custom_rotation = Vector3(0, 90, 0)
+
+[node name="SM_AutoBuilding6" parent="futur" unique_id=74730211 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.8, 4.3747044, -36.294033)
+building = ExtResource("9_jkvda")
+type = 2
+custom_scale = 0.7999999999999999
+custom_rotation = Vector3(0, 90, 0)
+
+[node name="SM_AutoBuilding21" parent="futur" unique_id=1995808525 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.78482, 4.3747044, 5.440486)
+building = ExtResource("9_jkvda")
+type = 2
+custom_scale = 0.7999999999999999
+custom_rotation = Vector3(0, 90, 0)
+
+[node name="SM_AutoBuilding22" parent="futur" unique_id=1162380360 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.512794, 4.3747044, 5.440486)
+building = ExtResource("9_jkvda")
+type = 2
+custom_scale = 0.7999999999999999
+custom_rotation = Vector3(0, 90, 0)
+
+[node name="SM_AutoBuilding38" parent="futur" unique_id=820619166 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(-0.0014835671, 0, 0.999999, 0, 1, 0, -0.999999, 0, -0.0014835671, 48.956047, 4.3747044, -8.321383)
+building = ExtResource("9_jkvda")
+type = 2
+custom_scale = 0.7999999999999999
+custom_rotation = Vector3(0, 90, 0)
+
+[node name="SM_AutoBuilding7" parent="futur" unique_id=926849662 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.58405, 3.0197964, -37.1)
+building = ExtResource("9_jkvda")
+type = 2
+custom_scale = 0.7999999999999999
+custom_rotation = Vector3(0, 90, 0)
+
+[node name="SM_AutoBuilding8" parent="futur" unique_id=729243908 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.226807, 4.3747044, -36.294033)
+building = ExtResource("9_jkvda")
+type = 2
+custom_scale = 0.7999999999999999
+custom_rotation = Vector3(0, 90, 0)
+
+[node name="SM_AutoBuilding9" parent="futur" unique_id=158938352 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 119.6481, 3.0197964, -37.1)
+building = ExtResource("9_jkvda")
+type = 2
+custom_scale = 0.7999999999999999
+custom_rotation = Vector3(0, 90, 0)
+
+[node name="SM_AutoBuilding10" parent="futur" unique_id=1630922817 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.29085, 4.3747044, -36.294033)
+building = ExtResource("9_jkvda")
+type = 2
+custom_scale = 0.7999999999999999
+custom_rotation = Vector3(0, 90, 0)
+
+[node name="SM_AutoBuilding11" parent="futur" unique_id=32769567 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.15724, 3.0197964, -37.1)
+building = ExtResource("9_jkvda")
+type = 2
+custom_scale = 0.7999999999999999
+custom_rotation = Vector3(0, 90, 0)
+
+[node name="SM_AutoBuilding20" parent="futur" unique_id=2075897260 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.619446, 3.0197964, -26.321133)
+building = ExtResource("9_jkvda")
+type = 2
+custom_scale = 0.7999999999999999
+
+[node name="SM_AutoBuilding12" parent="futur" unique_id=1735923218 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -119.503845, 3.9241314, -36.429173)
+building = ExtResource("9_jkvda")
+type = 2
+custom_scale = 0.7999999999999999
+custom_rotation = Vector3(0, 90, 0)
+
+[node name="SM_AutoBuilding13" parent="futur" unique_id=105825627 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.7198, 2.5692234, -37.23514)
+building = ExtResource("9_jkvda")
+type = 2
+custom_scale = 0.7999999999999999
+custom_rotation = Vector3(0, 90, 0)
+
+[node name="SM_AutoBuilding14" parent="futur" unique_id=426699299 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.07704, 3.9241314, -36.429173)
+building = ExtResource("9_jkvda")
+type = 2
+custom_scale = 0.7999999999999999
+custom_rotation = Vector3(0, 90, 0)
+
+[node name="SM_AutoBuilding15" parent="futur" unique_id=2101296621 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.013004, 3.9241314, -36.429173)
+building = ExtResource("9_jkvda")
+type = 2
+custom_scale = 0.7999999999999999
+custom_rotation = Vector3(0, 90, 0)
+
+[node name="SM_AutoBuilding16" parent="futur" unique_id=1310529647 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100.14661, 2.5692234, -37.23514)
+building = ExtResource("9_jkvda")
+type = 2
+custom_scale = 0.7999999999999999
+custom_rotation = Vector3(0, 90, 0)
+
+[node name="SM_AutoBuilding28" parent="futur" unique_id=1397790836 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -119.503845, 3.9241314, -80.733795)
+building = ExtResource("9_jkvda")
+type = 2
+custom_scale = 0.7999999999999999
+custom_rotation = Vector3(0, 90, 0)
+
+[node name="SM_AutoBuilding29" parent="futur" unique_id=1642632748 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.7198, 2.5692234, -81.539764)
+building = ExtResource("9_jkvda")
+type = 2
+custom_scale = 0.7999999999999999
+custom_rotation = Vector3(0, 90, 0)
+
+[node name="SM_AutoBuilding30" parent="futur" unique_id=1323213754 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.07704, 3.9241314, -80.733795)
+building = ExtResource("9_jkvda")
+type = 2
+custom_scale = 0.7999999999999999
+custom_rotation = Vector3(0, 90, 0)
+
+[node name="SM_AutoBuilding31" parent="futur" unique_id=452909098 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.013004, 3.9241314, -80.733795)
+building = ExtResource("9_jkvda")
+type = 2
+custom_scale = 0.7999999999999999
+custom_rotation = Vector3(0, 90, 0)
+
+[node name="SM_AutoBuilding32" parent="futur" unique_id=1784596592 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100.14661, 2.5692234, -81.539764)
+building = ExtResource("9_jkvda")
+type = 2
+custom_scale = 0.7999999999999999
+custom_rotation = Vector3(0, 90, 0)
+
+[node name="SM_AutoBuilding33" parent="futur" unique_id=1068354625 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.352753, 3.9241314, -80.733795)
+building = ExtResource("9_jkvda")
+type = 2
+custom_scale = 0.7999999999999999
+custom_rotation = Vector3(0, 90, 0)
+
+[node name="SM_AutoBuilding34" parent="futur" unique_id=1804824086 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103.136795, 2.5692234, -81.539764)
+building = ExtResource("9_jkvda")
+type = 2
+custom_scale = 0.7999999999999999
+custom_rotation = Vector3(0, 90, 0)
+
+[node name="SM_AutoBuilding35" parent="futur" unique_id=1443771315 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83.77956, 3.9241314, -80.733795)
+building = ExtResource("9_jkvda")
+type = 2
+custom_scale = 0.7999999999999999
+custom_rotation = Vector3(0, 90, 0)
+
+[node name="SM_AutoBuilding36" parent="futur" unique_id=1612191267 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 121.8436, 3.9241314, -80.733795)
+building = ExtResource("9_jkvda")
+type = 2
+custom_scale = 0.7999999999999999
+custom_rotation = Vector3(0, 90, 0)
+
+[node name="SM_AutoBuilding37" parent="futur" unique_id=517912687 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.70999, 2.5692234, -81.539764)
+building = ExtResource("9_jkvda")
+type = 2
+custom_scale = 0.7999999999999999
+custom_rotation = Vector3(0, 90, 0)
+
+[node name="SM_AutoBuilding17" parent="futur" unique_id=815439071 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.8, 4.2716312, -79.58615)
+building = ExtResource("9_jkvda")
+type = 2
+custom_scale = 0.7999999999999999
+custom_rotation = Vector3(0, 90, 0)
+
+[node name="SM_AutoBuilding24" parent="futur" unique_id=1723356379 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(-0.008115698, 0, -0.9999672, 0, 1, 0, 0.9999672, 0, -0.008115698, -18.086126, 6.31374, -95.8263)
+building = ExtResource("9_jkvda")
+type = 2
+custom_scale = 0.7999999999999999
+custom_rotation = Vector3(0, 90, 0)
+
+[node name="SM_AutoBuilding39" parent="futur" unique_id=1269674855 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(-0.008115698, 0, -0.9999672, 0, 1, 0, 0.9999672, 0, -0.008115698, -18.086126, 6.31374, -25.648743)
+building = ExtResource("9_jkvda")
+type = 2
+custom_scale = 0.7999999999999999
+custom_rotation = Vector3(0, 90, 0)
+
+[node name="SM_AutoBuilding25" parent="futur" unique_id=454032747 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(-0.008115698, 0, -0.9999672, 0, 1, 0, 0.9999672, 0, -0.008115698, 20.393003, 6.31374, -95.8263)
+building = ExtResource("9_jkvda")
+type = 2
+custom_scale = 0.7999999999999999
+custom_rotation = Vector3(0, 90, 0)
+
+[node name="SM_AutoBuilding26" parent="futur" unique_id=1292855224 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(-0.008115698, 0, -0.9999672, 0, 1, 0, 0.9999672, 0, -0.008115698, 20.393003, 6.31374, -121.20421)
+building = ExtResource("9_jkvda")
+type = 2
+custom_scale = 0.7999999999999999
+custom_rotation = Vector3(0, 90, 0)
+
+[node name="SM_AutoBuilding27" parent="futur" unique_id=887660891 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(-0.008115698, 0, -0.9999672, 0, 1, 0, 0.9999672, 0, -0.008115698, -17.807127, 6.31374, -121.20421)
+building = ExtResource("9_jkvda")
+type = 2
+custom_scale = 0.7999999999999999
+custom_rotation = Vector3(0, 90, 0)
+
+[node name="SM_AutoBuilding18" parent="futur" unique_id=1599554584 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.8, 4.2716312, -79.58615)
+building = ExtResource("9_jkvda")
+type = 2
+custom_scale = 0.7999999999999999
+custom_rotation = Vector3(0, 90, 0)
+
+[node name="SM_AutoBuilding2" parent="futur" unique_id=170722808 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.653332, 4.654012, -18.02644)
+building = ExtResource("6_d57tx")
+type = 2
+custom_scale = 0.7999999999999999
+custom_rotation = Vector3(0, 180, 0)
+
+[node name="SM_AutoBuilding4" parent="futur" unique_id=481691272 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.674377, 4.654012, -4.4553814)
+building = ExtResource("6_d57tx")
+type = 2
+custom_scale = 0.7999999999999999
+custom_rotation = Vector3(0, 180, 0)
+
+[node name="SM_AutoBuilding19" parent="futur" unique_id=1800157201 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.4013, 4.654012, -29.58226)
+building = ExtResource("6_d57tx")
+type = 2
+custom_scale = 0.7999999999999999
+custom_rotation = Vector3(0, -90, 0)
+
+[node name="SM_AutoBuilding23" parent="futur" unique_id=115265104 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 2.2, 0, 0, 0, 1.4, 14.4, 4.320001, -22.8)
+building = ExtResource("9_jkvda")
+type = 2
+custom_scale = 0.7999999999999999
+
+[node name="SM_AutoBuilding3" parent="futur" unique_id=1417681710 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(1, 0, 0, 0, 2.2, 0, 0, 0, 1, 13.7, 4.1000004, -3.3999996)
+building = ExtResource("9_jkvda")
+type = 2
+custom_scale = 0.7999999999999999
+
+[node name="SM_AutoBuilding40" parent="futur" unique_id=134024074 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(0.0015184437, 0, 0.99999887, 0, 1, 0, -0.99999887, 0, 0.0015184437, 3.9150305, 4.1000004, 6.338155)
+building = ExtResource("9_jkvda")
+type = 2
+custom_scale = 0.7999999999999999
+
+[node name="SM_AutoBuilding41" parent="futur" unique_id=1821473412 instance=ExtResource("3_f5ci5")]
+transform = Transform3D(0.0015184437, 0, 0.99999887, 0, 1, 0, -0.99999887, 0, 0.0015184437, -10.250428, 4.1000004, 6.338155)
+building = ExtResource("9_jkvda")
+type = 2
+custom_scale = 0.7999999999999999
 
 [editable path="EnemyPath"]

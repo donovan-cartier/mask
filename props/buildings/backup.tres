@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Building" format=3 uid="uid://jcwy07c7hrlg"]
+
+[ext_resource type="ArrayMesh" uid="uid://dheg3qqhcv1vs" path="res://assets/models/building/mesh/building_high_past.tres" id="2_0x1r6"]
+[ext_resource type="Shape3D" uid="uid://1d6fnxfns4hy" path="res://assets/models/building/mesh/building_tall_shape.tres" id="3_avul6"]
+[ext_resource type="ArrayMesh" uid="uid://qxwklyu3nrtw" path="res://assets/models/building/mesh/building_high_present.tres" id="4_p1b5x"]
+[ext_resource type="Script" uid="uid://0s6ikh6u26ov" path="res://props/buildings/building.gd" id="5_xo3ok"]
+
+[resource]
+script = ExtResource("5_xo3ok")
+past_mesh = ExtResource("2_0x1r6")
+present_mesh = ExtResource("4_p1b5x")
+past_shape = ExtResource("3_avul6")
+present_shape = ExtResource("3_avul6")
+metadata/_custom_type_script = "uid://0s6ikh6u26ov"

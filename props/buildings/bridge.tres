@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="Building" format=3 uid="uid://cuc5x5gw1amf7"]
 
-[ext_resource type="ArrayMesh" uid="uid://ca1ftsjmfaoab" path="res://props/buildings/bridge_mesh.tres" id="1_k3gbc"]
+[ext_resource type="ArrayMesh" uid="uid://b2a3qqug72lx7" path="res://props/buildings/bridge_mesh.tres" id="1_k3gbc"]
 [ext_resource type="Shape3D" uid="uid://lg5ps1qvwv3i" path="res://props/buildings/bridge_normal_shape.tres" id="2_yfdac"]
-[ext_resource type="ArrayMesh" uid="uid://wrujy053rduf" path="res://props/buildings/bridge_brocken_mesh.tres" id="3_ek8g8"]
+[ext_resource type="ArrayMesh" uid="uid://ebs7jnckfc8m" path="res://props/buildings/bridge_brocken_mesh.tres" id="3_ek8g8"]
 [ext_resource type="Shape3D" uid="uid://dpsx37b8a66y2" path="res://props/buildings/bridge_shape.tres" id="4_0bc74"]
 [ext_resource type="Script" uid="uid://0s6ikh6u26ov" path="res://props/buildings/building.gd" id="4_8d012"]
 
@@ -10,6 +10,7 @@
 script = ExtResource("4_8d012")
 past_mesh = ExtResource("1_k3gbc")
 present_mesh = ExtResource("3_ek8g8")
+future_mesh = ExtResource("3_ek8g8")
 past_shape = ExtResource("2_yfdac")
 present_shape = ExtResource("4_0bc74")
 metadata/_custom_type_script = "uid://0s6ikh6u26ov"

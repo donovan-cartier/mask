@@ -16,6 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://dwdvhrtkh1tyi" path="res://assets/bgm/Shifter_Passee.mp3" id="15_udxuc"]
 [ext_resource type="AudioStream" uid="uid://ct6wg5tiuw2nd" path="res://assets/bgm/Shifter_Present.mp3" id="16_ikiii"]
 [ext_resource type="Script" uid="uid://b7u4nngyhlpaj" path="res://components/music_manager.gd" id="18_ikiii"]
+[ext_resource type="Script" path="res://components/music_manager.gd" id="18_ikiii"]
 [ext_resource type="PackedScene" path="res://ui/pause_menu.tscn" id="18_pause"]
 [ext_resource type="AudioStream" uid="uid://ce1cvop71jgqv" path="res://assets/bgm/Shifter_Future.mp3" id="19_cbp6q"]
 
