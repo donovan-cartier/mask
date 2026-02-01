@@ -199,6 +199,16 @@ past_environment = ExtResource("5_past_env")
 present_environment = ExtResource("6_present_env")
 future_environment = ExtResource("7_future_env")
 
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=1847362951]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 10, 0)
+light_color = Color(1, 0.95, 0.85, 1)
+light_energy = 1.0
+light_indirect_energy = 0.5
+shadow_enabled = true
+shadow_blur = 1.0
+directional_shadow_max_distance = 100.0
+
+
 [node name="ParticleManager" parent="." unique_id=2107681253 instance=ExtResource("8_particles")]
 
 [node name="Level_Tuto" parent="." unique_id=209618876 instance=ExtResource("2_fj7yv")]
