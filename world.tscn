@@ -12,11 +12,13 @@
 [ext_resource type="PackedScene" uid="uid://cc6os0v7jxpjb" path="res://enemy/enemy_torn.tscn" id="9_ioo17"]
 [ext_resource type="Script" uid="uid://bpl36gdikyp1b" path="res://enemy/camera.gd" id="9_k3n1d"]
 [ext_resource type="PackedScene" uid="uid://cpy4p6l2rwplm" path="res://enemy/enemy_path.tscn" id="10_wse8f"]
-[ext_resource type="Shader" uid="uid://bsffi1xpfh43y" path="res://shaders/npc_censor_.gdshader" id="11_udxuc"]
+[ext_resource type="Shader" path="res://shaders/npc_censor_.gdshader" id="11_udxuc"]
 [ext_resource type="PackedScene" uid="uid://b4pm4prxptjn6" path="res://ui/radar_hud.tscn" id="12_radar"]
-[ext_resource type="PackedScene" uid="uid://w6eu3hvw4jnq" path="res://ui/epoch_hud.tscn" id="13_epoch"]
+[ext_resource type="PackedScene" path="res://ui/epoch_hud.tscn" id="13_epoch"]
 [ext_resource type="Texture2D" uid="uid://lm5dofov3l6b" path="res://SoldatLOW10_Ch15__UDIM__Diffuse.png" id="16_udxuc"]
 [ext_resource type="Material" uid="uid://b8f0kormeiuat" path="res://assets/models/building/mesh/high_past.tres" id="17_udxuc"]
+[ext_resource type="Script" uid="uid://b7u4nngyhlpaj" path="res://components/music_manager.gd" id="18_ikiii"]
+[ext_resource type="AudioStream" uid="uid://ce1cvop71jgqv" path="res://assets/bgm/Shifter_Future.mp3" id="19_cbp6q"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f3sb7"]
 sky_top_color = Color(0.44344002, 0.4359725, 0.5365931, 1)
@@ -836,6 +838,7 @@ future_environment = ExtResource("7_future_env")
 
 [node name="Sun" type="DirectionalLight3D" parent="." unique_id=1847362951]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 10, 0)
+layers = 5
 light_color = Color(1, 0.95, 0.85, 1)
 light_indirect_energy = 0.5
 shadow_enabled = true
@@ -1415,5 +1418,13 @@ skeleton = NodePath("..")
 deterministic = true
 reset_on_save = false
 libraries/ = SubResource("AnimationLibrary_1qmns")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=457166507]
+
+[node name="MusicManager" type="Node" parent="." unique_id=1732524261 node_paths=PackedStringArray("audio_stream_player")]
+script = ExtResource("18_ikiii")
+audio_stream_player = NodePath("../AudioStreamPlayer")
+future_music = ExtResource("19_cbp6q")
+metadata/_custom_type_script = "uid://b7u4nngyhlpaj"
 
 [editable path="EnemyPath"]
