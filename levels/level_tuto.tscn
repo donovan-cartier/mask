@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://rituksa5cdpp" path="res://props/sm_camp_fence.tscn" id="10_aisic"]
 [ext_resource type="PackedScene" uid="uid://d3wav4uyiew56" path="res://props/affiche.glb" id="12_d57tx"]
 [ext_resource type="PackedScene" uid="uid://b13smbpupblla" path="res://props/buildings/stop_V1.glb" id="13_2am7o"]
+[ext_resource type="PackedScene" path="res://props/water.tscn" id="14_hucgk"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_f5ci5"]
 _surfaces = [{
@@ -58,7 +59,6 @@ size = Vector3(266, 1, 36)
 
 [node name="Level_Tuto" type="Node3D" unique_id=209618876]
 script = ExtResource("1_wp7e1")
-preview_time_period = 2
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=406046289]
 transform = Transform3D(0.40198326, 0.8811356, -0.24901731, -0.4019831, 0.41417375, 0.8166209, 0.8226902, -0.22816715, 0.5206925, 0, 0, 0)
@@ -180,274 +180,233 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -134)
 [node name="SM_AutoBuilding" parent="." unique_id=1803780547 instance=ExtResource("3_f5ci5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.126, 4.1000004, -4.645789)
 building = ExtResource("4_07v67")
-type = 2
 custom_rotation = Vector3(-90, 0, 0)
 
 [node name="SM_AutoBuilding5" parent="." unique_id=1034854222 instance=ExtResource("3_f5ci5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.8, 3.6900005, -36.105644)
 building = ExtResource("4_07v67")
-type = 2
 custom_scale = 1.3
 custom_rotation = Vector3(-90, 90, 0)
 
 [node name="SM_AutoBuilding6" parent="." unique_id=1533486692 instance=ExtResource("3_f5ci5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.8, 4.3747044, -36.294033)
 building = ExtResource("4_07v67")
-type = 2
 custom_scale = 1.3
 custom_rotation = Vector3(-90, 90, 0)
 
 [node name="SM_AutoBuilding21" parent="." unique_id=1781523561 instance=ExtResource("3_f5ci5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.78482, 4.3747044, 5.440486)
 building = ExtResource("4_07v67")
-type = 2
 custom_scale = 1.3
 custom_rotation = Vector3(-90, 90, 0)
 
 [node name="SM_AutoBuilding23" parent="." unique_id=1724481549 instance=ExtResource("3_f5ci5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2729645, -11.6554, -54.357456)
 building = ExtResource("6_vu34y")
-type = 2
 custom_rotation = Vector3(0, 90, 0)
 mesh_offset = Vector3(0, 3, 11.95)
 
 [node name="SM_AutoBuilding22" parent="." unique_id=1211206825 instance=ExtResource("3_f5ci5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.512794, 4.3747044, 5.440486)
 building = ExtResource("4_07v67")
-type = 2
 custom_scale = 1.3
 custom_rotation = Vector3(-90, 90, 0)
 
 [node name="SM_AutoBuilding38" parent="." unique_id=920446379 instance=ExtResource("3_f5ci5")]
 transform = Transform3D(-0.0014835671, 0, 0.999999, 0, 1, 0, -0.999999, 0, -0.0014835671, 48.956047, 4.3747044, -8.321383)
 building = ExtResource("4_07v67")
-type = 2
 custom_scale = 1.3
 custom_rotation = Vector3(-90, 90, 0)
 
 [node name="SM_AutoBuilding7" parent="." unique_id=1214841888 instance=ExtResource("3_f5ci5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.58405, 3.0197964, -37.1)
 building = ExtResource("4_07v67")
-type = 2
 custom_rotation = Vector3(-90, 90, 0)
 
 [node name="SM_AutoBuilding8" parent="." unique_id=1326740790 instance=ExtResource("3_f5ci5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.226807, 4.3747044, -36.294033)
 building = ExtResource("4_07v67")
-type = 2
 custom_scale = 1.3
 custom_rotation = Vector3(-90, 90, 0)
 
 [node name="SM_AutoBuilding9" parent="." unique_id=72716938 instance=ExtResource("3_f5ci5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 119.6481, 3.0197964, -37.1)
 building = ExtResource("4_07v67")
-type = 2
 custom_rotation = Vector3(-90, 90, 0)
 
 [node name="SM_AutoBuilding10" parent="." unique_id=927853096 instance=ExtResource("3_f5ci5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.29085, 4.3747044, -36.294033)
 building = ExtResource("4_07v67")
-type = 2
 custom_scale = 1.3
 custom_rotation = Vector3(-90, 90, 0)
 
 [node name="SM_AutoBuilding11" parent="." unique_id=1584818638 instance=ExtResource("3_f5ci5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.15724, 3.0197964, -37.1)
 building = ExtResource("4_07v67")
-type = 2
 custom_rotation = Vector3(-90, 90, 0)
 
 [node name="SM_AutoBuilding20" parent="." unique_id=1976077008 instance=ExtResource("3_f5ci5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.619446, 3.0197964, -26.321133)
 building = ExtResource("4_07v67")
-type = 2
 custom_rotation = Vector3(-90, 0, 0)
 
 [node name="SM_AutoBuilding12" parent="." unique_id=1618188838 instance=ExtResource("3_f5ci5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -119.503845, 3.9241314, -36.429173)
 building = ExtResource("4_07v67")
-type = 2
 custom_scale = 1.3
 custom_rotation = Vector3(-90, 90, 0)
 
 [node name="SM_AutoBuilding13" parent="." unique_id=993697768 instance=ExtResource("3_f5ci5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.7198, 2.5692234, -37.23514)
 building = ExtResource("4_07v67")
-type = 2
 custom_rotation = Vector3(-90, 90, 0)
 
 [node name="SM_AutoBuilding14" parent="." unique_id=237476124 instance=ExtResource("3_f5ci5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.07704, 3.9241314, -36.429173)
 building = ExtResource("4_07v67")
-type = 2
 custom_scale = 1.3
 custom_rotation = Vector3(-90, 90, 0)
 
 [node name="SM_AutoBuilding15" parent="." unique_id=97310709 instance=ExtResource("3_f5ci5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.013004, 3.9241314, -36.429173)
 building = ExtResource("4_07v67")
-type = 2
 custom_scale = 1.3
 custom_rotation = Vector3(-90, 90, 0)
 
 [node name="SM_AutoBuilding16" parent="." unique_id=2065289495 instance=ExtResource("3_f5ci5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100.14661, 2.5692234, -37.23514)
 building = ExtResource("4_07v67")
-type = 2
 custom_rotation = Vector3(-90, 90, 0)
 
 [node name="SM_AutoBuilding28" parent="." unique_id=1858177972 instance=ExtResource("3_f5ci5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -119.503845, 3.9241314, -80.733795)
 building = ExtResource("4_07v67")
-type = 2
 custom_scale = 1.3
 custom_rotation = Vector3(-90, 90, 0)
 
 [node name="SM_AutoBuilding29" parent="." unique_id=1735456250 instance=ExtResource("3_f5ci5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.7198, 2.5692234, -81.539764)
 building = ExtResource("4_07v67")
-type = 2
 custom_rotation = Vector3(-90, 90, 0)
 
 [node name="SM_AutoBuilding30" parent="." unique_id=1981512735 instance=ExtResource("3_f5ci5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.07704, 3.9241314, -80.733795)
 building = ExtResource("4_07v67")
-type = 2
 custom_scale = 1.3
 custom_rotation = Vector3(-90, 90, 0)
 
 [node name="SM_AutoBuilding31" parent="." unique_id=1514286912 instance=ExtResource("3_f5ci5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.013004, 3.9241314, -80.733795)
 building = ExtResource("4_07v67")
-type = 2
 custom_scale = 1.3
 custom_rotation = Vector3(-90, 90, 0)
 
 [node name="SM_AutoBuilding32" parent="." unique_id=1836005086 instance=ExtResource("3_f5ci5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100.14661, 2.5692234, -81.539764)
 building = ExtResource("4_07v67")
-type = 2
 custom_rotation = Vector3(-90, 90, 0)
 
 [node name="SM_AutoBuilding33" parent="." unique_id=1275052533 instance=ExtResource("3_f5ci5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.352753, 3.9241314, -80.733795)
 building = ExtResource("4_07v67")
-type = 2
 custom_scale = 1.3
 custom_rotation = Vector3(-90, 90, 0)
 
 [node name="SM_AutoBuilding34" parent="." unique_id=1039722991 instance=ExtResource("3_f5ci5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103.136795, 2.5692234, -81.539764)
 building = ExtResource("4_07v67")
-type = 2
 custom_rotation = Vector3(-90, 90, 0)
 
 [node name="SM_AutoBuilding35" parent="." unique_id=633097154 instance=ExtResource("3_f5ci5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83.77956, 3.9241314, -80.733795)
 building = ExtResource("4_07v67")
-type = 2
 custom_scale = 1.3
 custom_rotation = Vector3(-90, 90, 0)
 
 [node name="SM_AutoBuilding36" parent="." unique_id=1060317788 instance=ExtResource("3_f5ci5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 121.8436, 3.9241314, -80.733795)
 building = ExtResource("4_07v67")
-type = 2
 custom_scale = 1.3
 custom_rotation = Vector3(-90, 90, 0)
 
 [node name="SM_AutoBuilding37" parent="." unique_id=836145178 instance=ExtResource("3_f5ci5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.70999, 2.5692234, -81.539764)
 building = ExtResource("4_07v67")
-type = 2
 custom_rotation = Vector3(-90, 90, 0)
 
 [node name="SM_AutoBuilding17" parent="." unique_id=524385921 instance=ExtResource("3_f5ci5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.8, 4.2716312, -79.58615)
 building = ExtResource("4_07v67")
-type = 2
 custom_scale = 1.3
 custom_rotation = Vector3(-90, 90, 0)
 
 [node name="SM_AutoBuilding24" parent="." unique_id=732121157 instance=ExtResource("3_f5ci5")]
 transform = Transform3D(-0.008115698, 0, -0.9999672, 0, 1, 0, 0.9999672, 0, -0.008115698, -18.086126, 6.31374, -95.8263)
 building = ExtResource("4_07v67")
-type = 2
 custom_scale = 1.5
 custom_rotation = Vector3(-90, 90, 0)
 
 [node name="SM_AutoBuilding39" parent="." unique_id=631438786 instance=ExtResource("3_f5ci5")]
 transform = Transform3D(-0.008115698, 0, -0.9999672, 0, 1, 0, 0.9999672, 0, -0.008115698, -18.086126, 6.31374, -25.648743)
 building = ExtResource("4_07v67")
-type = 2
 custom_scale = 1.5
 custom_rotation = Vector3(-90, 90, 0)
 
 [node name="SM_AutoBuilding25" parent="." unique_id=283825298 instance=ExtResource("3_f5ci5")]
 transform = Transform3D(-0.008115698, 0, -0.9999672, 0, 1, 0, 0.9999672, 0, -0.008115698, 20.393003, 6.31374, -95.8263)
 building = ExtResource("4_07v67")
-type = 2
 custom_scale = 1.5
 custom_rotation = Vector3(-90, 90, 0)
 
 [node name="SM_AutoBuilding26" parent="." unique_id=1809962366 instance=ExtResource("3_f5ci5")]
 transform = Transform3D(-0.008115698, 0, -0.9999672, 0, 1, 0, 0.9999672, 0, -0.008115698, 20.393003, 6.31374, -121.20421)
 building = ExtResource("4_07v67")
-type = 2
 custom_scale = 1.5
 custom_rotation = Vector3(-90, 90, 0)
 
 [node name="SM_AutoBuilding27" parent="." unique_id=972095135 instance=ExtResource("3_f5ci5")]
 transform = Transform3D(-0.008115698, 0, -0.9999672, 0, 1, 0, 0.9999672, 0, -0.008115698, -17.807127, 6.31374, -121.20421)
 building = ExtResource("4_07v67")
-type = 2
 custom_scale = 1.5
 custom_rotation = Vector3(-90, 90, 0)
 
 [node name="SM_AutoBuilding18" parent="." unique_id=1360587993 instance=ExtResource("3_f5ci5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.8, 4.2716312, -79.58615)
 building = ExtResource("4_07v67")
-type = 2
 custom_scale = 1.3
 custom_rotation = Vector3(-90, 90, 0)
 
 [node name="SM_AutoBuilding2" parent="." unique_id=588107509 instance=ExtResource("3_f5ci5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.453331, 4.654012, -18.02644)
 building = ExtResource("6_d57tx")
-type = 2
 custom_scale = 1.4
 custom_rotation = Vector3(0, 180, 0)
 
 [node name="SM_AutoBuilding4" parent="." unique_id=1114127192 instance=ExtResource("3_f5ci5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.674377, 4.654012, -4.4553814)
 building = ExtResource("6_d57tx")
-type = 2
 custom_scale = 1.4
 custom_rotation = Vector3(0, 180, 0)
 
 [node name="SM_AutoBuilding19" parent="." unique_id=1818588765 instance=ExtResource("3_f5ci5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.4013, 4.654012, -29.58226)
 building = ExtResource("6_d57tx")
-type = 2
 custom_scale = 1.4
 custom_rotation = Vector3(0, -90, 0)
 
 [node name="SM_AutoBuilding3" parent="." unique_id=1837916634 instance=ExtResource("3_f5ci5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.7, 4.1000004, -3.3999996)
 building = ExtResource("4_07v67")
-type = 2
 custom_rotation = Vector3(-90, 0, 0)
 
 [node name="SM_AutoBuilding40" parent="." unique_id=806867566 instance=ExtResource("3_f5ci5")]
 transform = Transform3D(0.0015184437, 0, 0.99999887, 0, 1, 0, -0.99999887, 0, 0.0015184437, 3.9150305, 4.1000004, 6.338155)
 building = ExtResource("4_07v67")
-type = 2
 custom_rotation = Vector3(-90, 0, 0)
 
 [node name="SM_AutoBuilding41" parent="." unique_id=2145109326 instance=ExtResource("3_f5ci5")]
 transform = Transform3D(0.0015184437, 0, 0.99999887, 0, 1, 0, -0.99999887, 0, 0.0015184437, -10.250428, 4.1000004, 6.338155)
 building = ExtResource("4_07v67")
-type = 2
 custom_rotation = Vector3(-90, 0, 0)
 
 [node name="Trotoire9" parent="." unique_id=21663966 instance=ExtResource("6_ng3iq")]
@@ -471,7 +430,6 @@ transform = Transform3D(0.02469409, 0, -0.017035311, 0, 0.03, 0, 0.017035311, 0,
 [node name="SM_AutoBuilding42" parent="." unique_id=887352241 instance=ExtResource("3_f5ci5")]
 transform = Transform3D(-0.008115698, 0, -0.9999672, 0, 1, 0, 0.9999672, 0, -0.008115698, -18.086126, 6.31374, -95.8263)
 building = ExtResource("4_07v67")
-type = 2
 custom_scale = 1.5
 custom_rotation = Vector3(-90, 90, 0)
 
@@ -486,3 +444,6 @@ transform = Transform3D(0.09982629, 0, 1.9975073, 0, 2, 0, -1.9975073, 0, 0.0998
 
 [node name="stop_V2" parent="." unique_id=1094466489 instance=ExtResource("13_2am7o")]
 transform = Transform3D(-0.037328962, -0.0073677665, -0.0815614, 0.0009615051, 0.08958942, -0.008533026, 0.08188788, -0.0044105644, -0.037079956, 2.5590653, -0.81788814, -32.702484)
+
+[node name="Water" parent="." unique_id=1922368263 instance=ExtResource("14_hucgk")]
+transform = Transform3D(7.54, 0, 0, 0, 1, 0, 0, 0, 0.8, 8, -6, -59)
