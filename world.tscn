@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://b4pm4prxptjn6" path="res://ui/radar_hud.tscn" id="12_radar"]
 [ext_resource type="PackedScene" path="res://ui/epoch_hud.tscn" id="13_epoch"]
 [ext_resource type="AudioStream" uid="uid://dwdvhrtkh1tyi" path="res://assets/bgm/Shifter_Passee.mp3" id="15_udxuc"]
+[ext_resource type="AudioStream" uid="uid://ct6wg5tiuw2nd" path="res://assets/bgm/Shifter_Present.mp3" id="16_ikiii"]
 [ext_resource type="Script" uid="uid://b7u4nngyhlpaj" path="res://components/music_manager.gd" id="18_ikiii"]
 [ext_resource type="PackedScene" path="res://ui/pause_menu.tscn" id="18_pause"]
 [ext_resource type="AudioStream" uid="uid://ce1cvop71jgqv" path="res://assets/bgm/Shifter_Future.mp3" id="19_cbp6q"]
@@ -158,6 +159,7 @@ script = ExtResource("9_k3n1d")
 script = ExtResource("18_ikiii")
 audio_stream_player = NodePath("../AudioStreamPlayer")
 past_music = ExtResource("15_udxuc")
+present_music = ExtResource("16_ikiii")
 future_music = ExtResource("19_cbp6q")
 
 [node name="PauseMenu" parent="." unique_id=2035095311 instance=ExtResource("18_pause")]
