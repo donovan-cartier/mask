@@ -1,13 +1,15 @@
-[gd_scene format=4 uid="uid://cyhsyvhdjyhvx"]
+[gd_scene format=4 uid="uid://w530dwg5a4sm"]
 
-[ext_resource type="Script" uid="uid://bmm4bi8fxt40b" path="res://levels/level_script.gd" id="1_t0xkt"]
+[ext_resource type="Script" path="res://levels/level_script.gd" id="1_t0xkt"]
 [ext_resource type="Material" uid="uid://o8sriepvtnf1" path="res://assets/models/sols/Route.tres" id="2_gfmma"]
-[ext_resource type="PackedScene" uid="uid://dt068ruto26cc" path="res://levels/chat.tscn" id="3_qg8sb"]
-[ext_resource type="PackedScene" uid="uid://nj062aydiwtq" path="res://levels/can.tscn" id="4_fxg6n"]
-[ext_resource type="PackedScene" uid="uid://plwf06tqulwx" path="res://levels/church.tscn" id="5_mquu4"]
-[ext_resource type="PackedScene" uid="uid://7advkwq6iukd" path="res://levels/cig.tscn" id="6_xjd5t"]
-[ext_resource type="PackedScene" uid="uid://c2prphwrfgnok" path="res://levels/pont.tscn" id="7_xjd5t"]
+[ext_resource type="PackedScene" path="res://levels/chat.tscn" id="3_qg8sb"]
+[ext_resource type="PackedScene" path="res://levels/can.tscn" id="4_fxg6n"]
+[ext_resource type="PackedScene" path="res://levels/church.tscn" id="5_mquu4"]
+[ext_resource type="PackedScene" path="res://levels/cig.tscn" id="6_xjd5t"]
+[ext_resource type="PackedScene" path="res://levels/pont.tscn" id="7_xjd5t"]
 [ext_resource type="PackedScene" uid="uid://bb5uc6nu74o4k" path="res://player/player.tscn" id="8_qhrip"]
+[ext_resource type="PackedScene" uid="uid://dx7rfquoxlukc" path="res://props/kill_zone.tscn" id="9_killzone"]
+[ext_resource type="PackedScene" uid="uid://w6eu3hvw4jnq" path="res://ui/epoch_hud.tscn" id="10_epochhud"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_f5ci5"]
 _surfaces = [{
@@ -25,6 +27,23 @@ size = Vector3(16.600586, 1, 24.075195)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_07v67"]
 size = Vector3(33.382813, 1, 49.658203)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1"]
+sky_top_color = Color(0.3, 0.5, 0.9, 1)
+sky_horizon_color = Color(0.6, 0.75, 0.95, 1)
+ground_bottom_color = Color(0.2, 0.25, 0.2, 1)
+ground_horizon_color = Color(0.5, 0.6, 0.5, 1)
+sun_angle_max = 60.0
+
+[sub_resource type="Sky" id="Sky_1"]
+sky_material = SubResource("ProceduralSkyMaterial_1")
+
+[sub_resource type="Environment" id="Environment_1"]
+background_mode = 2
+sky = SubResource("Sky_1")
+ambient_light_source = 2
+ambient_light_color = Color(0.9, 0.95, 1, 1)
+ambient_light_energy = 0.8
 
 [node name="level_run" type="Node3D" unique_id=209618876]
 script = ExtResource("1_t0xkt")
@@ -85,3 +104,29 @@ transform = Transform3D(0.79755366, -0.4895683, 0.3524649, 0.4937115, 0.86546636
 
 [node name="StaticBody3D5" parent="." unique_id=2124063956 instance=ExtResource("7_xjd5t")]
 transform = Transform3D(0.4653665, -0.18041226, -0.8665365, 0.49371165, 0.8654666, 0.084954455, 0.73463154, -0.46735406, 0.49183077, 21.891464, 54.04739, -138.12979)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1505173926]
+environment = SubResource("Environment_1")
+
+[node name="KillZone" parent="." unique_id=1123616336 instance=ExtResource("9_killzone")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -42.2, -80)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=41775243]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -50)
+light_color = Color(1, 0.95, 0.85, 1)
+light_energy = 1.5
+omni_range = 30.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="." unique_id=938907079]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 8, -90)
+light_color = Color(1, 0.98, 0.9, 1)
+light_energy = 1.2
+omni_range = 25.0
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="." unique_id=890624822]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 40, -140)
+light_color = Color(1, 0.95, 0.8, 1)
+light_energy = 2.0
+omni_range = 40.0
+
+[node name="EpochHud" parent="." unique_id=1890936137 instance=ExtResource("10_epochhud")]
