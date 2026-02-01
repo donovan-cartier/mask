@@ -182,7 +182,7 @@ script = ExtResource("2_rkbax")
 
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=717190747]
 unique_name_in_owner = true
-cull_mask = 1048571
+cull_mask = 1048569
 current = true
 
 [node name="Hands" type="Node3D" parent="Head/Camera3D" unique_id=230037989]

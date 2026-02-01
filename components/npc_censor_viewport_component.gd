@@ -86,6 +86,7 @@ func _enable_viewport_censorship() -> void:
 	billboard_sprite.material_override = shader_material
 
 	target_npc.add_child(billboard_sprite)
+	billboard_sprite.position = npc_aabb.get_center()
 	print("billboard_sprite.global_position: ", billboard_sprite.global_position)
 	print("main_camera.global_position: ", main_camera.global_position if main_camera else "null")
 
