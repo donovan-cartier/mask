@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://plwf06tqulwx" path="res://levels/church.tscn" id="5_mquu4"]
 [ext_resource type="PackedScene" uid="uid://7advkwq6iukd" path="res://levels/cig.tscn" id="6_xjd5t"]
 [ext_resource type="PackedScene" uid="uid://c2prphwrfgnok" path="res://levels/pont.tscn" id="7_xjd5t"]
+[ext_resource type="PackedScene" uid="uid://bb5uc6nu74o4k" path="res://player/player.tscn" id="8_qhrip"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_f5ci5"]
 _surfaces = [{
@@ -27,6 +28,8 @@ size = Vector3(33.382813, 1, 49.658203)
 
 [node name="Level_Tuto" type="Node3D" unique_id=209618876]
 script = ExtResource("1_t0xkt")
+
+[node name="Player" parent="." unique_id=1752358920 instance=ExtResource("8_qhrip")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=406046289]
 transform = Transform3D(0.40198326, 0.8811356, -0.24901731, -0.4019831, 0.41417375, 0.8166209, 0.8226902, -0.22816715, 0.5206925, 0, 0, 0)
