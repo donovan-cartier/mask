@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://b4pm4prxptjn6"]
+
+[ext_resource type="Script" uid="uid://cft8t148g12ur" path="res://components/radar_hud_component.gd" id="1_radar"]
+[ext_resource type="Shader" uid="uid://ddsm7bhdpjk5l" path="res://shaders/radar_sphere.gdshader" id="2_shader"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_radar"]
+render_priority = 0
+shader = ExtResource("2_shader")
+shader_parameter/line_color = Color(0, 1, 0, 1)
+shader_parameter/glow_strength = 0.0
+shader_parameter/line_thickness = 0.10000000475
+shader_parameter/latitude_lines = 8
+shader_parameter/longitude_lines = 18
+shader_parameter/base_alpha = 1.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_radar"]
+radius = 1.0
+height = 2.0
+
+[node name="RadarHud" type="Node3D" unique_id=1185108668 node_paths=PackedStringArray("sphere_mesh", "cardinal_indicators")]
+script = ExtResource("1_radar")
+sphere_mesh = NodePath("Sphere")
+cardinal_indicators = NodePath("CardinalIndicators")
+color_past = Color(0.9764706, 0.25490198, 0.26666668, 1)
+color_present = Color(0.019607844, 0.13725491, 0.50980395, 1)
+color_future = Color(1, 0.84313726, 0, 1)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=744264866]
+transform = Transform3D(1, 0, 0, 0, 0.98559153, 0.16914308, 0, -0.16914308, 0.98559153, 0, 0.5, 3)
+cull_mask = 4
+projection = 1
+fov = 62.9
+size = 3.108
+far = 3.82
+
+[node name="Sphere" type="MeshInstance3D" parent="." unique_id=1299963770]
+layers = 4
+material_override = SubResource("ShaderMaterial_radar")
+mesh = SubResource("SphereMesh_radar")
+
+[node name="CardinalIndicators" type="Node3D" parent="." unique_id=635232372]
+
+[node name="North" type="Label3D" parent="CardinalIndicators" unique_id=515149237]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.3043776)
+layers = 4
+billboard = 1
+no_depth_test = true
+fixed_size = true
+render_priority = 10
+text = "N"
+font_size = 40
+outline_size = 10
+
+[node name="South" type="Label3D" parent="CardinalIndicators" unique_id=945092417]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.09363344, 1.2516028)
+layers = 4
+billboard = 1
+no_depth_test = true
+fixed_size = true
+render_priority = 10
+text = "S"
+font_size = 40
+outline_size = 10
+
+[node name="East" type="Label3D" parent="CardinalIndicators" unique_id=2058105927]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2, 0, 0)
+layers = 4
+billboard = 1
+no_depth_test = true
+fixed_size = true
+render_priority = 10
+text = "E"
+font_size = 40
+outline_size = 10
+
+[node name="West" type="Label3D" parent="CardinalIndicators" unique_id=12709307]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2, 0, 0)
+layers = 4
+billboard = 1
+no_depth_test = true
+fixed_size = true
+render_priority = 10
+text = "W"
+font_size = 40
+outline_size = 10

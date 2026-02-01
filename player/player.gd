@@ -8,6 +8,7 @@ const GRAVITY = 9.8
 
 @export var camera: Camera3D
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
+@onready var head: Node3D = $Head
 
 var current_time_period: TimeComponent.TimePeriod = TimeComponent.TimePeriod.PRESENT
 
@@ -106,6 +107,7 @@ func hit():
 	var random_time_period: TimeComponent.TimePeriod = _get_random_time_period_excluding(current_time_period)
 	current_time_period = random_time_period
 	changed_time_period.emit(random_time_period)
+	head.shake(0.2, 4.0)  # Screen shake feedback
 
 func trigger_change_time_period() -> void:
 	changed_time_period.emit(current_time_period)
