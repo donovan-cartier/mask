@@ -7,20 +7,17 @@
 [ext_resource type="Environment" uid="uid://dlpppkhljj7l3" path="res://environments/past_environment.tres" id="5_past_env"]
 [ext_resource type="Environment" uid="uid://dadcdr27y36mc" path="res://environments/present_environment.tres" id="6_present_env"]
 [ext_resource type="Environment" uid="uid://lfhamhx4gvcp" path="res://environments/future_environment.tres" id="7_future_env"]
-[ext_resource type="Script" uid="uid://b366slnruml7o" path="res://npc/npc_past.gd" id="8_hiqwa"]
 [ext_resource type="PackedScene" uid="uid://dx7rfquoxlukc" path="res://props/kill_zone.tscn" id="8_ikiii"]
 [ext_resource type="PackedScene" path="res://components/particle_manager.tscn" id="8_particles"]
 [ext_resource type="PackedScene" uid="uid://cc6os0v7jxpjb" path="res://enemy/enemy_torn.tscn" id="9_ioo17"]
 [ext_resource type="Script" uid="uid://bpl36gdikyp1b" path="res://enemy/camera.gd" id="9_k3n1d"]
 [ext_resource type="PackedScene" uid="uid://cpy4p6l2rwplm" path="res://enemy/enemy_path.tscn" id="10_wse8f"]
-[ext_resource type="Shader" path="res://shaders/npc_censor_.gdshader" id="11_udxuc"]
+[ext_resource type="Shader" uid="uid://bsffi1xpfh43y" path="res://shaders/npc_censor_.gdshader" id="11_udxuc"]
 [ext_resource type="PackedScene" uid="uid://b4pm4prxptjn6" path="res://ui/radar_hud.tscn" id="12_radar"]
 [ext_resource type="PackedScene" uid="uid://w6eu3hvw4jnq" path="res://ui/epoch_hud.tscn" id="13_epoch"]
-[ext_resource type="PackedScene" uid="uid://fkfju3xla6mi" path="res://npc/npc_past.tscn" id="15_udxuc"]
-[ext_resource type="Texture2D" uid="uid://lm5dofov3l6b" path="res://SoldatLOW10_Ch15__UDIM__Diffuse.png" id="16_udxuc"]
-[ext_resource type="Material" uid="uid://b8f0kormeiuat" path="res://assets/models/building/mesh/high_past.tres" id="17_udxuc"]
+[ext_resource type="PackedScene" path="res://npc/npc_past.tscn" id="15_udxuc"]
+[ext_resource type="Script" path="res://components/music_manager.gd" id="18_ikiii"]
 [ext_resource type="PackedScene" path="res://ui/pause_menu.tscn" id="18_pause"]
-[ext_resource type="Script" uid="uid://b7u4nngyhlpaj" path="res://components/music_manager.gd" id="18_ikiii"]
 [ext_resource type="AudioStream" uid="uid://ce1cvop71jgqv" path="res://assets/bgm/Shifter_Future.mp3" id="19_cbp6q"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f3sb7"]
@@ -84,6 +81,7 @@ transform = Transform3D(0.99782884, 0, 0, 0, 0.99782884, 0, 0, 0, 0.99782884, 0.
 transform = Transform3D(-4.371138e-08, 0, 0.9999998, 0, 0.9999998, 0, -0.9999998, 0, -4.371138e-08, 5.866, -8, -82.736)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=419538800]
+layer = -1
 
 [node name="UI" type="Control" parent="CanvasLayer" unique_id=1035790242 node_paths=PackedStringArray("time_period_label")]
 layout_mode = 3
@@ -187,9 +185,8 @@ transform = Transform3D(0.99782884, 0, 0, 0, 0.99782884, 0, 0, 0, 0.99782884, 2.
 script = ExtResource("18_ikiii")
 audio_stream_player = NodePath("../AudioStreamPlayer")
 future_music = ExtResource("19_cbp6q")
-metadata/_custom_type_script = "uid://b7u4nngyhlpaj"
 
 [node name="PauseMenu" parent="." unique_id=2035095311 instance=ExtResource("18_pause")]
-layer = 7
 
+[editable path="Player"]
 [editable path="EnemyPath"]
