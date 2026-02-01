@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://c2prphwrfgnok"]
+
+[ext_resource type="PackedScene" uid="uid://bdy43aqapp3v0" path="res://assets/models/bridge/stone_bridge_3arch.glb" id="1_6eyoy"]
+[ext_resource type="Script" uid="uid://c3y5yun2o302u" path="res://components/disappear_component.gd" id="2_8cpfe"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6eyoy"]
+size = Vector3(55.41913, 13.621216, 8.081238)
+
+[node name="StaticBody3D3" type="StaticBody3D" unique_id=313069973]
+
+[node name="Sketchfab_Scene" parent="." unique_id=516702301 instance=ExtResource("1_6eyoy")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1113919922]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.769806, 6.310608, -0.19277954)
+shape = SubResource("BoxShape3D_6eyoy")
+
+[node name="TimeComponent" type="Node" parent="." unique_id=1773463730]
+script = ExtResource("2_8cpfe")
+time_period = 2
+metadata/_custom_type_script = "uid://c3y5yun2o302u"
