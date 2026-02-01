@@ -10,6 +10,7 @@
 [ext_resource type="Material" uid="uid://ctyeqqmrfnj7x" path="res://player/shifter/m_screen.tres" id="6_hg6s5"]
 [ext_resource type="Texture2D" uid="uid://cotwt2a5qtpxh" path="res://player/shifter/Shifter2 (2)_Metal053B_1K-JPG_Metalness.png" id="7_ebec5"]
 [ext_resource type="Texture2D" uid="uid://be5v1scbitdjq" path="res://player/shifter/Shifter2 (2)_Metal053B_1K-JPG_NormalGL.jpg" id="8_yllr7"]
+[ext_resource type="AudioStream" uid="uid://voq62op34a81" path="res://assets/sfx/sfx_change_time.ogg" id="11_2ieo8"]
 
 [sub_resource type="Skin" id="Skin_v2wg5"]
 resource_name = "Skin"
@@ -259,3 +260,4 @@ cull_mask = 4
 shape = SubResource("CapsuleShape3D_kqu6x")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=461014508]
+stream = ExtResource("11_2ieo8")
