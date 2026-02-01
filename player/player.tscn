@@ -10,7 +10,6 @@
 [ext_resource type="Material" path="res://player/shifter/m_screen.tres" id="6_hg6s5"]
 [ext_resource type="Texture2D" uid="uid://cotwt2a5qtpxh" path="res://player/shifter/Shifter2 (2)_Metal053B_1K-JPG_Metalness.png" id="7_ebec5"]
 [ext_resource type="Texture2D" uid="uid://be5v1scbitdjq" path="res://player/shifter/Shifter2 (2)_Metal053B_1K-JPG_NormalGL.jpg" id="8_yllr7"]
-[ext_resource type="AudioStream" uid="uid://t55cgr5fy5td" path="res://player/AFX_ELCTRO_INCOMINGMESSAGE.ogg" id="11_2ieo8"]
 
 [sub_resource type="Skin" id="Skin_v2wg5"]
 resource_name = "Skin"
@@ -226,7 +225,7 @@ skeleton = NodePath("..")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Head/Camera3D/Hands" unique_id=1320142180]
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_7qbf4")
-speed_scale = 2.0
+speed_scale = 3.0
 
 [node name="Shifter" type="MeshInstance3D" parent="Head/Camera3D/Hands" unique_id=1982065073]
 transform = Transform3D(-0.28499058, 0.001297383, -0.0009508473, 0.0001176876, 0.24400501, 0.07285665, 0.0023158465, 0.14725776, -0.12071456, 2.5559533e-08, -0.035353273, 0.4628164)
@@ -236,4 +235,3 @@ mesh = SubResource("ArrayMesh_b6l1p")
 shape = SubResource("CapsuleShape3D_kqu6x")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=461014508]
-stream = ExtResource("11_2ieo8")
