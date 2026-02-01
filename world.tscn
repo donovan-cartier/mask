@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bwvbtaqfrrog5"]
 
-[ext_resource type="Script" uid="uid://dm7dsfhs4a7wx" path="res://world.gd" id="1_bc84e"]
+[ext_resource type="Script" path="res://world.gd" id="1_bc84e"]
 [ext_resource type="PackedScene" uid="uid://bb5uc6nu74o4k" path="res://player/player.tscn" id="1_f3sb7"]
 [ext_resource type="PackedScene" uid="uid://doo3gukgrqyan" path="res://levels/level_tuto.tscn" id="2_fj7yv"]
 [ext_resource type="Script" uid="uid://cjqd4fm7p63bi" path="res://ui/ui.gd" id="3_tlwt5"]
@@ -10,10 +10,11 @@
 [ext_resource type="Environment" uid="uid://lfhamhx4gvcp" path="res://environments/future_environment.tres" id="7_future_env"]
 [ext_resource type="PackedScene" path="res://components/particle_manager.tscn" id="8_particles"]
 [ext_resource type="Script" uid="uid://bpl36gdikyp1b" path="res://enemy/camera.gd" id="9_k3n1d"]
-[ext_resource type="Shader" uid="uid://bsffi1xpfh43y" path="res://shaders/npc_censor_.gdshader" id="11_udxuc"]
+[ext_resource type="Shader" path="res://shaders/npc_censor_.gdshader" id="11_udxuc"]
 [ext_resource type="PackedScene" uid="uid://b4pm4prxptjn6" path="res://ui/radar_hud.tscn" id="12_radar"]
-[ext_resource type="PackedScene" uid="uid://w6eu3hvw4jnq" path="res://ui/epoch_hud.tscn" id="13_epoch"]
-[ext_resource type="Script" path="res://components/music_manager.gd" id="18_ikiii"]
+[ext_resource type="PackedScene" path="res://ui/epoch_hud.tscn" id="13_epoch"]
+[ext_resource type="AudioStream" uid="uid://dwdvhrtkh1tyi" path="res://assets/bgm/Shifter_Passee.mp3" id="15_udxuc"]
+[ext_resource type="Script" uid="uid://b7u4nngyhlpaj" path="res://components/music_manager.gd" id="18_ikiii"]
 [ext_resource type="PackedScene" path="res://ui/pause_menu.tscn" id="18_pause"]
 [ext_resource type="AudioStream" uid="uid://ce1cvop71jgqv" path="res://assets/bgm/Shifter_Future.mp3" id="19_cbp6q"]
 
@@ -156,6 +157,7 @@ script = ExtResource("9_k3n1d")
 [node name="MusicManager" type="Node" parent="." unique_id=1732524261 node_paths=PackedStringArray("audio_stream_player")]
 script = ExtResource("18_ikiii")
 audio_stream_player = NodePath("../AudioStreamPlayer")
+past_music = ExtResource("15_udxuc")
 future_music = ExtResource("19_cbp6q")
 
 [node name="PauseMenu" parent="." unique_id=2035095311 instance=ExtResource("18_pause")]

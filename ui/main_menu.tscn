@@ -1,8 +1,9 @@
-[gd_scene format=3 uid="uid://djhr8noqlwjck"]
+[gd_scene format=3 uid="uid://doexrfc7ukj74"]
 
 [ext_resource type="Script" uid="uid://cjejls2ovpv7n" path="res://ui/main_menu.gd" id="1_script"]
 [ext_resource type="Texture2D" uid="uid://cq3hiqhlemnk6" path="res://ui/BG.png" id="2_wk0pr"]
 [ext_resource type="Texture2D" uid="uid://cvdpluju2psn" path="res://ui/ebc21d30-9bc3-466c-8707-83e033997697_removalai_preview.png" id="3_wk0pr"]
+[ext_resource type="AudioStream" uid="uid://ce1cvop71jgqv" path="res://assets/bgm/Shifter_Future.mp3" id="4_rmr83"]
 
 [node name="MainMenu" type="Control" unique_id=292153213]
 layout_mode = 3
@@ -65,3 +66,9 @@ custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "QUIT"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=196726593]
+stream = ExtResource("4_rmr83")
+autoplay = true
+bus = &"Music"
+parameters/looping = true
