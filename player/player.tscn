@@ -221,6 +221,7 @@ bones/3/rotation = Quaternion(-0.70710677, 0, 0, 0.70710677)
 bones/3/scale = Vector3(1, 1, 1)
 
 [node name="Object_7" type="MeshInstance3D" parent="Head/Camera3D/Hands/Armature/Skeleton3D" unique_id=1453898668]
+cast_shadow = 0
 layers = 4
 mesh = ExtResource("3_hg6s5")
 skin = SubResource("Skin_v2wg5")
@@ -233,6 +234,7 @@ speed_scale = 3.0
 
 [node name="Shifter" type="MeshInstance3D" parent="Head/Camera3D/Hands" unique_id=1982065073]
 transform = Transform3D(-0.28499058, 0.001297383, -0.0009508473, 0.0001176876, 0.24400501, 0.07285665, 0.0023158465, 0.14725776, -0.12071456, 2.5559533e-08, -0.035353273, 0.4628164)
+cast_shadow = 0
 layers = 4
 mesh = SubResource("ArrayMesh_b6l1p")
 

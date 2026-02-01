@@ -24,10 +24,7 @@ func _on_animation_finished(_anim_name: String) -> void:
 	head.start_flicker(2.0)
 
 func _input(event):
-	if event is InputEventKey and event.pressed and event.keycode == Key.KEY_ESCAPE:
-		get_tree().quit()
-
-	elif event is InputEventKey and event.pressed and event.keycode == Key.KEY_F1:
+	if event is InputEventKey and event.pressed and event.keycode == Key.KEY_F1:
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		else:

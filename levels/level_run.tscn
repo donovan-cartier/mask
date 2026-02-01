@@ -1,0 +1,80 @@
+[gd_scene format=4 uid="uid://cyhsyvhdjyhvx"]
+
+[ext_resource type="Script" uid="uid://bmm4bi8fxt40b" path="res://levels/level_script.gd" id="1_t0xkt"]
+[ext_resource type="Material" uid="uid://o8sriepvtnf1" path="res://assets/models/sols/Route.tres" id="2_gfmma"]
+[ext_resource type="PackedScene" uid="uid://dt068ruto26cc" path="res://levels/chat.tscn" id="3_qg8sb"]
+[ext_resource type="PackedScene" uid="uid://nj062aydiwtq" path="res://levels/can.tscn" id="4_fxg6n"]
+[ext_resource type="PackedScene" uid="uid://plwf06tqulwx" path="res://levels/church.tscn" id="5_mquu4"]
+[ext_resource type="PackedScene" uid="uid://7advkwq6iukd" path="res://levels/cig.tscn" id="6_xjd5t"]
+[ext_resource type="PackedScene" uid="uid://c2prphwrfgnok" path="res://levels/pont.tscn" id="7_xjd5t"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_f5ci5"]
+_surfaces = [{
+"aabb": AABB(-16.5, -0.5, -24, 33, 1, 48),
+"attribute_data": PackedByteArray("AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/"),
+"format": 34359738391,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 36,
+"vertex_data": PackedByteArray("AACEwQAAAL8AAMBBAACEwQAAAL8AAMDBAACEwQAAAD8AAMDBAACEQQAAAL8AAMDBAACEwQAAAL8AAMDBAACEwQAAAL8AAMBBAACEwQAAAD8AAMDBAACEwQAAAL8AAMDBAACEQQAAAL8AAMDBAACEwQAAAD8AAMDBAACEwQAAAD8AAMBBAACEwQAAAL8AAMBBAACEwQAAAL8AAMBBAACEwQAAAD8AAMBBAACEQQAAAD8AAMBBAACEQQAAAD8AAMBBAACEwQAAAD8AAMBBAACEwQAAAD8AAMDBAACEwQAAAL8AAMBBAACEQQAAAL8AAMBBAACEQQAAAL8AAMDBAACEQQAAAD8AAMBBAACEQQAAAL8AAMBBAACEwQAAAL8AAMBBAACEQQAAAL8AAMDBAACEQQAAAL8AAMBBAACEQQAAAD8AAMBBAACEQQAAAL8AAMDBAACEQQAAAD8AAMDBAACEwQAAAD8AAMDBAACEwQAAAD8AAMDBAACEQQAAAD8AAMDBAACEQQAAAD8AAMBBAACEQQAAAD8AAMBBAACEQQAAAD8AAMDBAACEQQAAAL8AAMDBAAD/f/9//n8AAP9//3/+fwAA/3//f/5//38AAP//AAD/fwAA//8AAP9/AAD//wAA/////wAA/z//////AAD/P/////8AAP8/AAD/f/9//n8AAP9//3/+fwAA/3//f/5//3//fwAA/z//f/9/AAD/P/9//38AAP8//3//////AAD/f/////8AAP9//////wAA/38AAP//AAD/fwAA//8AAP9/AAD//wAA/3//fwAA/z//f/9/AAD/P/9//38AAP8/////f/9//n////9//3/+f////3//f/5//////wAA/z//////AAD/P/////8AAP8//3//////AAD/f/////8AAP9//////wAA////f/9//n////9//3/+f////3//f/5/")
+}]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xjd5t"]
+size = Vector3(16.600586, 1, 24.075195)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_07v67"]
+size = Vector3(33.382813, 1, 49.658203)
+
+[node name="Level_Tuto" type="Node3D" unique_id=209618876]
+script = ExtResource("1_t0xkt")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=406046289]
+transform = Transform3D(0.40198326, 0.8811356, -0.24901731, -0.4019831, 0.41417375, 0.8166209, 0.8226902, -0.22816715, 0.5206925, 0, 0, 0)
+
+[node name="Ground" type="StaticBody3D" parent="." unique_id=32257078]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.2, -16)
+
+[node name="Ground9" type="StaticBody3D" parent="." unique_id=1435642098]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.037823, -1.2, -16)
+
+[node name="Mesh2" type="MeshInstance3D" parent="Ground9" unique_id=908099357]
+transform = Transform3D(0.46221977, -0.052613854, 0.18326133, 0.047040697, 0.49719864, 0.024098884, -0.18477038, -0.0050364826, 0.46457994, -75.06406, 33.90382, -113.9019)
+material_override = ExtResource("2_gfmma")
+mesh = SubResource("ArrayMesh_f5ci5")
+
+[node name="Mesh" type="MeshInstance3D" parent="Ground9" unique_id=615929217]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.528355, 0.06130719, -2.1607819)
+material_override = ExtResource("2_gfmma")
+mesh = SubResource("ArrayMesh_f5ci5")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Ground9" unique_id=1824896874]
+transform = Transform3D(0.92960465, -0.12271813, 0.3475279, 0.11746321, 0.992416, 0.036236264, -0.3493391, 0.007136347, 0.93696916, -75.15207, 33.864067, -114.09898)
+shape = SubResource("BoxShape3D_xjd5t")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground9" unique_id=35495294]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.591667, 0, -2.4651337)
+shape = SubResource("BoxShape3D_07v67")
+
+[node name="Chat" parent="." unique_id=1890819783 instance=ExtResource("3_qg8sb")]
+transform = Transform3D(20.999998, 0, 0, 0, 5.435198, 20.284443, 0, -20.284443, 5.435198, -0.4041977, -2.104128, -44.01255)
+
+[node name="StaticBody3D" parent="." unique_id=682736198 instance=ExtResource("4_fxg6n")]
+transform = Transform3D(0.8161779, 0.40179458, -0.4152285, 0.37557346, 0.17719677, 0.90969545, 0.4390878, -0.8984221, -0.0062793195, -3.8390307, -0.15239048, -53.810726)
+
+[node name="StaticBody3D6" parent="." unique_id=1727499032 instance=ExtResource("4_fxg6n")]
+transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 13.857555, 36.740025, -153.39636)
+
+[node name="StaticBody3D2" parent="." unique_id=747756022 instance=ExtResource("5_mquu4")]
+transform = Transform3D(-0.06278984, -0.46682113, -0.16773629, -0.05958114, 0.17494833, -0.46458918, 0.49245045, -0.038355127, -0.07759743, -6.0476007, -4.104924, -64.84968)
+
+[node name="cigaret" parent="." unique_id=899671309 instance=ExtResource("6_xjd5t")]
+transform = Transform3D(0.54047036, 0.43570244, -0.7197605, -0.2616228, 0.90009075, 0.34841087, 0.79965323, 0, 0.6004621, -16.968903, 3.9570346, -71.49618)
+
+[node name="StaticBody3D3" parent="." unique_id=313069973 instance=ExtResource("7_xjd5t")]
+transform = Transform3D(-0.3676575, 0.119200535, 0.9222902, 0.49371147, 0.86546636, 0.08495451, -0.78808457, 0.48657945, -0.3770458, -23.21333, -0.26485157, -89.46175)
+
+[node name="StaticBody3D4" parent="." unique_id=190053292 instance=ExtResource("7_xjd5t")]
+transform = Transform3D(0.79755366, -0.4895683, 0.3524649, 0.4937115, 0.86546636, 0.084954455, -0.34663737, 0.10626018, 0.931961, -21.191147, 26.865894, -138.12979)
+
+[node name="StaticBody3D5" parent="." unique_id=2124063956 instance=ExtResource("7_xjd5t")]
+transform = Transform3D(0.4653665, -0.18041226, -0.8665365, 0.49371165, 0.8654666, 0.084954455, 0.73463154, -0.46735406, 0.49183077, 21.891464, 54.04739, -138.12979)
